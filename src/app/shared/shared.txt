@@ -1,0 +1,2 @@
+La carpeta shared contiene componentes, directivas, tuberías y validadores que se utilizan en toda la aplicación. También contiene un archivo index.ts que exporta todos los elementos compartidos para que puedan ser importados fácilmente desde cualquier parte de la aplicación.
+

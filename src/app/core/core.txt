@@ -1,0 +1,1 @@
+La carpeta core contiene todo lo relacionado con la lógica de la aplicación, como los servicios, enumeraciones, interfaces, guardias e interceptores. Esto ayuda a mantener la lógica de la aplicación separada del resto del código y a que sea fácilmente accesible desde cualquier parte de la aplicación.

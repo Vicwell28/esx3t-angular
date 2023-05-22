@@ -1,0 +1,2 @@
+La carpeta layout contiene los componentes y contenedores que definen el esqueleto de la aplicación, como el header, el footer y el menú de navegación. Estos componentes y contenedores se utilizan en toda la aplicación para mantener la coherencia en el diseño y la experiencia del usuario.
+

@@ -1,0 +1,5 @@
+La carpeta modules  contiene todas las características principales de la aplicación, separadas en subcarpetas con el nombre de cada característica. Cada subcarpeta contiene los componentes, contenedores, servicios y modelos necesarios para esa característica en particular. También contiene un archivo index.ts que exporta todas las características principales para que
+
+
+
+
