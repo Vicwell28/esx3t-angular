@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboarAppdModule } from './modules/dashboard/dashboard.module';
 import { CatalogAppModule } from './modules/catalog/catalog.module';
 import { LangingPageAppModule } from './modules/landing-page/landing-page.module';
+import { AuthAppdModule } from './modules/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { LangingPageAppModule } from './modules/landing-page/landing-page.module
     CatalogAppModule,
     DashboarAppdModule,
     LangingPageAppModule,
+    AuthAppdModule,
     AppRoutingModule, 
   ],
   providers: [],
