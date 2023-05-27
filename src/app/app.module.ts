@@ -7,6 +7,8 @@ import { DashboarAppdModule } from './modules/dashboard/dashboard.module';
 import { CatalogAppModule } from './modules/catalog/catalog.module';
 import { LangingPageAppModule } from './modules/landing-page/landing-page.module';
 import { AuthAppdModule } from './modules/auth/auth.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { AuthAppdModule } from './modules/auth/auth.module';
   ],
   imports: [
     BrowserModule, 
+    HttpClientModule,
     CatalogAppModule,
     DashboarAppdModule,
     LangingPageAppModule,
     AuthAppdModule,
-    AppRoutingModule, 
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

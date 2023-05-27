@@ -1,4 +1,5 @@
 main {
+  min-height: 100vh;
   height: 100%;
 }
 
@@ -49,7 +50,7 @@ main section:nth-child(1) p:nth-child(3) {
 
 /* SECOND */
 
-main section:nth-child(1) {
+main form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -69,10 +70,8 @@ input {
   border: none;
   outline: none;
   padding: 0.5rem 1rem;
-
   color: radial-gradient(circle, #2a9d8f 0%, #264653 100%);
   font-weight: 600;
-
   background-image: -webkit-radial-gradient(circle, #2a9d8f 0%, #264653 100%);
   background-image: radial-gradient(circle, #2a9d8f 0%, #264653 100%);
   -webkit-background-clip: text;
@@ -82,7 +81,6 @@ input {
   text-fill-color: transparent;
   display: flex;
   font-weight: bold;
-
   width: 100%;
 }
 
@@ -121,4 +119,15 @@ button {
   text-fill-color: transparent;
   display: flex;
   font-weight: bold;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  section {
+    height: 50%;
+  }
 }
