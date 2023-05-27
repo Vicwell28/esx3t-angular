@@ -8,23 +8,28 @@ import { CatalogAppModule } from './modules/catalog/catalog.module';
 import { LangingPageAppModule } from './modules/landing-page/landing-page.module';
 import { AuthAppdModule } from './modules/auth/auth.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptorService } from './core/interceptors/auth-interceptor.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     HttpClientModule,
     CatalogAppModule,
     DashboarAppdModule,
     LangingPageAppModule,
     AuthAppdModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

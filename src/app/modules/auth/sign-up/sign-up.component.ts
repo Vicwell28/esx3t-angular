@@ -17,7 +17,7 @@ export class SignUpComponent {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private localStorageService: LocalStorageService,
+    private localStorageService: LocalStorageService
   ) {
     this.signUpForm = this.fb.group({
       username: ['', Validators.required],
@@ -38,8 +38,8 @@ export class SignUpComponent {
   signUp(data: any) {
     this.authService.signUp(data).subscribe({
       next: (value) => {
-
-        this.localStorageService.setItem('token', value.token.token)
+        this.localStorageService.setItem('token', value.token.token);
+        this.localStorageService.setItem('role', value.role.role_id);
 
         successDialog(value.message, () => {
           this.router.navigate(['/langing-page']);
