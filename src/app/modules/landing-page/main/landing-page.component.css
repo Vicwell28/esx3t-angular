@@ -48,13 +48,19 @@ header nav ul div:nth-child(3) {
   align-items: center;
 }
 
-header nav ul div:nth-child(3) li:nth-child(2) {
-  padding: 0.5rem 3rem;
+.sign-in {
+  display: flex;
+}
+
+.btn-grad {
+  padding: 0.4rem 5rem;
   background: #2a9d8f;
   background: -webkit-linear-gradient(86deg, #2a9d8f 0%, #264653 100%);
   background: linear-gradient(86deg, #2a9d8f 0%, #264653 100%);
   color: white;
   border-radius: 1rem;  
+  text-decoration: none;
+  font-weight: 600;
 }
 
 /* :::::::: ::::::::  :::::::: */
@@ -208,6 +214,7 @@ footer a {
   background: linear-gradient(86deg, #2a9d8f 0%, #264653 100%);
   color: white;
   border-radius: 1rem;
+  font-weight: 600;
 }
 
 .intro-logos {
@@ -223,6 +230,10 @@ footer a {
   background-color: rgb(0, 0, 0, 0.1);
   height: 3rem;
   border-radius: 1rem;
+}
+
+a {
+  cursor: pointer;
 }
 
 /* :::::::: ::::::::  :::::::: */

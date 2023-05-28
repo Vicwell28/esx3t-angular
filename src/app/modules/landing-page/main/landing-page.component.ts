@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class LandingPageComponent {
 
+  constructor(private elementRef: ElementRef) {}
+
+  scrollToSection(sectionId: string): void {
+    const section = this.elementRef.nativeElement.querySelector(`#${sectionId}`);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }

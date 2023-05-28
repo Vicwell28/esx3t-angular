@@ -5,14 +5,15 @@
         <li>Logo</li>
       </div>
       <div class="row col-7">
-        <li>Section One</li>
-        <li>Section Two</li>
-        <li>Section Three</li>
-        <li>Section Four</li>
+        <li><a (click)="scrollToSection('second')">Section Two</a></li>
+        <li><a (click)="scrollToSection('third')">Section Three</a></li>
+        <li><a (click)="scrollToSection('fourth')">Section Four</a></li>
+        <li><a (click)="scrollToSection('fifth')">Section Four</a></li>
       </div>
       <div class="row col-3">
-        <li>Sing In</li>
-        <li>Sing Out</li>
+        <li class="sign-in">
+          <a routerLink="/sign-in" class="btn-grad">Sing In</a>
+        </li>
       </div>
     </ul>
   </nav>
@@ -71,23 +72,18 @@
 <section
   class="parallax"
   style="background-image: url('./../../../../assets/ele.png')"
+  id="second"
 ></section>
 
-<section style="height: 100%; background-color: black">content</section>
+<section id="third" style="height: 100%; background-color: black">content</section>
 
 <section
   class="parallax"
   style="background-image: url('./../../../../assets/ele.png')"
+  id="fourth"
 ></section>
 
-<section style="height: 100%; background-color: black">content</section>
-
-<section
-  class="parallax"
-  style="background-image: url('./../../../../assets/ele.png')"
-></section>
-
-<section style="height: 100%; background-color: black">content</section>
+<section id="fifth" style="height: 100%; background-color: black">content</section>
 
 <footer>
   <div class="row">

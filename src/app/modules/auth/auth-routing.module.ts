@@ -9,17 +9,17 @@ const routes: Routes = [
   {
     path: 'sign-in',
     component: LoginComponent,
-    canActivate: [authGuard]
+    // canActivate: [authGuard]
   },
   {
     path: 'sign-up',
     component: SignUpComponent,
-    canActivate: [authGuard]
+    // canActivate: [authGuard]
   },
   {
     path: 'forgot-password',
     component: ForgotPasswordComponent,
-    canActivate: [authGuard]
+    // canActivate: [authGuard]
   },
 ];
 

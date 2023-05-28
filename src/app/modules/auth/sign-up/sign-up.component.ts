@@ -12,6 +12,7 @@ import { LocalStorageService } from 'src/app/core/services/local-storage.service
 })
 export class SignUpComponent {
   signUpForm: FormGroup;
+  isLoading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -36,6 +37,8 @@ export class SignUpComponent {
   }
 
   signUp(data: any) {
+    this.isLoading = true;
+
     this.authService.signUp(data).subscribe({
       next: (value) => {
         this.localStorageService.setItem('token', value.token.token);
@@ -44,6 +47,7 @@ export class SignUpComponent {
         successDialog(value.message, () => {
           this.router.navigate(['/langing-page']);
         });
+        this.isLoading = false;
       },
       error: (err) => {
         let errMsg = err.error.error.message;
@@ -61,9 +65,11 @@ export class SignUpComponent {
         }
 
         errorDialog(`${errMsg.message} ${errMsg.field}`);
+        this.isLoading = false;
       },
       complete: () => {
         console.warn('complete');
+        this.isLoading = false;
       },
     });
   }

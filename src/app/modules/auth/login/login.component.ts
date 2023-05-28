@@ -34,25 +34,22 @@ export class LoginComponent {
     }
   }
 
-
   singIn(data: any) {
-
-    this.isLoading = true
+    this.isLoading = true;
 
     this.authService.signIn(data).subscribe({
       next: (value) => {
         console.log('next');
         console.log(value);
 
-        this.localStorageService.setItem('token', value.token.token)
+        this.localStorageService.setItem('token', value.token.token);
 
         successDialog(value.message, () => {
           this.router.navigate(['/langing-page']);
-        })
-
+        });
       },
       error: (err) => {
-        this.isLoading = false
+        this.isLoading = false;
         console.log('error');
         let errMsg = err.error.error.message;
 
@@ -64,7 +61,7 @@ export class LoginComponent {
       },
       complete: () => {
         console.log('complete');
-        this.isLoading = false
+        this.isLoading = false;
       },
     });
   }

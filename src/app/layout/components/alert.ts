@@ -1,7 +1,7 @@
-import Swal from 'sweetalert2';
+import swal from 'sweetalert2';
 
 export function errorDialog(msg: string, callback?: () => void) {
-  return Swal.fire({
+  return swal.fire({
     position: 'center',
     icon: 'error',
     title: 'Oops...',
@@ -15,7 +15,7 @@ export function errorDialog(msg: string, callback?: () => void) {
   });
 }
 export function successDialog(msg: string, callback?: () => void) {
-  return Swal.fire({
+  return swal.fire({
     position: 'center',
     title: 'Success',
     icon: 'success',
@@ -30,15 +30,15 @@ export function successDialog(msg: string, callback?: () => void) {
 }
 
 export function miniSuccesDialog(title: string) {
-  const Toast = Swal.mixin({
+  const Toast = swal.mixin({
     toast: true,
     position: 'top-end',
     showConfirmButton: false,
     timer: 2000,
     timerProgressBar: true,
     didOpen: (toast) => {
-      toast.addEventListener('mouseenter', Swal.stopTimer);
-      toast.addEventListener('mouseleave', Swal.resumeTimer);
+      toast.addEventListener('mouseenter', swal.stopTimer);
+      toast.addEventListener('mouseleave', swal.resumeTimer);
     },
   });
 
@@ -49,15 +49,15 @@ export function miniSuccesDialog(title: string) {
 }
 
 export function miniErrorDialog(title: string) {
-  const Toast = Swal.mixin({
+  const Toast = swal.mixin({
     toast: true,
     position: 'top-end',
     showConfirmButton: false,
     timer: 2000,
     timerProgressBar: true,
     didOpen: (toast) => {
-      toast.addEventListener('mouseenter', Swal.stopTimer);
-      toast.addEventListener('mouseleave', Swal.resumeTimer);
+      toast.addEventListener('mouseenter', swal.stopTimer);
+      toast.addEventListener('mouseleave', swal.resumeTimer);
     },
   });
 
