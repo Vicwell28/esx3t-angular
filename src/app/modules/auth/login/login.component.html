@@ -1,5 +1,5 @@
-<main class="row">
-  <section class="col-5">
+<main class="row-f">
+  <section class="col-f-5">
     <h2 class="title">Title</h2>
     <p>Welcome to Title</p>
     <p>
@@ -9,14 +9,14 @@
       accusantium!
     </p>
 
-    <div class="btn">
+    <div class="btn-f">
       <a routerLink="/sign-up" class="color">Sing Up</a>
     </div>
   </section>
-  <form [formGroup]="signUpForm" (submit)="onSubmit()" class="col-7">
+  <form [formGroup]="signUpForm" (submit)="onSubmit()" class="col-f-7">
     <h2 class="text-color">Sing In</h2>
-    <div class="input-body col-8">
-      <label class="col-12" for="email">Email</label>
+    <div class="input-body col-f-8">
+      <label class="col-f-12" for="email">Email</label>
       <div class="content-input">
         <input
           formControlName="email"
@@ -28,8 +28,8 @@
       </div>
     </div>
 
-    <div class="input-body col-8">
-      <label class="col-12" for="password">password</label>
+    <div class="input-body col-f-8">
+      <label class="col-f-12" for="password">password</label>
       <div class="content-input">
         <input
           formControlName="password"
@@ -41,13 +41,13 @@
       </div>
     </div>
 
-    <div class="input-body col-8">
+    <div class="input-body col-f-8">
       <a routerLink="/forgot-password" class="forgot text-color"
         >Forgot password?</a
       >
     </div>
 
-    <div class="input-body col-8">
+    <div class="input-body col-f-8">
       <button type="submit" class="loading-button" [class.loading]="isLoading">
         Sing In
       </button>

@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: 'catalogo',
     component: CatalogComponent,
-    canActivate: [authGuard]
+    // canActivate: [authGuard]
   },
 ];
 

@@ -43,7 +43,7 @@ main section:nth-child(1) p:nth-child(3) {
   font-weight: bold;
 }
 
-.btn {
+.btn-f {
   border-radius: 1rem;
   background-color: white;
 }
