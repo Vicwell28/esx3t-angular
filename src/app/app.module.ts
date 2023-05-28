@@ -10,6 +10,7 @@ import { AuthAppdModule } from './modules/auth/auth.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptorService } from './core/interceptors/auth-interceptor.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { AuthInterceptorService } from './core/interceptors/auth-interceptor.ser
     AuthAppdModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     {
