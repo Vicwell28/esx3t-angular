@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { errorDialog, successDialog } from 'src/app/layout/components/alert';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
+import { RolesIds } from 'src/app/core/enums/RolesIds';
 
 @Component({
   selector: 'app-sign-up',
@@ -42,11 +43,26 @@ export class SignUpComponent {
     this.authService.signUp(data).subscribe({
       next: (value) => {
         this.localStorageService.setItem('token', value.token.token);
-        this.localStorageService.setItem('role', value.role.role_id);
+        this.localStorageService.setItem('role', value.user.role_id);
+
+        let rute = '';
+
+        switch (value.user.role_id) {
+          case RolesIds.Admin:
+            rute = '/dashboard';
+            break;
+          case RolesIds.Empleado:
+            rute = '/dashboard';
+            break;
+          case RolesIds.Cliente:
+            rute = '/catalogo';
+            break;
+        }
 
         successDialog(value.message, () => {
-          this.router.navigate(['/langing-page']);
+          this.router.navigate([rute]);
         });
+
         this.isLoading = false;
       },
       error: (err) => {

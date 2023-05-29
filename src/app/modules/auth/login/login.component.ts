@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RolesIds } from 'src/app/core/enums/RolesIds';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { errorDialog, successDialog } from 'src/app/layout/components/alert';
@@ -43,14 +44,30 @@ export class LoginComponent {
         console.log(value);
 
         this.localStorageService.setItem('token', value.token.token);
+        this.localStorageService.setItem('role', value.user.role_id);
+
+        let rute = '';
+
+        switch (value.user.role_id) {
+          case RolesIds.Admin:
+            rute = '/dashboard';
+            break;
+          case RolesIds.Empleado:
+            rute = '/dashboard';
+            break;
+          case RolesIds.Cliente:
+            rute = '/catalogo';
+            break;
+        }
 
         successDialog(value.message, () => {
-          this.router.navigate(['/langing-page']);
+          this.router.navigate([rute]);
         });
       },
       error: (err) => {
         this.isLoading = false;
         console.log('error');
+        console.log(err)
         let errMsg = err.error.error.message;
 
         if (!errMsg) {

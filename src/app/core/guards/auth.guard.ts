@@ -1,29 +1,19 @@
-import { inject } from '@angular/core';
+import { CSP_NONCE, inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
+import { LocalStorageService } from '../services/local-storage.service';
 
 export const authGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
+  const localStorageService = inject(LocalStorageService);
 
-  let hasToken = localStorage.getItem('token');
-
-  let hasRole = localStorage.getItem('role');
-
-  let authRoutes = ['sign-in', 'forgot-password', 'sign-up'];
+  let hasToken = localStorageService.getItem('token');
+  let hasRole = localStorageService.getItem('role');
 
   let routeWhereUserGoing = route.routeConfig?.path!;
 
-  console.log(routeWhereUserGoing);
-
-  if (authRoutes.includes(routeWhereUserGoing) && hasRole && hasToken) {
-    router.navigate(['/langing-page']);
-    return false;
-  }
-
-  if (authRoutes.includes(routeWhereUserGoing) && !hasRole && !hasToken) {
-    return true;
-  }
-
   if (!hasRole || !hasToken) {
+    localStorageService.removeItem('token');
+    localStorageService.removeItem('role');
     router.navigate(['/sign-in']);
     return false;
   }
@@ -45,11 +35,9 @@ export const authGuard: CanActivateFn = (route, state) => {
 
   if (
     rolesViews
-      .at(
-        rolesViews.findIndex((value) => {
-          return (value.role_id = parseInt(hasRole!));
-        })
-      )
+      .find((value) => {
+        return value.role_id === hasRole;
+      })
       ?.views.includes(routeWhereUserGoing)
   ) {
     return true;
