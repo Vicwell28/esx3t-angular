@@ -1,18 +1,91 @@
 header {
-  height: 3rem;
+  height: 4rem;
   padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header div:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header-img {
+  vertical-align: bottom;
+  margin: 0 !important;
+}
+
+header div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 section {
   padding: 0.5rem;
-  height: calc(100vh - 3rem);
+  height: calc(100vh - 4rem);
+  overflow: auto;
+}
+
+.container-f {
+  background-color: black;
+  background: #2a9d8f;
+  background: -webkit-linear-gradient(150deg, #2a9d8f 0%, #264653 100%);
+  background: linear-gradient(150deg, #2a9d8f 0%, #264653 100%);
+  color: white;
 }
 
 main {
-  padding: 0.5rem;
-  height: calc(100vh - 3rem);
-  background-color: black;
+  padding: 1rem 2.5rem;
+  height: calc(100vh - 4rem);
+  background-color: rgb(0, 0, 0, 0.5);
+  background-color: rgb(255, 255, 255, 0.9);
+  border-radius: 1rem 0 0 0;
+  overflow: auto;
 }
 .container-f {
   height: 100vh;
+}
+
+.accordion {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion-item,
+.accordion-header,
+.accordion-button {
+  border-radius: 1rem !important;
+}
+
+.accordion-body {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+.view {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  background-color: rgb(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.accordion-body a {
+  text-decoration: none;
+  color: black;
+  vertical-align: bottom;
+}
+
+.accordion-body li,
+.accordion-body ul {
+  list-style-type: none;
 }
