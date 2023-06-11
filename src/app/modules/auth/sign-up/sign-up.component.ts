@@ -4,7 +4,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { errorDialog, successDialog } from 'src/app/layout/components/alert';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
-import { RolesIds } from 'src/app/core/enums/RolesIds';
+import { User } from 'src/app/core/enums/User';
 
 @Component({
   selector: 'app-sign-up',
@@ -48,13 +48,13 @@ export class SignUpComponent {
         let rute = '';
 
         switch (value.user.role_id) {
-          case RolesIds.Admin:
+          case User.Admin:
             rute = '/dashboard';
             break;
-          case RolesIds.Empleado:
+          case User.Empleado:
             rute = '/dashboard';
             break;
-          case RolesIds.Cliente:
+          case User.Cliente:
             rute = '/catalogo';
             break;
         }

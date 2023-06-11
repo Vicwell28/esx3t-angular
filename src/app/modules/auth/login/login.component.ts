@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RolesIds } from 'src/app/core/enums/RolesIds';
+import { User } from 'src/app/core/enums/User';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { errorDialog, successDialog } from 'src/app/layout/components/alert';
@@ -49,13 +49,13 @@ export class LoginComponent {
         let rute = '';
 
         switch (value.user.role_id) {
-          case RolesIds.Admin:
+          case User.Admin:
             rute = '/dashboard';
             break;
-          case RolesIds.Empleado:
+          case User.Empleado:
             rute = '/dashboard';
             break;
-          case RolesIds.Cliente:
+          case User.Cliente:
             rute = '/catalogo';
             break;
         }

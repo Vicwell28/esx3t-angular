@@ -1,6 +1,7 @@
 import { CSP_NONCE, inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { LocalStorageService } from '../services/local-storage.service';
+import { User } from '../enums/User';
 
 export const authGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
@@ -20,16 +21,16 @@ export const authGuard: CanActivateFn = (route, state) => {
 
   let rolesViews = [
     {
-      role_id: 1,
-      views: ['dashboard', 'catalogo'],
+      role_id: User.Admin,
+      views: ['dashboard', 'catalogo', 'profile'],
     },
     {
-      role_id: 2,
-      views: ['dashboard', 'catalogo'],
+      role_id: User.Empleado,
+      views: ['dashboard', 'catalogo', 'profile'],
     },
     {
-      role_id: 3,
-      views: ['catalogo'],
+      role_id: User.Cliente,
+      views: ['catalogo', 'profile'],
     },
   ];
 

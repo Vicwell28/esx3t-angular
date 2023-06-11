@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     LoginComponent,
     SignUpComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
   ],
   imports: [BrowserModule, AuthRoutingModule, ReactiveFormsModule],
   providers: [],

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CatalogComponent } from './main/catalog.component';
+import { ProfileComponent } from './profile/profile.component';
 import { authGuard } from 'src/app/core/guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'catalogo',
-    component: CatalogComponent,
+    path: 'Profile',
+    component: ProfileComponent,
     // canActivate: [authGuard]
   },
 ];
@@ -15,4 +15,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class CatalogRoutingModule {}
+export class UserRoutingModule {}

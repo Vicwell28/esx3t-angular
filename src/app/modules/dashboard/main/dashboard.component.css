@@ -32,7 +32,6 @@ section {
 }
 
 .container-f {
-  background-color: black;
   background: #2a9d8f;
   background: -webkit-linear-gradient(150deg, #2a9d8f 0%, #264653 100%);
   background: linear-gradient(150deg, #2a9d8f 0%, #264653 100%);
@@ -61,6 +60,10 @@ main {
 .accordion-header,
 .accordion-button {
   border-radius: 1rem !important;
+}
+
+.accordion-button {
+  padding: 0.8rem !important;
 }
 
 .accordion-body {

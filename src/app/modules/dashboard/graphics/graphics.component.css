@@ -1,0 +1,12 @@
+section {
+  color: black;
+  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+div {
+  height: 20rem;
+  background-color: black;
+}

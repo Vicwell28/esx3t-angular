@@ -12,7 +12,7 @@ export class DashboardComponent {
   constructor(private localStorageService: LocalStorageService, private router: Router){}
 
   profile() {
-
+    this.router.navigateByUrl(`Profile`)
   }
 
   singOut() {
