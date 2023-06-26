@@ -1,12 +1,11 @@
-<div class="row-f">
-  <!-- nav bar  -->
 
-  <header id="header-navbar" class="col-f-12">
-    <nav></nav>
-  </header>
 
+<div class="row-f" id="main-products">
+
+ 
+
+  <app-navbar class="col-f-12"></app-navbar>
   <!-- aside bar  -->
-
   <aside id="aside-navbar" class="col-f-2">
     <nav>
       <div class="accordion" id="accordionExample">
@@ -251,175 +250,38 @@
     </nav>
   </aside>
 
+  <!-- search bar -->
+
   <!-- main  -->
 
+
+
   <main id="main" class="col-f-10 row-f">
-    <div class="product-card col-f-3">
-      <div class="product-card-body">
-        <div class="product-card-img"></div>
-        <div class="product-card-text">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti,
-            velit sit! Vitae sequi ipsam quis deleniti consectetur laboriosam,
-            voluptatum dignissimos aliquam voluptate nihil animi, quasi, nisi
-            eaque alias ea culpa? Lorem ipsum, dolor sit amet consectetur
-            adipisicing elit. Corrupti, velit sit! Vitae sequi ipsam quis
-            deleniti consectetur laboriosam, voluptatum dignissimos aliquam
-            voluptate nihil animi, quasi, nisi eaque alias ea culpa?
-          </p>
-        </div>
-      </div>
-    </div>
 
-    <div class="product-card col-f-3">
-      <div class="product-card-body">
-        <div class="product-card-img"></div>
-        <div class="product-card-text">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti,
-            velit sit! Vitae sequi ipsam quis deleniti consectetur laboriosam,
-            voluptatum dignissimos aliquam voluptate nihil animi, quasi, nisi
-            eaque alias ea culpa? Lorem ipsum, dolor sit amet consectetur
-            adipisicing elit. Corrupti, velit sit! Vitae sequi ipsam quis
-            deleniti consectetur laboriosam, voluptatum dignissimos aliquam
-            voluptate nihil animi, quasi, nisi eaque alias ea culpa?
-          </p>
-        </div>
+    <p class="main-products-title col-f-12">
+      Productos
+    </p>
+    
+    <aside class="search-bar">
+      <div class="search-bar-body">
+        <mat-icon>search</mat-icon>
+        <input type="text" />
       </div>
-    </div>
+    </aside>
 
-    <div class="product-card col-f-3">
+    <div class="product-card col-f-3" *ngFor="let item of products">
       <div class="product-card-body">
-        <div class="product-card-img"></div>
-        <div class="product-card-text">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti,
-            velit sit! Vitae sequi ipsam quis deleniti consectetur laboriosam,
-            voluptatum dignissimos aliquam voluptate nihil animi, quasi, nisi
-            eaque alias ea culpa? Lorem ipsum, dolor sit amet consectetur
-            adipisicing elit. Corrupti, velit sit! Vitae sequi ipsam quis
-            deleniti consectetur laboriosam, voluptatum dignissimos aliquam
-            voluptate nihil animi, quasi, nisi eaque alias ea culpa?
-          </p>
+        <div class="circle">
+          <mat-icon class="icon">shopping_cart</mat-icon>
         </div>
-      </div>
-    </div>
-
-    <div class="product-card col-f-3">
-      <div class="product-card-body">
-        <div class="product-card-img"></div>
+        <div
+          class="product-card-img"
+          style="background-image: url('/assets/camara.png')"
+        ></div>
         <div class="product-card-text">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti,
-            velit sit! Vitae sequi ipsam quis deleniti consectetur laboriosam,
-            voluptatum dignissimos aliquam voluptate nihil animi, quasi, nisi
-            eaque alias ea culpa? Lorem ipsum, dolor sit amet consectetur
-            adipisicing elit. Corrupti, velit sit! Vitae sequi ipsam quis
-            deleniti consectetur laboriosam, voluptatum dignissimos aliquam
-            voluptate nihil animi, quasi, nisi eaque alias ea culpa?
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card col-f-3">
-      <div class="product-card-body">
-        <div class="product-card-img"></div>
-        <div class="product-card-text">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti,
-            velit sit! Vitae sequi ipsam quis deleniti consectetur laboriosam,
-            voluptatum dignissimos aliquam voluptate nihil animi, quasi, nisi
-            eaque alias ea culpa? Lorem ipsum, dolor sit amet consectetur
-            adipisicing elit. Corrupti, velit sit! Vitae sequi ipsam quis
-            deleniti consectetur laboriosam, voluptatum dignissimos aliquam
-            voluptate nihil animi, quasi, nisi eaque alias ea culpa?
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card col-f-3">
-      <div class="product-card-body">
-        <div class="product-card-img"></div>
-        <div class="product-card-text">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti,
-            velit sit! Vitae sequi ipsam quis deleniti consectetur laboriosam,
-            voluptatum dignissimos aliquam voluptate nihil animi, quasi, nisi
-            eaque alias ea culpa? Lorem ipsum, dolor sit amet consectetur
-            adipisicing elit. Corrupti, velit sit! Vitae sequi ipsam quis
-            deleniti consectetur laboriosam, voluptatum dignissimos aliquam
-            voluptate nihil animi, quasi, nisi eaque alias ea culpa?
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card col-f-3">
-      <div class="product-card-body">
-        <div class="product-card-img"></div>
-        <div class="product-card-text">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti,
-            velit sit! Vitae sequi ipsam quis deleniti consectetur laboriosam,
-            voluptatum dignissimos aliquam voluptate nihil animi, quasi, nisi
-            eaque alias ea culpa? Lorem ipsum, dolor sit amet consectetur
-            adipisicing elit. Corrupti, velit sit! Vitae sequi ipsam quis
-            deleniti consectetur laboriosam, voluptatum dignissimos aliquam
-            voluptate nihil animi, quasi, nisi eaque alias ea culpa?
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card col-f-3">
-      <div class="product-card-body">
-        <div class="product-card-img"></div>
-        <div class="product-card-text">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti,
-            velit sit! Vitae sequi ipsam quis deleniti consectetur laboriosam,
-            voluptatum dignissimos aliquam voluptate nihil animi, quasi, nisi
-            eaque alias ea culpa? Lorem ipsum, dolor sit amet consectetur
-            adipisicing elit. Corrupti, velit sit! Vitae sequi ipsam quis
-            deleniti consectetur laboriosam, voluptatum dignissimos aliquam
-            voluptate nihil animi, quasi, nisi eaque alias ea culpa?
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card col-f-3">
-      <div class="product-card-body">
-        <div class="product-card-img"></div>
-        <div class="product-card-text">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti,
-            velit sit! Vitae sequi ipsam quis deleniti consectetur laboriosam,
-            voluptatum dignissimos aliquam voluptate nihil animi, quasi, nisi
-            eaque alias ea culpa? Lorem ipsum, dolor sit amet consectetur
-            adipisicing elit. Corrupti, velit sit! Vitae sequi ipsam quis
-            deleniti consectetur laboriosam, voluptatum dignissimos aliquam
-            voluptate nihil animi, quasi, nisi eaque alias ea culpa?
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card col-f-3">
-      <div class="product-card-body">
-        <div class="product-card-img"></div>
-        <div class="product-card-text">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti,
-            velit sit! Vitae sequi ipsam quis deleniti consectetur laboriosam,
-            voluptatum dignissimos aliquam voluptate nihil animi, quasi, nisi
-            eaque alias ea culpa? Lorem ipsum, dolor sit amet consectetur
-            adipisicing elit. Corrupti, velit sit! Vitae sequi ipsam quis
-            deleniti consectetur laboriosam, voluptatum dignissimos aliquam
-            voluptate nihil animi, quasi, nisi eaque alias ea culpa?
-          </p>
+          <p class="product-card-text-title">Title title</p>
+          <p class="product-card-text-price-n">$1000.00</p>
+          <p class="product-card-text-price-c">$800.00</p>
         </div>
       </div>
     </div>

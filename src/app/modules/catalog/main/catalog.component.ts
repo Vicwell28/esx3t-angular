@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class CatalogComponent {
 
+  products = Array(32).fill(0);
+
 }

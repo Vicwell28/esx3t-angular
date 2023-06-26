@@ -10,58 +10,6 @@
   background-size: cover;
 }
 
-/* :::::::: ::::::::  :::::::: */
-/* :::::::: ::::::::  :::::::: */
-/* ::::::::   header    :::::::: */
-/* :::::::: ::::::::  :::::::: */
-/* :::::::: ::::::::  :::::::: */
-header {
-  -webkit-box-shadow: 0 32px 32px -7px #dddddd;
-  -moz-box-shadow: 0 32px 32px -7px #dddddd;
-  box-shadow: 0 32px 32px -7px #dddddd;
-  margin-bottom: 2rem;
-}
-header nav ul {
-  list-style-type: none;
-  align-items: center;
-}
-
-header nav div li {
-  list-style-type: none;
-}
-
-header {
-  padding: 0.5rem;
-}
-
-header nav ul div:nth-child(2) {
-  gap: 1rem;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-header nav ul div:nth-child(3) {
-  gap: 1rem;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.sign-in {
-  display: flex;
-}
-
-.btn-grad {
-  padding: 0.4rem 5rem;
-  background: #2a9d8f;
-  background: -webkit-linear-gradient(86deg, #2a9d8f 0%, #264653 100%);
-  background: linear-gradient(86deg, #2a9d8f 0%, #264653 100%);
-  color: white;
-  border-radius: 1rem;  
-  text-decoration: none;
-  font-weight: 600;
-}
 
 
 /* :::::::: ::::::::  :::::::: */
@@ -161,9 +109,6 @@ header nav ul div:nth-child(3) {
   border-radius: 1rem;
 }
 
-a {
-  cursor: pointer;
-}
 
 /* :::::::: ::::::::  :::::::: */
 /* :::::::: ::::::::  :::::::: */
@@ -171,14 +116,6 @@ a {
 /* :::::::: ::::::::  :::::::: */
 /* :::::::: ::::::::  :::::::: */
 
-
-#tutorials {
-
-}
-
-.tutorials-body {
-  
-}
 
 .card-tutorials {
   height: 10rem;
