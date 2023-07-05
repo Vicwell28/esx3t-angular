@@ -2,6 +2,9 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import * as ExcelJS from 'exceljs';
+import * as fs from 'file-saver';
+import { saveAs } from 'file-saver';
 
 /** Constants used to fill up our data base. */
 const FRUITS: string[] = [
@@ -43,7 +46,7 @@ const NAMES: string[] = [
 })
 export class ViewCategoryComponent implements AfterViewInit {
   displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
-  dataSource: MatTableDataSource<UserData>;
+  dataSource: any = [];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -69,8 +72,39 @@ export class ViewCategoryComponent implements AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
-}
+  name = 'data.xlsx';
 
+  exportToExcel(): void {
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet('My Sheet');
+
+    // Add data
+    worksheet.addRow(this.displayedColumns);
+    this.dataSource.data.forEach((item: any) => {
+      const row: any = [];
+      this.displayedColumns.forEach((header) => {
+        row.push(item[header]);
+      });
+      worksheet.addRow(row);
+    });
+    
+    worksheet.getColumn(1).width = 15;
+    worksheet.getColumn(2).width = 20;
+    worksheet.getColumn(3).width = 20;
+    worksheet.getColumn(4).width = 20;
+
+    // Generate Excel file
+    workbook.xlsx.writeBuffer().then((buffer: any) => {
+      let blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" })
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${this.name}`;
+      link.click();
+      URL.revokeObjectURL(url);
+    });
+  }
+}
 /** Builds and returns a new User. */
 function createNewUser(id: number): UserData {
   const name =

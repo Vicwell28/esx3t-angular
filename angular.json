@@ -25,7 +25,13 @@
               "node_modules/sweetalert2/src/sweetalert2.scss",
               "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
-            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.js"]
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.js",
+              "node_modules/file-saver/dist/FileSaver.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "file-saver"
+            ]
           },
           "configurations": {
             "production": {
@@ -89,5 +95,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "97f874c1-77c1-4125-bf24-b8cea493168b"
   }
 }
