@@ -16,7 +16,7 @@
         #input
       />
     </div>
-    <button class="" role="button">
+    <button class="" role="button" (click)="exportToExcel()">
       <mat-icon>description</mat-icon>
     </button>
     <button class="" role="button">
@@ -28,7 +28,7 @@
       class="mat-elevation-z8"
       style="border-radius: 1rem !important; overflow: hidden"
     >
-      <table mat-table [dataSource]="dataSource" matSort>
+      <table mat-table [dataSource]="dataSource" id="dataTable" matSort>
         <!-- ID Column -->
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
