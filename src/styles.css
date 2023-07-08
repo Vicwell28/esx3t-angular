@@ -16,6 +16,18 @@ body {
   /* background-color: rgb(0, 0, 0, 0.1); */
 }
 
+.title {
+  font-size: 250%;
+  font-weight: bold;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.btn-deg{
+  background: -webkit-linear-gradient(86deg, #2a9d8f 0%, #264653 100%);
+  background: linear-gradient(86deg, #2a9d8f 0%, #264653 100%);
+  color: white;
+}
 /* :::::::: ::::::::  :::::::: */
 /* :::::::: ::::::::  :::::::: */
 /* ::::::::   flex    :::::::: */

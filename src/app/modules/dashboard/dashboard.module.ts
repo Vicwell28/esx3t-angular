@@ -6,6 +6,7 @@ import { MaterialModule } from 'src/app/shared/components/material/material.app.
 import { ExampleComponent } from './example/example.component';
 import { ViewCategoryComponent } from './view-category/view-category.component';
 import { GraphicsComponent } from './graphics/graphics.component';
+import { LayoutAppModule } from 'src/app/layout/layout.app.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,12 @@ import { GraphicsComponent } from './graphics/graphics.component';
     ViewCategoryComponent,
     GraphicsComponent,
   ],
-  imports: [BrowserModule, DashboardRoutingModule, MaterialModule],
+  imports: [
+    BrowserModule,
+    DashboardRoutingModule,
+    MaterialModule,
+    LayoutAppModule,
+  ],
   providers: [],
   bootstrap: [],
 })

@@ -1,0 +1,58 @@
+/* :::::::: ::::::::  :::::::: */
+/* :::::::: ::::::::  :::::::: */
+/* :::::::: product  :::::::: */
+/* :::::::: ::::::::  :::::::: */
+/* :::::::: ::::::::  :::::::: */
+
+.card-product {
+  height: 23rem;
+  background-color: white;
+  border-radius: 2rem;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+  transition: all 0.5s;
+  -webkit-box-shadow: 3px 3px 10px 3px #dddddd;
+-moz-box-shadow: 3px 3px 10px 3px #dddddd;
+box-shadow: 3px 3px 10px 3px #dddddd;
+}
+
+.card-product:hover,
+.card-product-body-button:hover {
+  transform: scale(102%);
+}
+
+.card-product-image {
+  height: 100%;
+  /* background-color: black; */
+  aspect-ratio: 1;
+  border-radius: 2rem;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-product-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  text-align: justify;
+}
+
+.card-product-body-button {
+  padding: 0.6rem 4rem;
+  outline: none;
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 1rem;
+  transition: all 0.25s;
+}
+
+.card-product-text-title {
+  font-size: 200%;
+  font-weight: bold;
+  margin: 0 !important;
+  padding: 0 !important;
+}

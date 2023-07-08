@@ -1,0 +1,148 @@
+.detail-container {
+  padding: 2rem;
+}
+.detail-images,
+.detail-options,
+.detail-description,
+.detail-comments {
+  padding: 0.8rem;
+}
+
+.detail-images-container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.detail-imagse-principal {
+  aspect-ratio: 1;
+}
+
+.detail-imagse-secondary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.detail-imagse-child {
+  width: 100%;
+  aspect-ratio: 1;
+  width: 100%;
+  aspect-ratio: 1;
+  background-size: contain;
+  background-position: center;
+  border: black solid 1px;
+  border-radius: 1rem;
+}
+
+.center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.detail-options-container {
+  height: 100%;
+  border-radius: 2rem;
+  -webkit-box-shadow: 0 9px 11.5px 3px #dddd;
+  -moz-box-shadow: 0 9px 11.5px 3px #dddd;
+  box-shadow: 0 9px 11.5px 3px #dddd;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.detail-description-container {
+  height: 100%;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
+
+.frist-desc {
+  padding: 2rem;
+  border: gray;
+  gap: 1rem;
+  height: 30rem;
+  border-radius: 2rem;
+  -webkit-box-shadow: 0 9px 11.5px 3px #dddd;
+  -moz-box-shadow: 0 9px 11.5px 3px #dddd;
+  box-shadow: 0 9px 11.5px 3px #dddd;
+}
+
+.detail-comments-container {
+  height: 100%;
+}
+
+.detail-comments-container {
+    border-radius: 2rem;
+    -webkit-box-shadow: 0 9px 11.5px 3px #dddd;
+    -moz-box-shadow: 0 9px 11.5px 3px #dddd;
+    box-shadow: 0 9px 11.5px 3px #dddd;
+    padding: 2rem;
+}
+
+.title-comments {
+  font-size: 200%;
+  font-weight: bold;
+}
+
+.question {
+  padding: 1rem;
+}
+
+.answers {
+  padding: 1rem;
+}
+
+.branch {
+}
+
+.price-n {
+  text-decoration: line-through;
+  font-size: 110%;
+}
+
+.price-c {
+  font-size: 130%;
+}
+.product-name {
+  font-size: 180%;
+  font-weight: bold;
+}
+
+.buttons-shop button {
+  border: none;
+  outline: none;
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: 3rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  transition: all 0.5s;
+}
+
+.buttons-shop {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+
+.buttons-shop button:hover {
+  transform: scale(1.02);
+}
+
+.title-desc {
+  font-size: 150%;
+  font-weight: bold;
+}

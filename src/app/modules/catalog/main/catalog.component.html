@@ -270,10 +270,10 @@
     </aside>
 
     <div class="product-card col-f-3" *ngFor="let item of products">
-      <div class="product-card-body">
-        <div class="circle">
-          <mat-icon class="icon">shopping_cart</mat-icon>
-        </div>
+      <div class="circle" (click)="addShoppingCart(item)">
+        <mat-icon class="icon">shopping_cart</mat-icon>
+      </div>
+      <div class="product-card-body" [routerLink]="['/catalogo', item]">
         <div
           class="product-card-img"
           style="background-image: url('/assets/camara.png')"

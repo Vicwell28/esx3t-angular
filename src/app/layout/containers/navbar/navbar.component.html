@@ -2,17 +2,33 @@
   <nav>
     <ul class="row-f">
       <div class="row-f col-f-2">
-        <li>Logo</li>
+        <li (click)="home()" class="home">Logo</li>
       </div>
-      <div class="row-f col-f-7">
-        <li><a (click)="scrollToSection('second')">Section Two</a></li>
-        <li><a (click)="scrollToSection('third')">Section Three</a></li>
-        <li><a (click)="scrollToSection('fourth')">Section Four</a></li>
-        <li><a (click)="scrollToSection('fifth')">Section Four</a></li>
-      </div>
+      <div class="row-f col-f-7"></div>
       <div class="row-f col-f-3">
-        <li class="sign-in">
-          <a routerLink="/sign-in" class="btn-grad">Sing In</a>
+        <li class="sign-in" *ngIf="!this.isAuth">
+          <a routerLink="/sign-in" class="btn-grad" (click)="sign()">Sing In</a>
+        </li>
+        <li class="sign-in" *ngIf="this.isAuth">
+          <div class="header-profile col-f-6">
+            <button
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+              aria-label="Example icon-button with a menu"
+            >
+              <mat-icon>person</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="profile()">
+                <mat-icon>settings</mat-icon>
+                <span>Perfil</span>
+              </button>
+              <button mat-menu-item (click)="singOut()">
+                <mat-icon>logout</mat-icon>
+                <span>Sing Out</span>
+              </button>
+            </mat-menu>
+          </div>
         </li>
       </div>
     </ul>

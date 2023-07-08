@@ -3,11 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FooterComponent } from './containers/footer/footer.component';
 import { NotfoundComponent } from './containers/notfound/notfound.component';
 import { NavbarComponent } from './containers/navbar/navbar.component';
+import { MaterialModule } from '../shared/components/material/material.app.module';
+import { StoryProductComponent } from './components/story-product/story-product.component';
 
 @NgModule({
-  declarations: [FooterComponent, NotfoundComponent, NavbarComponent],
-  imports: [BrowserModule],
-  exports: [FooterComponent, NotfoundComponent, NavbarComponent],
+  declarations: [
+    FooterComponent,
+    NotfoundComponent,
+    NavbarComponent,
+    StoryProductComponent,
+  ],
+  imports: [BrowserModule, MaterialModule],
+  exports: [
+    FooterComponent,
+    NotfoundComponent,
+    NavbarComponent,
+    StoryProductComponent,
+  ],
   providers: [],
   bootstrap: [],
 })

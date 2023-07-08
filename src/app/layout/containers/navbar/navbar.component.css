@@ -9,7 +9,13 @@ header {
   box-shadow: 0 32px 32px -7px #dddddd;
   margin-bottom: 2rem;
   width: 100%;
+  background-color: white;
 }
+
+.home {
+  cursor: pointer;
+}
+
 header nav ul {
   list-style-type: none;
   align-items: center;

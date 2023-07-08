@@ -1,4 +1,51 @@
-<app-navbar></app-navbar>
+<header>
+  <nav>
+    <ul class="row-f">
+      <div class="row-f col-f-2">
+        <li class="home">
+          <a (click)="navigateTo('/catalogo')">Catalogo</a>
+        </li>
+      </div>
+      <div class="row-f col-f-7">
+        <li><a (click)="scrollToSection('second')">First</a></li>
+        <li><a (click)="scrollToSection('third')">Section Three</a></li>
+        <li><a (click)="scrollToSection('fourth')">Section Four</a></li>
+        <li><a (click)="scrollToSection('fifth')">Section Four</a></li>
+      </div>
+      <div class="row-f col-f-3">
+        <li class="sign-in" *ngIf="!this.isAuth">
+          <a
+            routerLink="/sign-in"
+            class="btn-grad"
+            (click)="navigateTo('/sign-in')"
+            >Sing In</a
+          >
+        </li>
+        <li class="sign-in" *ngIf="this.isAuth">
+          <div class="header-profile col-f-6">
+            <button
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+              aria-label="Example icon-button with a menu"
+            >
+              <mat-icon>person</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="navigateTo('Profile')">
+                <mat-icon>settings</mat-icon>
+                <span>Perfil</span>
+              </button>
+              <button mat-menu-item (click)="navigateTo('/sign-in')">
+                <mat-icon>logout</mat-icon>
+                <span>Sing Out</span>
+              </button>
+            </mat-menu>
+          </div>
+        </li>
+      </div>
+    </ul>
+  </nav>
+</header>
 
 <section id="introduction" class="row-f">
   <div class="intro-body row-f col-f-10">
@@ -52,19 +99,128 @@
 
 <section
   class="parallax"
-  style="background-image: url('./../../../../assets/ele.png')"
+  style="
+    background-image: url('./../../../../assets/ele.png');
+    padding: 0 7rem;
+    color: white;
+  "
   id="second"
-></section>
+>
+  <p class="title">Sobre Nosotros</p>
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
+    beatae rerum at, consectetur accusamus quisquam velit doloribus. Possimus
+    consequatur accusantium repellendus animi doloribus? Maiores, earum eum enim
+    deserunt nesciunt quod? Lorem ipsum dolor sit, amet consectetur adipisicing
+    elit. Optio ab, dignissimos autem, omnis, aliquam unde commodi magnam
+    placeat labore est dolor officiis dolorem deleniti quos dolore ducimus
+    cumque? Magnam, optio. Lorem ipsum dolor, sit amet consectetur adipisicing
+    elit. Pariatur, eius odio? Voluptate neque, officia laboriosam illo ipsam,
+    veritatis dolor deserunt, optio expedita itaque eaque obcaecati qui
+    doloribus deleniti quas dolorum.
+  </p>
+</section>
 
-<section id="third" style="height: 100%; background-color: black">content</section>
+<section
+  id="third"
+  style="
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 2rem;
+    align-items: stretch;
+  "
+  class="jc-center"
+>
+  <div style="padding: 0 7rem">
+    <p class="title">Consejos Seguridad</p>
+  </div>
+
+  <app-story-product
+    *ngFor="let item of this.stroyProducts"
+    style="display: flex; justify-content: center"
+    [flexDirection]="item.id % 2 === 0 ? 'row-reverse' : 'row'"
+    [marginLeft]="item.id % 2 === 0 ? 'auto' : 'none'"
+    [img]="'/assets/camara.png'"
+  ></app-story-product>
+</section>
 
 <section
   class="parallax"
-  style="background-image: url('./../../../../assets/ele.png')"
+  style="
+    background-image: url('./../../../../assets/ele.png');
+    padding: 0 7rem;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  "
   id="fourth"
-></section>
+>
+  <div class="beneficios row-f">
+    <div class="col-f-6 row-f">
+      <div
+        class="col-2"
+        style="
+          padding: 0.5rem;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <div class="renglon-circulo">
+          <mat-icon>home</mat-icon>
+        </div>
+      </div>
+      <div class="col-10">
+        <div class="renglon-title">Title Beneficio</div>
+        <div class="renglon-text">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </div>
+      </div>
+    </div>
+    <div class="col-f-6" style="padding: 0.5rem">
+      <p class="title-ben" style="font-size: 300%; font-weight: bold">
+        Descubre la seguridad que necesitas para tus espacios
+      </p>
+      <p style="font-size: 90%">
+        Empieza a proteger tus espacios y brinda tranquilidad a tus seres
+        queridos y tus pertenencias más valiosas. Nuestros productos de
+        seguridad de última generación te ofrecen la tranquilidad y confianza
+        que mereces. Desde sistemas de vigilancia avanzados hasta soluciones de
+        acceso controlado, te ayudamos a salvaguardar lo que más te importa.
+        Descubre la seguridad que necesitas y da el primer paso hacia un entorno
+        protegido y seguro.
+      </p>
 
-<section id="fifth" style="height: 100%; background-color: black">content</section>
+      <div class="row-f" style="margin-top: 6rem">
+        <div class="col-6">
+          <p class="descuento" style="padding: 0 !important; margin: 0 !important">Descuento del $350.00 MX</p>
+          <p style="padding: 0 !important; margin: 0 !important">En tu primera compra</p>
+        </div>
+        <div class="col-6">
+          <button
+            class="btn-deg"
+            style="
+              padding: 0.6rem 4rem;
+              outline: none;
+              border: none;
+              border-radius: 1rem;
+              transition: all 0.25s;
+            "
+          >
+            Registrate
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section id="fifth" style="height: 100%; background-color: black">
+  content
+</section>
 
 <app-footer></app-footer>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { miniSuccesDialog, successDialog } from 'src/app/layout/components/alert';
 
 @Component({
   selector: 'app-catalog',
@@ -7,6 +8,17 @@ import { Component } from '@angular/core';
 })
 export class CatalogComponent {
 
-  products = Array(32).fill(0);
+  products =  this.generateRange(0, 100);
 
+  addShoppingCart(idProduct: any) {
+    miniSuccesDialog("Se agrego al carrito " + idProduct)
+  }
+
+  generateRange(start: number, end: number): number[] {
+    const range = [];
+    for (let i = start; i <= end; i++) {
+        range.push(i);
+    }
+    return range;
+  }
 }
