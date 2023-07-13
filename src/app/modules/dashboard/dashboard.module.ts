@@ -7,6 +7,11 @@ import { ExampleComponent } from './example/example.component';
 import { ViewCategoryComponent } from './view-category/view-category.component';
 import { GraphicsComponent } from './graphics/graphics.component';
 import { LayoutAppModule } from 'src/app/layout/layout.app.module';
+import { FormsModule } from '@angular/forms';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BarChartModule } from '@swimlane/ngx-charts';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +25,10 @@ import { LayoutAppModule } from 'src/app/layout/layout.app.module';
     DashboardRoutingModule,
     MaterialModule,
     LayoutAppModule,
+    FormsModule,
+    NgxChartsModule,
+    BrowserAnimationsModule,
+    // BarChartModule,
   ],
   providers: [],
   bootstrap: [],

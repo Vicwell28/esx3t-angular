@@ -5,6 +5,7 @@ import { NotfoundComponent } from './containers/notfound/notfound.component';
 import { NavbarComponent } from './containers/navbar/navbar.component';
 import { MaterialModule } from '../shared/components/material/material.app.module';
 import { StoryProductComponent } from './components/story-product/story-product.component';
+import { FormDialogsAppModule } from './components/DialogsForms/forms.dialogs.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { StoryProductComponent } from './components/story-product/story-product.
     NavbarComponent,
     StoryProductComponent,
   ],
-  imports: [BrowserModule, MaterialModule],
+  imports: [BrowserModule, MaterialModule, FormDialogsAppModule],
   exports: [
     FooterComponent,
     NotfoundComponent,

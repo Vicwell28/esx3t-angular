@@ -1,10 +1,14 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import * as ExcelJS from 'exceljs';
 import * as fs from 'file-saver';
 import { saveAs } from 'file-saver';
+import { FormDialogComponent } from 'src/app/layout/components/DialogsForms/form-dialog/form-dialog.component';
+import { jsPDF } from 'jspdf';
+
 
 /** Constants used to fill up our data base. */
 const FRUITS: string[] = [
@@ -51,7 +55,40 @@ export class ViewCategoryComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor() {
+
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(FormDialogComponent, {
+      width: '50%',
+      height: '90%',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
+
+  generatePDF() {
+    const doc = new jsPDF();
+
+    // Template HTML personalizado
+    const template = `
+      <h1>Mi Plantilla HTML</h1>
+      <p>Contenido del PDF...</p>
+    `;
+
+    // doc.html(template); // Convierte el template HTML a PDF
+
+    // doc.html(template)}
+
+    doc.html(template, {
+      callback: (doc) => {
+        doc.save('archivo.pdf'); // Guarda el archivo PDF con el nombre especificado
+      }
+    });
+
+    // doc.save('archivo.pdf'); // Guarda el archivo PDF con el nombre especificado
+  }
+  
+
+  constructor(private dialog: MatDialog) {
     // Create 100 users
     const users = Array.from({ length: 500 }, (_, k) => createNewUser(k + 1));
 

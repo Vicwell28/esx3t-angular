@@ -1,85 +1,153 @@
-<section class="row-f">
-  <div class="col-6">
+<section class="row-f" style="flex-direction: column; gap: 0">
+  <p class="title" style="text-align: center">Title title</p>
+  <div class="col-12">
     <div class="content">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur ut sint quos odio id ratione eveniet quae nihil sapiente tempore modi nisi impedit, non explicabo excepturi quia a sit consequatur.
-    </div>
-  </div>
-  <div class="col-6">
-    <div class="content">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur ut sint quos odio id ratione eveniet quae nihil sapiente tempore modi nisi impedit, non explicabo excepturi quia a sit consequatur.
+      <ngx-charts-pie-grid [results]="barChartData" (select)="onSelect($event)">
+      </ngx-charts-pie-grid>
     </div>
   </div>
 </section>
 
-<section class="row-f">
-    <div class="col-12">
-      <div class="content">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur ut sint quos odio id ratione eveniet quae nihil sapiente tempore modi nisi impedit, non explicabo excepturi quia a sit consequatur.
-      </div>
-    </div>
-</section>
-
-<section class="row-f">
-  <div class="col-6">
+<section class="row-f" style="flex-direction: column; gap: 2rem">
+  <p class="title" style="text-align: center">Title title</p>
+  <div class="col-12">
     <div class="content">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur ut sint quos odio id ratione eveniet quae nihil sapiente tempore modi nisi impedit, non explicabo excepturi quia a sit consequatur.
-    </div>
-  </div>
-  <div class="col-6">
-    <div class="content">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur ut sint quos odio id ratione eveniet quae nihil sapiente tempore modi nisi impedit, non explicabo excepturi quia a sit consequatur.
-    </div>
-  </div>
-</section>
-
-<section class="row-f">
-    <div class="col-12">
-      <div class="content">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur ut sint quos odio id ratione eveniet quae nihil sapiente tempore modi nisi impedit, non explicabo excepturi quia a sit consequatur.
-      </div>
-    </div>
-</section>
-
-
-<section class="row-f">
-  <div class="col-6">
-    <div class="content">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur ut sint quos odio id ratione eveniet quae nihil sapiente tempore modi nisi impedit, non explicabo excepturi quia a sit consequatur.
-    </div>
-  </div>
-  <div class="col-6">
-    <div class="content">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur ut sint quos odio id ratione eveniet quae nihil sapiente tempore modi nisi impedit, non explicabo excepturi quia a sit consequatur.
+      <ngx-charts-line-chart
+        [legend]="legend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxis]="xAxis"
+        [yAxis]="yAxis"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        [timeline]="timeline"
+        [results]="dos"
+        (select)="onSelect($event)"
+        (activate)="onActivate($event)"
+        (deactivate)="onDeactivate($event)"
+      >
+      </ngx-charts-line-chart>
     </div>
   </div>
 </section>
 
-<section class="row-f">
-    <div class="col-12">
-      <div class="content">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur ut sint quos odio id ratione eveniet quae nihil sapiente tempore modi nisi impedit, non explicabo excepturi quia a sit consequatur.
-      </div>
+<section class="row-f" style="flex-direction: column; gap: 2rem">
+  <p class="title" style="text-align: center">Title title</p>
+  <div class="col-12">
+    <div class="content">
+
+      <ngx-charts-bar-vertical
+        [results]="tres"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        [legendTitle]="legendTitle"
+        (select)="onSelect($event)"
+        (activate)="onActivate($event)"
+        (deactivate)="onDeactivate($event)"
+        >
+      </ngx-charts-bar-vertical>
+      
     </div>
+  </div>
 </section>
 
+<section class="row-f" style="flex-direction: column; gap: 0">
+  <p class="title" style="text-align: center">Title title</p>
+  <div class="col-12">
+    <div class="content">
+      <ngx-charts-pie-grid [results]="barChartData" (select)="onSelect($event)">
+      </ngx-charts-pie-grid>
+    </div>
+  </div>
+</section>
 
+<section class="row-f" style="flex-direction: column; gap: 2rem">
+  <p class="title" style="text-align: center">Title title</p>
+  <div class="col-12">
+    <div class="content">
+      <ngx-charts-line-chart
+        [legend]="legend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxis]="xAxis"
+        [yAxis]="yAxis"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        [timeline]="timeline"
+        [results]="dos"
+        (select)="onSelect($event)"
+        (activate)="onActivate($event)"
+        (deactivate)="onDeactivate($event)"
+      >
+      </ngx-charts-line-chart>
+    </div>
+  </div>
+</section>
+
+<section class="row-f" style="flex-direction: column; gap: 2rem">
+  <p class="title" style="text-align: center">Title title</p>
+  <div class="col-12">
+    <div class="content">
+
+      <ngx-charts-bar-vertical
+        [results]="tres"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        [legendTitle]="legendTitle"
+        (select)="onSelect($event)"
+        (activate)="onActivate($event)"
+        (deactivate)="onDeactivate($event)"
+        >
+      </ngx-charts-bar-vertical>
+      
+    </div>
+  </div>
+</section>
+<!-- 
 <section class="row-f">
   <div class="col-6">
     <div class="content">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur ut sint quos odio id ratione eveniet quae nihil sapiente tempore modi nisi impedit, non explicabo excepturi quia a sit consequatur.
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur ut sint
+      quos odio id ratione eveniet quae nihil sapiente tempore modi nisi
+      impedit, non explicabo excepturi quia a sit consequatur.
     </div>
   </div>
   <div class="col-6">
     <div class="content">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur ut sint quos odio id ratione eveniet quae nihil sapiente tempore modi nisi impedit, non explicabo excepturi quia a sit consequatur.
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur ut sint
+      quos odio id ratione eveniet quae nihil sapiente tempore modi nisi
+      impedit, non explicabo excepturi quia a sit consequatur.
     </div>
   </div>
-</section>
+</section> -->
 
+
+<!-- 
 <section class="row-f">
-    <div class="col-12">
-      <div class="content">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur ut sint quos odio id ratione eveniet quae nihil sapiente tempore modi nisi impedit, non explicabo excepturi quia a sit consequatur.
-      </div>
+  <div class="col-6">
+    <div class="content">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur ut sint
+      quos odio id ratione eveniet quae nihil sapiente tempore modi nisi
+      impedit, non explicabo excepturi quia a sit consequatur.
     </div>
-</section>
+  </div>
+  <div class="col-6">
+    <div class="content">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur ut sint
+      quos odio id ratione eveniet quae nihil sapiente tempore modi nisi
+      impedit, non explicabo excepturi quia a sit consequatur.
+    </div>
+  </div>
+</section> -->

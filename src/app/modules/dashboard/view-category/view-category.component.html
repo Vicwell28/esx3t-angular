@@ -1,6 +1,6 @@
 <main>
   <header>
-    <button class="" role="button">
+    <button class="" role="button" (click)="openDialog('250ms', '250ms')">
       <mat-icon>add</mat-icon>
     </button>
     <div id="input-search" class="">
@@ -19,7 +19,7 @@
     <button class="" role="button" (click)="exportToExcel()">
       <mat-icon>description</mat-icon>
     </button>
-    <button class="" role="button">
+    <button class="" role="button" (click)="generatePDF()">
       <mat-icon>picture_as_pdf</mat-icon>
     </button>
   </header>
