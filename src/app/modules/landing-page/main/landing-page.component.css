@@ -31,15 +31,7 @@
   text-align: center;
 }
 
-.text-grad {
-  background-image: -webkit-radial-gradient(circle, #2a9d8f 0%, #264653 100%);
-  background-image: radial-gradient(circle, #2a9d8f 0%, #264653 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
-}
+
 
 .intro-desc {
   font-size: 90%;
@@ -232,16 +224,7 @@ header nav ul div:nth-child(3) {
   display: flex;
 }
 
-.btn-grad {
-  padding: 0.4rem 5rem;
-  background: #2a9d8f;
-  background: -webkit-linear-gradient(86deg, #2a9d8f 0%, #264653 100%);
-  background: linear-gradient(86deg, #2a9d8f 0%, #264653 100%);
-  color: white;
-  border-radius: 1rem;
-  text-decoration: none;
-  font-weight: 600;
-}
+
 
 a {
   cursor: pointer;
@@ -295,6 +278,5 @@ a {
 
 .renglon-text {
   width: 80%;
-
 }
 

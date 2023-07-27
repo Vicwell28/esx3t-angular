@@ -1,9 +1,14 @@
+<p class="title text-grad">View Category</p>
 <main>
   <header>
-    <button class="" role="button" (click)="openDialog('250ms', '250ms')">
+    <button
+      class="button btn-shw"
+      role="button"
+      (click)="openDialog('250ms', '250ms', false)"
+    >
       <mat-icon>add</mat-icon>
     </button>
-    <div id="input-search" class="">
+    <div id="input-search" class="btn-shw">
       <mat-icon>search</mat-icon>
       <input
         type="text"
@@ -14,12 +19,13 @@
         (keyup)="applyFilter($event)"
         placeholder="Ex. Mia"
         #input
+        style="color: #264653 !important"
       />
     </div>
-    <button class="" role="button" (click)="exportToExcel()">
+    <button class="loading-button-black button btn-shw" [class.loading-button]="isLoadingExcel" role="button" (click)="exportToExcel()">
       <mat-icon>description</mat-icon>
     </button>
-    <button class="" role="button" (click)="generatePDF()">
+    <button class="loading-button-black button btn-shw" [class.loading-button]="isLoadingPDF" role="button" (click)="generatePDF()">
       <mat-icon>picture_as_pdf</mat-icon>
     </button>
   </header>
@@ -35,22 +41,36 @@
           <td mat-cell *matCellDef="let row">{{ row.id }}</td>
         </ng-container>
 
-        <!-- Progress Column -->
-        <ng-container matColumnDef="progress">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Progress</th>
-          <td mat-cell *matCellDef="let row">{{ row.progress }}%</td>
-        </ng-container>
-
         <!-- Name Column -->
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
           <td mat-cell *matCellDef="let row">{{ row.name }}</td>
         </ng-container>
 
+        <!-- Name Column -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+          <td mat-cell *matCellDef="let row">{{ row.status }}</td>
+        </ng-container>
+
         <!-- Fruit Column -->
-        <ng-container matColumnDef="fruit">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Fruit</th>
-          <td mat-cell *matCellDef="let row">{{ row.fruit }}</td>
+        <ng-container matColumnDef="options">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Options</th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>edit</mat-icon>
+                <span>Edit</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>change_circle</mat-icon>
+                <span>Change Status</span>
+              </button>
+            </mat-menu>
+          </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
