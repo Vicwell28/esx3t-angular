@@ -16,7 +16,7 @@ const routes: Routes = [
         component: GraphicsComponent,
       },
       {
-        path: 'view/category',
+        path: 'categories',
         component: ViewCategoryComponent,
       },
     ],

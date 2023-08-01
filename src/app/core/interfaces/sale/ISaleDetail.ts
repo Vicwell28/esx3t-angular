@@ -1,9 +1,12 @@
-// import { Role } from "./Role";
+export interface Welcome {
+  message: string;
+  data: Data;
+}
 
-// export interface User {
-//   role_id: number;
-//   username: string;
-//   email: string;
-//   id: number;
-//   role: Role;
-// }
+export interface Data {
+  id: number;
+  sale_id: number;
+  product_branche_id: number;
+  quantity: number;
+  status: boolean;
+}

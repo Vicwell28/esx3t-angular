@@ -15,11 +15,42 @@ import { DialogsFormOrderDetailComponent } from './order/df-order-detail/df-orde
 import { DialogsFormStateComponent } from './location/df-state/df-state.component';
 import { DialogsFormCityComponent } from './location/df-city/df-city.component';
 import { DialogsFormBrancheComponent } from './branche/df-branche/df-branche.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [FormDialogComponent, DialogsFormViewCategoryComponent, DialogsFormViewComponent, DialogsFormViewRoleComponent, DialogsFormSaleComponent, DialogsFormSaleDetailComponent, DialogsFormProductComponent, DialogsFormProductCategoryComponent, DialogsFormProductBrancheComponent, DialogsFormOrderComponent, DialogsFormOrderDetailComponent, DialogsFormStateComponent, DialogsFormCityComponent, DialogsFormBrancheComponent],
-  imports: [MaterialModule],
-  exports: [FormDialogComponent],
+  declarations: [
+    FormDialogComponent,
+    DialogsFormViewCategoryComponent,
+    DialogsFormViewComponent,
+    DialogsFormViewRoleComponent,
+    DialogsFormSaleComponent,
+    DialogsFormSaleDetailComponent,
+    DialogsFormProductComponent,
+    DialogsFormProductCategoryComponent,
+    DialogsFormProductBrancheComponent,
+    DialogsFormOrderComponent,
+    DialogsFormOrderDetailComponent,
+    DialogsFormStateComponent,
+    DialogsFormCityComponent,
+    DialogsFormBrancheComponent,
+  ],
+  imports: [MaterialModule, CommonModule],
+  exports: [
+    FormDialogComponent,
+    DialogsFormViewCategoryComponent,
+    DialogsFormViewComponent,
+    DialogsFormViewRoleComponent,
+    DialogsFormSaleComponent,
+    DialogsFormSaleDetailComponent,
+    DialogsFormProductComponent,
+    DialogsFormProductCategoryComponent,
+    DialogsFormProductBrancheComponent,
+    DialogsFormOrderComponent,
+    DialogsFormOrderDetailComponent,
+    DialogsFormStateComponent,
+    DialogsFormCityComponent,
+    DialogsFormBrancheComponent,
+  ],
   providers: [],
   bootstrap: [],
 })

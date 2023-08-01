@@ -1,18 +1,42 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IViewCategory } from 'src/app/core/interfaces/views/IViewCategory';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
+import { ViewCategoriesService } from 'src/app/core/services/views/view-categories.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
+
+  viewsCategories?: IViewCategory[] 
+
   constructor(
     private localStorageService: LocalStorageService,
     private router: Router,
-    private elementRef: ElementRef
+    private elementRef: ElementRef, 
+    private viewCategoriesService: ViewCategoriesService
   ) {}
+
+  ngOnInit(): void {
+    this.viewCategoriesService.indexViewCategory().subscribe({
+      next: (value) => {
+        console.log(value); 
+
+        this.viewsCategories = value.data as IViewCategory[]
+      }, 
+      complete: () => {
+        console.log("Complete");
+
+        console.log(this.viewsCategories);
+      }, 
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
 
   profile() {
     this.router.navigateByUrl(`Profile`);
@@ -38,3 +62,17 @@ export class DashboardComponent {
     }
   }
 }
+
+
+
+// this.viewCategoriesService.indexViewCategory().subscribe({
+//   next: (value) => {
+
+//   }, 
+//   complete: () => {
+
+//   }, 
+//   error: (err) => {
+    
+//   }
+// })

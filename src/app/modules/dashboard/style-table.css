@@ -1,17 +1,9 @@
-main {
-  height: 100%;
-}
-
 header {
   height: 2.25rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   display: flex;
   flex-direction: row;
   gap: 1rem;
-}
-
-section {
-  height: calc(100% - 3.5rem);
 }
 
 #input-search {

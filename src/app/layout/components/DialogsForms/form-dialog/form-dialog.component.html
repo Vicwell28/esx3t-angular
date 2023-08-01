@@ -1,61 +1,39 @@
-<div class="container-form">
-  <p class="title">Agregar Producto</p>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="container-form">
+  <div>
+    <p class="title">{{ title }}</p>
 
-  <div class="row-f">
-    <div class="col-f-12">
-      <div class="inputGroup">
-        <input type="text" required="" autocomplete="off" />
-        <label for="name">Name</label>
-        <mat-icon>home</mat-icon>
-      </div>
+    <div class="inputGroup">
+      <input
+        type="text"
+        required=""
+        autocomplete="off"
+        formControlName="name"
+      />
+      <label for="name">Name</label>
     </div>
-  </div>
 
-  <div class="row-f">
-    <div class="col-f-6">
-      <div class="inputGroup">
-        <input type="text" required="" autocomplete="off" />
-        <label for="name">Name</label>
-        <mat-icon>home</mat-icon>
-      </div>
-    </div>
-    <div class="col-f-6">
-      <div class="inputGroup">
-        <input type="text" required="" autocomplete="off" />
-        <label for="name">Name</label>
-        <mat-icon>home</mat-icon>
-      </div>
-    </div>
-  </div>
-
-  <div class="row-f">
-    <div class="col-f-12">
-      <div class="inputGroup">
-        <input type="text" required="" autocomplete="off" />
-        <label for="name">Name</label>
-        <mat-icon>home</mat-icon>
-      </div>
-    </div>
-  </div>
-
-  <div class="row-f">
-    <div class="col-f-6">
-      <div class="inputGroup">
-        <input type="text" required="" autocomplete="off" />
-        <label for="name">Name</label>
-        <mat-icon>home</mat-icon>
-      </div>
-    </div>
-    <div class="col-f-6">
-      <div class="inputGroup">
-        <input type="text" required="" autocomplete="off" />
-        <label for="name">Name</label>
-        <mat-icon>home</mat-icon>
-      </div>
+    <div class="inputGroup">
+      <input
+        type="text"
+        required=""
+        autocomplete="off"
+        formControlName="description"
+      />
+      <label for="name">Description</label>
     </div>
   </div>
 
   <div class="end-button">
-    <button class="btn-deg">Agregar</button>
+    <button
+      class="btn-deg"
+      type="submit"
+      class="loading-button-black  btn-deg"
+      [class.loading-button]="isLoading"
+    >
+      {{ this.textButton }}
+    </button>
+    <button class="btn-cancel" type="button" (click)="onClose()">
+      Cancelar
+    </button>
   </div>
-</div>
+</form>
