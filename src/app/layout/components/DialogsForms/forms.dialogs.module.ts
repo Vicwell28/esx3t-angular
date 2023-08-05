@@ -17,6 +17,7 @@ import { DialogsFormCityComponent } from './location/df-city/df-city.component';
 import { DialogsFormBrancheComponent } from './branche/df-branche/df-branche.component';
 import { CommonModule } from '@angular/common';
 
+
 @NgModule({
   declarations: [
     FormDialogComponent,
@@ -34,7 +35,7 @@ import { CommonModule } from '@angular/common';
     DialogsFormCityComponent,
     DialogsFormBrancheComponent,
   ],
-  imports: [MaterialModule, CommonModule],
+  imports: [MaterialModule, CommonModule, BrowserModule],
   exports: [
     FormDialogComponent,
     DialogsFormViewCategoryComponent,

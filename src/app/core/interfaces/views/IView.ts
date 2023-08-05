@@ -12,5 +12,6 @@ export interface IView {
   view_category_id: number;
   url: string;
   status: boolean;
+  isCheked: boolean | null; 
   viewCategory: IViewCategory | null;
 }

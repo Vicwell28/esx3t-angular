@@ -62,17 +62,3 @@ export class DashboardComponent implements OnInit {
     }
   }
 }
-
-
-
-// this.viewCategoriesService.indexViewCategory().subscribe({
-//   next: (value) => {
-
-//   }, 
-//   complete: () => {
-
-//   }, 
-//   error: (err) => {
-    
-//   }
-// })
