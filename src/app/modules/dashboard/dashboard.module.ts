@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ViewComponent } from './views/view/view.component';
+import { SaleComponent } from './sale/sale.component';
 // import { BarChartModule } from '@swimlane/ngx-charts';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { ViewComponent } from './views/view/view.component';
     ExampleComponent,
     ViewCategoryComponent,
     GraphicsComponent,
+    SaleComponent,
     ViewComponent,
   ],
   imports: [
@@ -35,3 +37,5 @@ import { ViewComponent } from './views/view/view.component';
   bootstrap: [],
 })
 export class DashboarAppdModule {}
+
+
