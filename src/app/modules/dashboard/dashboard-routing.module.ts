@@ -6,7 +6,8 @@ import { ViewCategoryComponent } from './views/view-category/view-category.compo
 import { ViewComponent } from './views/view/view.component';
 import { SaleComponent } from './sale/sale.component';
 import { GraphicsComponent } from './graphics/graphics.component';
-
+import { RoleViewComponent } from './views/role-view/role-view.component';
+ 
 const routes: Routes = [
   {
     path: 'dashboard',
@@ -24,6 +25,10 @@ const routes: Routes = [
       {
         path: 'views',
         component: ViewComponent,
+      },
+      {
+        path: 'roles',
+        component: RoleViewComponent,
       },
       {
         path: 'sales',

@@ -12,6 +12,11 @@ export interface IView {
   view_category_id: number;
   url: string;
   status: boolean;
-  isCheked: boolean | null; 
+  isCheked: boolean | null;
   viewCategory: IViewCategory | null;
+}
+
+export interface IStoreView {
+  name: string;
+  view_category_id: number;
 }

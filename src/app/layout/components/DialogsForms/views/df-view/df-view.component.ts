@@ -1,21 +1,21 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { ViewCategoriesService } from 'src/app/core/services/views/view-categories.service';
 import { errorDialog, successDialog } from '../../../alert';
 import { IViewCategory } from 'src/app/core/interfaces/views/IViewCategory';
-
+import { ViewsService } from 'src/app/core/services/views/views.service';
+import { IStoreView } from 'src/app/core/interfaces/views/IView';
 @Component({
   selector: 'app-df-view',
   templateUrl: './df-view.component.html',
-  styleUrls: ['./df-view.component.css']
+  styleUrls: ['./df-view.component.css', '../../df-style.css'],
 })
 export class DialogsFormViewComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<DialogsFormViewComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
-    private viewCategoriesService: ViewCategoriesService
+    private ViewsService: ViewsService
   ) {
     // Initialize the form with required fields and set their initial values
     this.myForm = this.formBuilder.group({
@@ -51,7 +51,7 @@ export class DialogsFormViewComponent implements OnInit {
 
   // Fetches the details of an existing category and fills the form
   private fetchCategoryDetails(id: number): void {
-    this.viewCategoriesService.showViewCategory(id).subscribe({
+    this.ViewsService.showView(id).subscribe({
       next: (response) => {
         const category: IViewCategory = response.data as IViewCategory;
         this.myForm.patchValue({
@@ -61,7 +61,9 @@ export class DialogsFormViewComponent implements OnInit {
       },
       error: (err) => {
         console.log(`Error: ${err}`);
-        errorDialog('Hubo un error al obtener la información de la Vista A Rol.');
+        errorDialog(
+          'Hubo un error al obtener la información de la Vista A Rol.'
+        );
       },
     });
   }
@@ -72,13 +74,13 @@ export class DialogsFormViewComponent implements OnInit {
       return;
     }
 
-    const category: IViewCategory = this.myForm.value;
+    const category: IStoreView = this.myForm.value;
 
     this.isLoading = true;
 
     const request = this.isEdit
-      ? this.viewCategoriesService.updateViewCategory(this.id!, category)
-      : this.viewCategoriesService.storeViewCategory(category);
+      ? this.ViewsService.updateView(this.id!, category)
+      : this.ViewsService.storeView(category);
 
     request.subscribe({
       next: (response) => {

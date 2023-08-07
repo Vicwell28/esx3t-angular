@@ -5,21 +5,24 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import * as ExcelJS from 'exceljs';
 import { jsPDF } from 'jspdf';
-import { IRole } from 'src/app/core/interfaces/user/IRole';
-import { ViewsService } from 'src/app/core/services/views/views.service';
-import { DialogsFormViewComponent } from 'src/app/layout/components/DialogsForms/views/df-view/df-view.component';
+import { IResponseRole, IRole } from 'src/app/core/interfaces/user/IRole';
+import { IViewCategory } from 'src/app/core/interfaces/views/IViewCategory';
+import { RoleService } from 'src/app/core/services/user/role.service';
+import { ViewCategoriesService } from 'src/app/core/services/views/view-categories.service';
+import { DialogsFormViewCategoryComponent } from 'src/app/layout/components/DialogsForms/views/df-view-category/df-view-category.component';
+import { DialogsFormViewRoleComponent } from 'src/app/layout/components/DialogsForms/views/df-view-role/df-view-role.component';
 import { errorDialog } from 'src/app/layout/components/alert';
 
 @Component({
-  selector: 'app-view',
-  templateUrl: './view.component.html',
-  styleUrls: ['./view.component.css', '../../style-table.css'],
+  selector: 'app-role-view',
+  templateUrl: './role-view.component.html',
+  styleUrls: ['./role-view.component.css', '../../style-table.css']
 })
-export class ViewComponent implements AfterViewInit {
+export class RoleViewComponent {
   // Propiedades del componente
   displayedColumns: string[] = ['id', 'name', 'status', 'options'];
   dataSource: any = [];
-  dialogRef?: MatDialogRef<DialogsFormViewComponent>;
+  dialogRef?: MatDialogRef<DialogsFormViewRoleComponent>;
   isLoadingPDF = false;
   isLoadingExcel = false;
   isLoadingRelaod = false;
@@ -32,11 +35,15 @@ export class ViewComponent implements AfterViewInit {
   @ViewChild('dataTable') pdfContent!: ElementRef;
 
   // Constructor e inyección de dependencias
-  constructor(private dialog: MatDialog, private ViewsService: ViewsService) {}
+  constructor(
+    private dialog: MatDialog,
+    private categoryService: ViewCategoriesService, 
+    private roleService: RoleService
+  ) {}
 
   // Método que se ejecuta después de cargar la vista
   ngAfterViewInit() {
-    this.getAllViews();
+    this.getAllRoles();
   }
 
   // Método para abrir el diálogo de edición/creación de categoría de vista
@@ -46,7 +53,7 @@ export class ViewComponent implements AfterViewInit {
     isEdit: boolean,
     id?: string | number | undefined
   ): void {
-    this.dialogRef = this.dialog.open(DialogsFormViewComponent, {
+    this.dialogRef = this.dialog.open(DialogsFormViewRoleComponent, {
       width: '50%',
       height: '90%',
       enterAnimationDuration,
@@ -60,7 +67,7 @@ export class ViewComponent implements AfterViewInit {
     this.dialogRef.afterClosed().subscribe((res) => {
       console.log('Diálogo cerrado');
       console.log('Resultado:', res);
-      this.getAllViews();
+      this.getAllRoles();
     });
   }
 
@@ -121,13 +128,36 @@ export class ViewComponent implements AfterViewInit {
     });
   }
 
-  getAllViews() {
+  getAllRoles() {
     this.isLoadingRefresh = true;
 
-    this.ViewsService.indexView().subscribe({
+    this.roleService.indexRole().subscribe({
       next: (value) => {
         console.log(value.data);
         this.dataSource = new MatTableDataSource(value.data as IRole[]);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      },
+      complete: () => {
+        this.isLoadingRefresh = false;
+        console.log(`Complete`);
+      },
+      error: (err) => {
+        this.isLoadingRefresh = false;
+        console.log(`Error: ${err}`);
+        errorDialog('Hubo un error al procesar la información.');
+      },
+    });
+  }
+
+  // Método para obtener todas las categorías
+  getAllCategories(): void {
+    this.isLoadingRefresh = true;
+
+    this.categoryService.indexViewCategory().subscribe({
+      next: (value) => {
+        console.log(value.data);
+        this.dataSource = new MatTableDataSource(value.data as IViewCategory[]);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },
@@ -147,7 +177,7 @@ export class ViewComponent implements AfterViewInit {
   changeStatus(id: number): void {
     const index = this.dataSource.data.findIndex((item: any) => item.id === id);
 
-    this.ViewsService.destroyView(id).subscribe({
+    this.categoryService.destroyViewCategory(id).subscribe({
       next: (value) => {
         console.log(value);
       },

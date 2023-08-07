@@ -12,8 +12,8 @@ export class RoleViewsService {
 
   private apiUrl = `${environment.apiUrl}RoleView`;
 
-  public indexRoleView(): Observable<IResponseViewRole> {
-    return this.http.get<IResponseViewRole>(`${this.apiUrl}`);
+  public indexRoleView(query: string = ""): Observable<IResponseViewRole> {
+    return this.http.get<IResponseViewRole>(`${this.apiUrl}${query}`);
   }
 
   public storeRoleView(user: any): Observable<any> {

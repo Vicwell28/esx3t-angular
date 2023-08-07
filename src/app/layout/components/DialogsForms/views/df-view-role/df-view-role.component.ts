@@ -21,7 +21,7 @@ import {
 @Component({
   selector: 'app-df-view-role',
   templateUrl: './df-view-role.component.html',
-  styleUrls: ['./df-view-role.component.css'],
+  styleUrls: ['./df-view-role.component.css', '../../df-style.css'],
 })
 export class DialogsFormViewRoleComponent implements OnInit {
   constructor(
@@ -63,7 +63,7 @@ export class DialogsFormViewRoleComponent implements OnInit {
 
   private loadViewsAndRoles(): void {
     const viewCategories$ = this.viewCategoriesService.indexViewCategory();
-    const roleViews$ = this.RoleViewsService.indexRoleView();
+    const roleViews$ = this.RoleViewsService.indexRoleView(`?idRole=${this.id}`);
 
     forkJoin({
       viewCategories: viewCategories$,
@@ -134,52 +134,41 @@ export class DialogsFormViewRoleComponent implements OnInit {
 
   // Submits the form to either update an existing category or store a new one
   onSubmit(): void {
-    console.log(this.myForm.value['checkboxes']);
+    this.isLoading = true;
 
     const allViews: IViewRole[] = this.viewsRole!.flatMap(
       (category) => category.views || []
     );
 
-    console.log(allViews);
-
     const allViewsChecked = (this.myForm.value['checkboxes'] as [])
       .map((value, idx) => (value ? allViews[idx].id : null))
       .filter((v) => v !== null);
 
-    console.log(allViewsChecked);
+    const body = {
+      role_id: this.id,
+      views_id: allViewsChecked,
+    };
 
-    if (this.myForm.invalid) {
-      return;
-    }
+    this.RoleViewsService.storeRoleView(body).subscribe({
+      next: (response) => {
+        console.log(`Next: ${response}`);
 
-    // const category: IViewCategory = this.myForm.value;
-
-    // this.isLoading = true;
-
-    // const request = this.isEdit
-    //   ? this.viewCategoriesService.updateViewCategory(this.id!, category)
-    //   : this.viewCategoriesService.storeViewCategory(category);
-
-    // request.subscribe({
-    //   next: (response) => {
-    //     console.log(`Next: ${response}`);
-
-    //     const successMessage = this.isEdit
-    //       ? 'Se actualizó la Vista A Role correctamente.'
-    //       : 'Se agregó la Vista A Role correctamente.';
-    //     successDialog(successMessage, () => {
-    //       this.onClose();
-    //     });
-    //   },
-    //   error: (err) => {
-    //     console.log(`Error: ${err}`);
-    //     errorDialog('Hubo un error al procesar la información.');
-    //   },
-    //   complete: () => {
-    //     console.log(`Complete`);
-    //     this.isLoading = false;
-    //   },
-    // });
+        const successMessage = this.isEdit
+          ? 'Se actualizó la Vista A Role correctamente.'
+          : 'Se agregó la Vista A Role correctamente.';
+        successDialog(successMessage, () => {
+          this.onClose();
+        });
+      },
+      error: (err) => {
+        console.log(`Error: ${err}`);
+        errorDialog('Hubo un error al procesar la información.');
+      },
+      complete: () => {
+        console.log(`Complete`);
+        this.isLoading = false;
+      },
+    });
   }
 
   // Closes the dialog

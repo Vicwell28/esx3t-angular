@@ -1,13 +1,6 @@
-<p class="title text-grad">Views</p>
+<p class="title text-grad">Role View Assignment</p>
 <main style="margin-top: 1rem">
   <header>
-    <button
-      class="button btn-shw"
-      role="button"
-      (click)="openDialog('250ms', '250ms', false)"
-    >
-      <mat-icon>add</mat-icon>
-    </button>
     <div id="input-search" class="btn-shw">
       <mat-icon>search</mat-icon>
       <input
@@ -26,7 +19,7 @@
       class="loading-button-black button btn-shw"
       [class.loading-button]="isLoadingRefresh"
       role="button"
-      (click)="getAllViews()"
+      (click)="getAllRoles()"
     >
       <mat-icon>refresh</mat-icon>
     </button>

@@ -7,7 +7,7 @@ import * as ExcelJS from 'exceljs';
 import { jsPDF } from 'jspdf';
 import { IViewCategory } from 'src/app/core/interfaces/views/IViewCategory';
 import { ViewCategoriesService } from 'src/app/core/services/views/view-categories.service';
-import { DialogsFormViewRoleComponent } from 'src/app/layout/components/DialogsForms/views/df-view-role/df-view-role.component';
+import { DialogsFormViewCategoryComponent } from 'src/app/layout/components/DialogsForms/views/df-view-category/df-view-category.component';
 import { errorDialog } from 'src/app/layout/components/alert';
 
 @Component({
@@ -19,7 +19,7 @@ export class ViewCategoryComponent implements AfterViewInit {
   // Propiedades del componente
   displayedColumns: string[] = ['id', 'name', 'status', 'options'];
   dataSource: any = [];
-  dialogRef?: MatDialogRef<DialogsFormViewRoleComponent>;
+  dialogRef?: MatDialogRef<DialogsFormViewCategoryComponent>;
   isLoadingPDF = false;
   isLoadingExcel = false;
   isLoadingRelaod = false;
@@ -49,7 +49,7 @@ export class ViewCategoryComponent implements AfterViewInit {
     isEdit: boolean,
     id?: string | number | undefined
   ): void {
-    this.dialogRef = this.dialog.open(DialogsFormViewRoleComponent, {
+    this.dialogRef = this.dialog.open(DialogsFormViewCategoryComponent, {
       width: '50%',
       height: '90%',
       enterAnimationDuration,

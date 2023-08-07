@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IViewCategory } from 'src/app/core/interfaces/views/IViewCategory';
+import { IViewCategoryRole } from 'src/app/core/interfaces/views/IViewRole';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
-import { ViewCategoriesService } from 'src/app/core/services/views/view-categories.service';
+import { RoleViewsService } from 'src/app/core/services/views/role-views.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,32 +10,31 @@ import { ViewCategoriesService } from 'src/app/core/services/views/view-categori
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-
-  viewsCategories?: IViewCategory[] 
+  viewsCategories?: IViewCategoryRole[];
 
   constructor(
     private localStorageService: LocalStorageService,
     private router: Router,
-    private elementRef: ElementRef, 
-    private viewCategoriesService: ViewCategoriesService
+    private elementRef: ElementRef,
+    private RoleViewsService: RoleViewsService
   ) {}
 
   ngOnInit(): void {
-    this.viewCategoriesService.indexViewCategory().subscribe({
+    this.RoleViewsService.indexRoleView().subscribe({
       next: (value) => {
-        console.log(value); 
+        console.log(value);
 
-        this.viewsCategories = value.data as IViewCategory[]
-      }, 
+        this.viewsCategories = value.data as IViewCategoryRole[];
+      },
       complete: () => {
-        console.log("Complete");
+        console.log('Complete');
 
         console.log(this.viewsCategories);
-      }, 
+      },
       error: (err) => {
         console.log(err);
-      }
-    })
+      },
+    });
   }
 
   profile() {

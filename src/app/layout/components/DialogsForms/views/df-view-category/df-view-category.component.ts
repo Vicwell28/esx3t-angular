@@ -8,7 +8,7 @@ import { IViewCategory } from 'src/app/core/interfaces/views/IViewCategory';
 @Component({
   selector: 'app-df-view-category',
   templateUrl: './df-view-category.component.html',
-  styleUrls: ['./df-view-category.component.css']
+  styleUrls: ['./df-view-category.component.css', '../../df-style.css']
 })
 export class DialogsFormViewCategoryComponent implements OnInit {
   constructor(
