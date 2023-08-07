@@ -5,21 +5,29 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import * as ExcelJS from 'exceljs';
 import { jsPDF } from 'jspdf';
-import { ISale } from 'src/app/core/interfaces/sale/ISale';
-import { SaleService } from 'src/app/core/services/sale/sale.service';
-import { DialogsFormSaleComponent } from 'src/app/layout/components/DialogsForms/sale/df-sale/df-sale.component';
+import { IUser } from 'src/app/core/interfaces/user/IUser';
+import { UserService } from 'src/app/core/services/user/user.service';
+import { DialogsFormUserComponent } from 'src/app/layout/components/DialogsForms/user/df-user/df-user.component';
 import { errorDialog } from 'src/app/layout/components/alert';
 
 @Component({
-  selector: 'app-sale',
-  templateUrl: './sale.component.html',
-  styleUrls: ['./sale.component.css', '../style-table.css'],
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css', '../style-table.css'],
 })
-export class SaleComponent implements AfterViewInit {
+export class UserComponent implements AfterViewInit {
   // Propiedades del componente
-  displayedColumns: string[] = ['id', 'client', 'employee', 'options'];
+  displayedColumns: string[] = [
+    'id',
+    'username',
+    'email',
+    'fname',
+    'role_id',
+    'status',
+    'options',
+  ];
   dataSource: any = [];
-  dialogRef?: MatDialogRef<DialogsFormSaleComponent>;
+  dialogRef?: MatDialogRef<DialogsFormUserComponent>;
   isLoadingPDF = false;
   isLoadingExcel = false;
   isLoadingRelaod = false;
@@ -34,7 +42,7 @@ export class SaleComponent implements AfterViewInit {
   // Constructor e inyección de dependencias
   constructor(
     private dialog: MatDialog,
-    private saleService: SaleService
+    private userService: UserService
   ) {}
 
   // Método que se ejecuta después de cargar la vista
@@ -49,9 +57,9 @@ export class SaleComponent implements AfterViewInit {
     isEdit: boolean,
     id?: string | number | undefined
   ): void {
-    this.dialogRef = this.dialog.open(DialogsFormSaleComponent, {
+    this.dialogRef = this.dialog.open(DialogsFormUserComponent, {
       width: '50%',
-      height: '30%',
+      height: '90%',
       enterAnimationDuration,
       exitAnimationDuration,
       data: {
@@ -128,10 +136,10 @@ export class SaleComponent implements AfterViewInit {
   getAllCategories(): void {
     this.isLoadingRefresh = true;
 
-    this.saleService.indexSale().subscribe({
+    this.userService.indexUser().subscribe({
       next: (value) => {
-        console.log(value.data);
-        this.dataSource = new MatTableDataSource(value.data as ISale[]);
+        console.log("user", value.users);
+        this.dataSource = new MatTableDataSource(value.users as IUser[]);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },
@@ -151,7 +159,7 @@ export class SaleComponent implements AfterViewInit {
   changeStatus(id: number): void {
     const index = this.dataSource.data.findIndex((item: any) => item.id === id);
 
-    this.saleService.destroySale(id).subscribe({
+    this.userService.destroyUser(id).subscribe({
       next: (value) => {
         console.log(value);
       },

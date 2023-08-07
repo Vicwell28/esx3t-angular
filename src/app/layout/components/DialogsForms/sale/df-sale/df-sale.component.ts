@@ -52,9 +52,25 @@ export class DialogsFormSaleComponent {
 
     // If editing an existing category, fetch its details and fill the form
     if (this.isEdit) {
-      // this.fetch(this.id!);
+      this.fetch(this.id!);
     }
     this.fetchClients()
+  }
+
+  private fetch(id: number){
+    this.saleService.showSale(id).subscribe({
+      next: (response) => {
+        const sale: ISale = response.data as ISale;
+        this.myForm.patchValue({
+          employee_id: sale.employee_id,
+          client_id: sale.client_id,
+        });
+      },
+      error: (err) => {
+        console.log(`Error: ${err}`);
+        errorDialog('Hubo un error al obtener la información de la categoría.');
+      },
+    });
   }
 
   private fetchClients(){

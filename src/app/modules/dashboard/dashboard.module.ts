@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ViewComponent } from './views/view/view.component';
 import { SaleComponent } from './sale/sale.component';
 import { RoleViewComponent } from './views/role-view/role-view.component';
+import { UserComponent } from './user/user.component';
 // import { BarChartModule } from '@swimlane/ngx-charts';
 
 @NgModule({
@@ -24,6 +25,7 @@ import { RoleViewComponent } from './views/role-view/role-view.component';
     SaleComponent,
     ViewComponent,
     RoleViewComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,

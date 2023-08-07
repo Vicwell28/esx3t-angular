@@ -15,6 +15,7 @@ import { DialogsFormOrderDetailComponent } from './order/df-order-detail/df-orde
 import { DialogsFormStateComponent } from './location/df-state/df-state.component';
 import { DialogsFormCityComponent } from './location/df-city/df-city.component';
 import { DialogsFormBrancheComponent } from './branche/df-branche/df-branche.component';
+import { DialogsFormUserComponent } from './user/df-user/df-user.component';
 import { CommonModule } from '@angular/common';
 
 
@@ -34,6 +35,7 @@ import { CommonModule } from '@angular/common';
     DialogsFormStateComponent,
     DialogsFormCityComponent,
     DialogsFormBrancheComponent,
+    DialogsFormUserComponent,
   ],
   imports: [MaterialModule, CommonModule, BrowserModule],
   exports: [
@@ -51,6 +53,7 @@ import { CommonModule } from '@angular/common';
     DialogsFormStateComponent,
     DialogsFormCityComponent,
     DialogsFormBrancheComponent,
+    DialogsFormUserComponent,
   ],
   providers: [],
   bootstrap: [],
