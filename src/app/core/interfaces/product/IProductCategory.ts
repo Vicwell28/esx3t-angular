@@ -1,9 +1,11 @@
-// import { Role } from "./Role";
+export interface IResponseProductCategory {
+    message: string;
+    data: IProductCategory | IProductCategory[];
+}
 
-// export interface User {
-//   role_id: number;
-//   username: string;
-//   email: string;
-//   id: number;
-//   role: Role;
-// }
+export interface IProductCategory {
+  id: number;
+  name: string;
+  description: string;
+  status: boolean;
+}

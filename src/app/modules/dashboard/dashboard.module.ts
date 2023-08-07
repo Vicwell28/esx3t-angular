@@ -10,6 +10,7 @@ import { LayoutAppModule } from 'src/app/layout/layout.app.module';
 import { FormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ViewProductComponent } from './products/view-product/view-product.component';
 // import { BarChartModule } from '@swimlane/ngx-charts';
 
 
@@ -19,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ExampleComponent,
     ViewCategoryComponent,
     GraphicsComponent,
+    ViewProductComponent
   ],
   imports: [
     BrowserModule,

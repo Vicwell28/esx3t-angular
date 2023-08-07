@@ -1,7 +1,9 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IProduct } from 'src/app/core/interfaces/product/IProduct';
 import { IViewCategory } from 'src/app/core/interfaces/views/IViewCategory';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
+import { ProductService } from 'src/app/core/services/product/product.service';
 import { ViewCategoriesService } from 'src/app/core/services/views/view-categories.service';
 
 @Component({
@@ -12,6 +14,7 @@ import { ViewCategoriesService } from 'src/app/core/services/views/view-categori
 export class DashboardComponent implements OnInit {
 
   viewsCategories?: IViewCategory[] 
+
 
   constructor(
     private localStorageService: LocalStorageService,
@@ -36,6 +39,10 @@ export class DashboardComponent implements OnInit {
         console.log(err);
       }
     })
+ 
+
+
+
   }
 
   profile() {

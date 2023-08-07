@@ -4,6 +4,7 @@ import { DashboardComponent } from './main/dashboard.component';
 import { authGuard } from 'src/app/core/guards/auth.guard';
 import { ViewCategoryComponent } from './view-category/view-category.component';
 import { GraphicsComponent } from './graphics/graphics.component';
+import { ViewProductComponent } from './products/view-product/view-product.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
       {
         path: 'categories',
         component: ViewCategoryComponent,
+      },
+      {
+        path: 'productos',
+        component: ViewProductComponent,
       },
     ],
   },
