@@ -12,6 +12,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ViewComponent } from './views/view/view.component';
 import { SaleComponent } from './sale/sale.component';
+import { UserComponent } from './user/user.component';
 // import { BarChartModule } from '@swimlane/ngx-charts';
 
 @NgModule({
@@ -22,6 +23,7 @@ import { SaleComponent } from './sale/sale.component';
     GraphicsComponent,
     SaleComponent,
     ViewComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,

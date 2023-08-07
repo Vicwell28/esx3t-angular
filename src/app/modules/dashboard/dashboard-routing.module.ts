@@ -5,6 +5,7 @@ import { authGuard } from 'src/app/core/guards/auth.guard';
 import { ViewCategoryComponent } from './views/view-category/view-category.component';
 import { ViewComponent } from './views/view/view.component';
 import { SaleComponent } from './sale/sale.component';
+import { UserComponent } from './user/user.component';
 import { GraphicsComponent } from './graphics/graphics.component';
 
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
       {
         path: 'sales',
         component: SaleComponent,
+      },
+      {
+        path: 'users',
+        component: UserComponent,
       }
     ],
   },
