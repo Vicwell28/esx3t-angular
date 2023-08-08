@@ -1,13 +1,19 @@
 export interface IResponseViewRole {
   message: string;
-  data: IViewRole | IViewRole[];
+  data: IViewCategoryRole[];
+}
+
+export interface IViewCategoryRole {
+  category: string;
+  views: IViewRole[] | undefined;
 }
 
 export interface IViewRole {
   id: number;
-  view_id: number;
-  role_id: number;
+  name: string;
+  description: string;
+  view_category_id: number;
   status: boolean;
-  created_at: null;
-  updated_at: null;
+  url: string;
+  isChecked: boolean;
 }

@@ -13,10 +13,10 @@ import { errorDialog } from 'src/app/layout/components/alert';
 @Component({
   selector: 'app-view-product',
   templateUrl: './view-product.component.html',
-  styleUrls: ['./view-product.component.css']
+  styleUrls: ['./view-product.component.css', '../../style-table.css']
 })
 export class ViewProductComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'price','status', 'options'];
+  displayedColumns: string[] = ['id', 'name', 'price' , 'status', 'options'];
   dataSource: any = [];
   dialogRef?: MatDialogRef<DialogsFormProductComponent>;
   isLoadingPDF = false;

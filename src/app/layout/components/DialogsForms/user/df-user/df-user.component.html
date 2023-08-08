@@ -1,0 +1,74 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="container-form">
+  <div>
+    <p class="title">{{ title }}</p>
+    <div class="inputGroup">
+      <input type="text" required="" autocomplete="off" formControlName="username" />
+      <label for="username">username</label>
+    </div>
+    <div class="inputGroup">
+      <input type="email" required="" autocomplete="off" formControlName="email" />
+      <label for="email">email</label>
+    </div>
+    <div class="inputGroup">
+      <input type="password" required="" autocomplete="off" formControlName="password" />
+      <label for="password">password</label>
+    </div>
+    <div class="inputGroup">
+      <input type="text" required="" autocomplete="off" formControlName="fname" />
+      <label for="fname">fname</label>
+    </div>
+    <div class="inputGroup">
+      <input type="text" required="" autocomplete="off" formControlName="lname" />
+      <label for="lname">lname</label>
+    </div>
+    <div class="inputGroup inputGroupDate">
+      <input type="date" required="" autocomplete="off" formControlName="date_birth" />
+      <label for="date_birth">date_birth</label>
+    </div>
+    <div class="inputGroup">
+      <input type="text" required="" autocomplete="off" formControlName="rfc" />
+      <label for="rfc">rfc</label>
+    </div>
+    <div class="inputGroup">
+      <input type="text" required="" autocomplete="off" formControlName="address" />
+      <label for="address">address</label>
+    </div>
+    <div class="inputGroup">
+      <input type="text" required="" autocomplete="off" formControlName="postal_code" />
+      <label for="postal_code">postal_code</label>
+    </div>
+  </div>
+
+  <div class="inputGroup inputGroupSelect">
+    <select name="role_id" formControlName="role_id" id="role_id">
+      
+      <option *ngFor="let role of roles" [value]="role.id">{{ role.name }}</option>
+    </select>
+    <label for="role_id">role</label>
+  </div>
+
+  <div class="inputGroup inputGroupSelect">
+    <select name="branche_id" formControlName="branche_id" id="branche_id">
+      
+      <option *ngFor="let branch of branches" [value]="branch.id">{{ branch.name }}</option>
+    </select>
+    <label for="branche_id">branch</label>
+  </div>
+
+  <div class="inputGroup inputGroupSelect">
+    <select name="cyie_id" formControlName="city_id" id="city_id">
+      
+      <option *ngFor="let city of cities" [value]="city.id">{{ city.name }}</option>
+    </select>
+    <label for="city_id">city</label>
+  </div>
+
+  <div class="end-button">
+    <button class="btn-deg" type="submit" class="loading-button-black  btn-deg" [class.loading-button]="isLoading">
+      {{ this.textButton }}
+    </button>
+    <button class="btn-cancel" type="button" (click)="onClose()">
+      Cancelar
+    </button>
+  </div>
+</form>

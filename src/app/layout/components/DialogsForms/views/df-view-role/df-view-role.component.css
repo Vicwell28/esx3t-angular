@@ -1,0 +1,49 @@
+label {
+  padding: 0.7rem 1.5rem;
+  border-radius: 1.5rem;
+  border: 2px solid black;
+  color: black;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="checkbox"]:checked + label {
+  background-color: #264653;
+  border: 2px solid white;
+  color: white;
+}
+
+input[type="checkbox"]:checked + label::before {
+  background-color: #fff;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.accordion-body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.accordion {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion-item,
+.accordion-header,
+.accordion-button {
+  border-radius: 1rem !important;
+}
+
+.accordion-button {
+  padding: 0.8rem !important;
+}

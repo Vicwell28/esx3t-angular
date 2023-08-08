@@ -1,9 +1,16 @@
 // import { Role } from "./Role";
 
-// export interface User {
-//   role_id: number;
-//   username: string;
-//   email: string;
-//   id: number;
-//   role: Role;
-// }
+export interface IBranch {
+    address: string;
+    citie_id: number;
+    city: string;
+    id: number;
+    name: string;
+    postal_code: string;
+    status: boolean;
+}
+
+export interface IResponseBranch {
+    message: string;
+    data: IBranch | IBranch[];
+}

@@ -7,19 +7,19 @@ import * as ExcelJS from 'exceljs';
 import { jsPDF } from 'jspdf';
 import { IViewCategory } from 'src/app/core/interfaces/views/IViewCategory';
 import { ViewCategoriesService } from 'src/app/core/services/views/view-categories.service';
-import { FormDialogComponent } from 'src/app/layout/components/DialogsForms/form-dialog/form-dialog.component';
+import { DialogsFormViewCategoryComponent } from 'src/app/layout/components/DialogsForms/views/df-view-category/df-view-category.component';
 import { errorDialog } from 'src/app/layout/components/alert';
 
 @Component({
   selector: 'app-view-category',
   templateUrl: './view-category.component.html',
-  styleUrls: ['./view-category.component.css', '../style-table.css'],
+  styleUrls: ['./view-category.component.css', '../../style-table.css'],
 })
 export class ViewCategoryComponent implements AfterViewInit {
   // Propiedades del componente
   displayedColumns: string[] = ['id', 'name', 'status', 'options'];
   dataSource: any = [];
-  dialogRef?: MatDialogRef<FormDialogComponent>;
+  dialogRef?: MatDialogRef<DialogsFormViewCategoryComponent>;
   isLoadingPDF = false;
   isLoadingExcel = false;
   isLoadingRelaod = false;
@@ -49,7 +49,7 @@ export class ViewCategoryComponent implements AfterViewInit {
     isEdit: boolean,
     id?: string | number | undefined
   ): void {
-    this.dialogRef = this.dialog.open(FormDialogComponent, {
+    this.dialogRef = this.dialog.open(DialogsFormViewCategoryComponent, {
       width: '50%',
       height: '90%',
       enterAnimationDuration,

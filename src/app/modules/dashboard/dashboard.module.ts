@@ -4,15 +4,18 @@ import { DashboardComponent } from './main/dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { MaterialModule } from 'src/app/shared/components/material/material.app.module';
 import { ExampleComponent } from './example/example.component';
-import { ViewCategoryComponent } from './view-category/view-category.component';
+import { ViewCategoryComponent } from './views/view-category/view-category.component';
 import { GraphicsComponent } from './graphics/graphics.component';
 import { LayoutAppModule } from 'src/app/layout/layout.app.module';
 import { FormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ViewProductComponent } from './products/view-product/view-product.component';
+import { ViewComponent } from './views/view/view.component';
+import { SaleComponent } from './sale/sale.component';
+import { RoleViewComponent } from './views/role-view/role-view.component';
+import { UserComponent } from './user/user.component';
 // import { BarChartModule } from '@swimlane/ngx-charts';
-
 
 @NgModule({
   declarations: [
@@ -20,7 +23,11 @@ import { ViewProductComponent } from './products/view-product/view-product.compo
     ExampleComponent,
     ViewCategoryComponent,
     GraphicsComponent,
-    ViewProductComponent
+    ViewProductComponent,
+    SaleComponent,
+    ViewComponent,
+    RoleViewComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,3 +43,5 @@ import { ViewProductComponent } from './products/view-product/view-product.compo
   bootstrap: [],
 })
 export class DashboarAppdModule {}
+
+

@@ -29,33 +29,3 @@ export class AuthService {
   }
 
 }
-
-// @Injectable({
-//   providedIn: 'root',
-// })
-// export class AuthService {
-//   constructor(private http: HttpClient) {}
-
-//   private apiUrl = `${environment.apiUrl}car`;
-
-//   public indexUsers(): Observable<any> {
-//     return this.http.get(`${this.apiUrl}`);
-//   }
-
-//   public storeUser(user: any): Observable<any> {
-//     return this.http.post(`${this.apiUrl}`, user);
-//   }
-
-//   public showUser(id: number): Observable<any> {
-//     return this.http.get(`${this.apiUrl}/${id}`);
-//   }
-
-//   public updateUser(id: number, user: any): Observable<any> {
-//     return this.http.put(`${this.apiUrl}/${id}`, user);
-//   }
-
-//   public destroyUser(id: number): Observable<any> {
-//     return this.http.delete(`${this.apiUrl}/${id}`);
-//   }
-// }
-
