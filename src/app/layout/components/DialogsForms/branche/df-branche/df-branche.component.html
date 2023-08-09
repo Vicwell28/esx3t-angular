@@ -33,15 +33,15 @@
       </div>
 
       <div class="inputGroup">
-        <input
-          type="number"
-          required=""
-          autocomplete="off"
-          formControlName="citie_id"
-        />
-        <label for="citie_id">City</label>
-      </div>
 
+        <mat-form-field>
+          <mat-label>Cities</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let city of cities" [value]="city.id">{{ city.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      
     </div>
   
     <div class="end-button">

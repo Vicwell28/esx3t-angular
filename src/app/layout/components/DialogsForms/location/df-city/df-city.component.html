@@ -13,14 +13,15 @@
       </div>
   
       <div class="inputGroup">
-        <input
-          type="number"
-          required=""
-          autocomplete="off"
-          formControlName="state_id"
-        />
-        <label for="state_id">State</label>
+
+        <mat-form-field>
+          <mat-label>States</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let state of states" [value]="state.id">{{ state.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
+      
     </div>
   
     <div class="end-button">

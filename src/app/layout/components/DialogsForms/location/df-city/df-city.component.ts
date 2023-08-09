@@ -3,7 +3,9 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { errorDialog, successDialog } from '../../../alert';
 import { CityService } from 'src/app/core/services/location/city.service';
+import { StateService } from 'src/app/core/services/location/state.service';
 import { ICity } from 'src/app/core/interfaces/location/ICity';
+import { IState } from 'src/app/core/interfaces/location/IState';
 
 @Component({
   selector: 'app-df-city',
@@ -15,7 +17,8 @@ export class DialogsFormCityComponent implements OnInit {
     public dialogRef: MatDialogRef<DialogsFormCityComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
-    private CityService: CityService
+    private CityService: CityService,
+    private StateService: StateService
   ) {
     // Initialize the form with required fields and set their initial values
     this.myForm = this.formBuilder.group({
@@ -24,6 +27,7 @@ export class DialogsFormCityComponent implements OnInit {
     });
   }
 
+  states: IState[] = []
   // Indicates whether an existing category is being edited
   isEdit = false;
   // ID of the category in case of edit
@@ -47,6 +51,7 @@ export class DialogsFormCityComponent implements OnInit {
     if (this.isEdit) {
       this.fetchCitiesDetails(this.id!);
     }
+    this.fetchSatates();
   }
 
   // Fetches the details of an existing category and fills the form
@@ -63,6 +68,17 @@ export class DialogsFormCityComponent implements OnInit {
       error: (err) => {
         console.log(`Error: ${err}`);
         errorDialog('Hubo un error al obtener la información de la Ciudad.');
+      },
+    });
+  }
+
+  private fetchSatates() {
+    this.StateService.indexStates().subscribe({
+      next: (response) => {
+        const states = response.data;
+        if (Array.isArray(states)) {
+          this.states = states;
+        }
       },
     });
   }

@@ -4,6 +4,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { IBranch } from 'src/app/core/interfaces/branche/IBranch';
 import { BrancheService } from 'src/app/core/services/branche/branche.service';
 import { errorDialog, successDialog } from '../../../alert';
+import { CityService } from 'src/app/core/services/location/city.service';
+import { ICity } from 'src/app/core/interfaces/location/ICity';
 
 @Component({
   selector: 'app-df-branche',
@@ -15,7 +17,8 @@ export class DialogsFormBrancheComponent implements OnInit {
     public dialogRef: MatDialogRef<DialogsFormBrancheComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
-    private BrancheService: BrancheService
+    private BrancheService: BrancheService,
+    private CityService: CityService 
   ) {
     // Initialize the form with required fields and set their initial values
     this.myForm = this.formBuilder.group({
@@ -26,6 +29,7 @@ export class DialogsFormBrancheComponent implements OnInit {
     });
   }
 
+  cities: ICity[] = []
   // Indicates whether an existing category is being edited
   isEdit = false;
   // ID of the category in case of edit
@@ -49,6 +53,7 @@ export class DialogsFormBrancheComponent implements OnInit {
     if (this.isEdit) {
       this.fetchBranchesDetails(this.id!);
     }
+    this.fetchCities();
   }
 
   // Fetches the details of an existing category and fills the form
@@ -66,6 +71,17 @@ export class DialogsFormBrancheComponent implements OnInit {
       error: (err) => {
         console.log(`Error: ${err}`);
         errorDialog('Hubo un error al obtener la información de la Cedis.');
+      },
+    });
+  }
+
+  private fetchCities() {
+    this.CityService.indexCities().subscribe({
+      next: (response) => {
+        const cities = response.data;
+        if (Array.isArray(cities)) {
+          this.cities = cities;
+        }
       },
     });
   }
