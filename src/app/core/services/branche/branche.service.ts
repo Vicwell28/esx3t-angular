@@ -17,4 +17,19 @@ export class BrancheService {
     return this.http.get<IResponseBranch>(`${this.apiUrl}`);
   }
 
+  public storeBranches(branch: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}`, branch);
+  }
+
+  public showBranches(id: number): Observable<IResponseBranch> {
+    return this.http.get<IResponseBranch>(`${this.apiUrl}/${id}`);
+  }
+
+  public updateBranches(id: number, branch: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, branch);
+  }
+
+  public destroyBranches(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
 }

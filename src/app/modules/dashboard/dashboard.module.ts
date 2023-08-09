@@ -16,6 +16,9 @@ import { SaleComponent } from './sale/sale.component';
 import { SaleDetailComponent } from './saleDetails/sale-detail.component';
 import { RoleViewComponent } from './views/role-view/role-view.component';
 import { UserComponent } from './user/user.component';
+import { StatesComponent } from './states/states.component';
+import { CitiesComponent } from './cities/cities.component';
+import { BranchesComponent } from './branches/branches.component';
 // import { BarChartModule } from '@swimlane/ngx-charts';
 
 @NgModule({
@@ -30,6 +33,9 @@ import { UserComponent } from './user/user.component';
     ViewComponent,
     RoleViewComponent,
     UserComponent,
+    StatesComponent,
+    CitiesComponent,
+    BranchesComponent,
   ],
   imports: [
     BrowserModule,

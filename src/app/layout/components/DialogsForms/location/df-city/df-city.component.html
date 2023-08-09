@@ -1,1 +1,40 @@
-<p>df-city works!</p>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="container-form">
+    <div>
+      <p class="title">{{ title }}</p>
+  
+      <div class="inputGroup">
+        <input
+          type="text"
+          required=""
+          autocomplete="off"
+          formControlName="name"
+        />
+        <label for="name">Name</label>
+      </div>
+  
+      <div class="inputGroup">
+        <input
+          type="number"
+          required=""
+          autocomplete="off"
+          formControlName="state_id"
+        />
+        <label for="state_id">State</label>
+      </div>
+    </div>
+  
+    <div class="end-button">
+      <button
+        class="btn-deg"
+        type="submit"
+        class="loading-button-black  btn-deg"
+        [class.loading-button]="isLoading"
+      >
+        {{ this.textButton }}
+      </button>
+      <button class="btn-cancel" type="button" (click)="onClose()">
+        Cancelar
+      </button>
+    </div>
+  </form>
+  

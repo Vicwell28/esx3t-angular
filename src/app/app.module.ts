@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './main/app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboarAppdModule } from './modules/dashboard/dashboard.module';
