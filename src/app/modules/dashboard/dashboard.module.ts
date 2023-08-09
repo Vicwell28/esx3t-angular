@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ViewProductComponent } from './products/view-product/view-product.component';
 import { ViewComponent } from './views/view/view.component';
 import { SaleComponent } from './sale/sale.component';
+import { SaleDetailComponent } from './saleDetails/sale-detail.component';
 import { RoleViewComponent } from './views/role-view/role-view.component';
 import { UserComponent } from './user/user.component';
 import { StatesComponent } from './states/states.component';
@@ -28,6 +29,7 @@ import { BranchesComponent } from './branches/branches.component';
     GraphicsComponent,
     ViewProductComponent,
     SaleComponent,
+    SaleDetailComponent,
     ViewComponent,
     RoleViewComponent,
     UserComponent,

@@ -1,3 +1,5 @@
+import { IBranch } from "../branche/IBranch";
+import { IProduct } from "./IProduct";
 
 export interface IResponseProductBranch {
     message: string;
@@ -10,5 +12,8 @@ export interface IProductBranch {
   product_id: number;
   branche_id: number;
   status: boolean;
+  product: IProduct;
+  branch: IBranch;
+  isChecked: boolean ;
   
 }
