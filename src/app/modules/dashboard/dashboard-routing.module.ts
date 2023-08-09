@@ -8,6 +8,9 @@ import { SaleComponent } from './sale/sale.component';
 import { UserComponent } from './user/user.component';
 import { GraphicsComponent } from './graphics/graphics.component';
 import { RoleViewComponent } from './views/role-view/role-view.component';
+import { StatesComponent } from './states/states.component';
+import { CitiesComponent } from './cities/cities.component';
+import { BranchesComponent } from './branches/branches.component';
  
 const routes: Routes = [
   {
@@ -38,6 +41,18 @@ const routes: Routes = [
       {
         path: 'users',
         component: UserComponent,
+      },
+      {
+        path: 'states',
+        component: StatesComponent,
+      },
+      {
+        path: 'Cities',
+        component: CitiesComponent,
+      },
+      {
+        path: 'branches',
+        component: BranchesComponent,
       }
     ],
   },

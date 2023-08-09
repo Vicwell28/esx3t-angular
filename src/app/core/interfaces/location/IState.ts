@@ -1,9 +1,11 @@
-// import { Role } from "./Role";
 
-// export interface User {
-//   role_id: number;
-//   username: string;
-//   email: string;
-//   id: number;
-//   role: Role;
-// }
+export interface IState {
+    id: number;
+    name: string;
+    status: boolean;
+}
+
+export interface IResponseState {
+    message: string;
+    data: IState | IState[];
+}
