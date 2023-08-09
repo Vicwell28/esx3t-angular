@@ -1,9 +1,13 @@
-// import { Role } from "./Role";
+export interface IResponseOrder {
+    message: string;
+    data: IOrder;
+  }
 
-// export interface User {
-//   role_id: number;
-//   username: string;
-//   email: string;
-//   id: number;
-//   role: Role;
-// }
+export interface IOrder {
+    id: number;
+    date_order: number | null;
+    client_id: number;
+    employee_id: number;
+    status: boolean;
+
+}

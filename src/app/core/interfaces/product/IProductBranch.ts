@@ -1,9 +1,14 @@
-// import { Role } from "./Role";
 
-// export interface User {
-//   role_id: number;
-//   username: string;
-//   email: string;
-//   id: number;
-//   role: Role;
-// }
+export interface IResponseProductBranch {
+    message: string;
+    data: IProductBranch | IProductBranch[];
+  }
+
+export interface IProductBranch {
+  id: number;
+  stock: number;
+  product_id: number;
+  branche_id: number;
+  status: boolean;
+  
+}

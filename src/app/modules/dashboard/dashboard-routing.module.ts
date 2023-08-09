@@ -7,6 +7,7 @@ import { ViewComponent } from './views/view/view.component';
 import { SaleComponent } from './sale/sale.component';
 import { UserComponent } from './user/user.component';
 import { GraphicsComponent } from './graphics/graphics.component';
+import { ViewProductComponent } from './products/view-product/view-product.component';
 import { RoleViewComponent } from './views/role-view/role-view.component';
 import { StatesComponent } from './states/states.component';
 import { CitiesComponent } from './cities/cities.component';
@@ -27,7 +28,10 @@ const routes: Routes = [
         component: ViewCategoryComponent,
       },
       {
-        path: 'views',
+        path: 'productos',
+        component: ViewProductComponent,
+      },
+      { path: 'views',
         component: ViewComponent,
       },
       {
@@ -54,6 +58,10 @@ const routes: Routes = [
         path: 'branches',
         component: BranchesComponent,
       }
+      // {
+      //   path: 'orders',
+      //   component
+      // }
     ],
   },
 ];

@@ -10,6 +10,7 @@ import { LayoutAppModule } from 'src/app/layout/layout.app.module';
 import { FormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ViewProductComponent } from './products/view-product/view-product.component';
 import { ViewComponent } from './views/view/view.component';
 import { SaleComponent } from './sale/sale.component';
 import { RoleViewComponent } from './views/role-view/role-view.component';
@@ -25,6 +26,7 @@ import { BranchesComponent } from './branches/branches.component';
     ExampleComponent,
     ViewCategoryComponent,
     GraphicsComponent,
+    ViewProductComponent,
     SaleComponent,
     ViewComponent,
     RoleViewComponent,
