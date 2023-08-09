@@ -1,11 +1,12 @@
-export interface Welcome {
+export interface SaleDetailResponse {
   message: string;
-  data: Data;
+  data: SaleDetail[] | SaleDetail;
 }
 
-export interface Data {
+export interface SaleDetail {
   id: number;
   sale_id: number;
+  products: any;
   product_branche_id: number;
   quantity: number;
   status: boolean;

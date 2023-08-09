@@ -5,6 +5,7 @@ import { authGuard } from 'src/app/core/guards/auth.guard';
 import { ViewCategoryComponent } from './views/view-category/view-category.component';
 import { ViewComponent } from './views/view/view.component';
 import { SaleComponent } from './sale/sale.component';
+import { SaleDetailComponent } from './saleDetails/sale-detail.component';
 import { UserComponent } from './user/user.component';
 import { GraphicsComponent } from './graphics/graphics.component';
 import { ViewProductComponent } from './products/view-product/view-product.component';
@@ -38,6 +39,10 @@ const routes: Routes = [
       {
         path: 'sales',
         component: SaleComponent,
+      },
+      {
+        path: 'sales/detail',
+        component: SaleDetailComponent,
       },
       {
         path: 'users',

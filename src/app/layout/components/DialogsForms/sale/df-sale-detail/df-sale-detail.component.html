@@ -1,1 +1,74 @@
-<p>df-sale-detail works!</p>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="container-form">
+  <div>
+    <p class="title">{{ title }}</p>
+
+    <div style="display: flex" *ngFor="let product of productBranche">
+      <div class="inputGroup">
+        <input
+          type="text"
+          required=""
+          id="product-{{ product.id }}"
+          autocomplete="off"
+          style="flex: 2 1"
+          formControlName="quantity"
+        />
+        <label for="quantity">quantity</label>
+      </div>
+
+      <input
+        id="{{ product.id }}"
+        type="checkbox"
+        style="flex: 2 1"
+        [checked]="product.isChecked"
+        (change)="onCheckboxChange($event, product.id)"
+      />
+      <label for="{{ product.id }}">{{ product.product.name }}</label>
+    </div>
+
+    <!-- <div class="inputGroup inputGroupSelect">
+      <select
+        name="product_branche_id"
+        formControlName="product_branche_id"
+        id="product_branche_id"
+      >
+        <option *ngFor="let product of productBranche" [value]="product.id">
+          <b>{{ product.product.name }}</b> - {{ product.branch.name }}
+        </option>
+      </select>
+      <label for="product_branche_id">product</label>
+    </div> -->
+
+    <div class="inputGroup inputGroupSelect">
+      <select name="sale_id" formControlName="sale_id" id="sale_id">
+        <option *ngFor="let sale of sales" [value]="sale.id">
+          {{ sale.created_at }} -
+          {{ sale.client.fname || sale.client.username }}
+        </option>
+      </select>
+      <label for="sale_id">sale</label>
+    </div>
+
+    <div class="inputGroup">
+      <input
+        type="text"
+        required=""
+        autocomplete="off"
+        formControlName="quantity"
+      />
+      <label for="quantity">quantity</label>
+    </div>
+    <div class="end-button">
+      <button
+        class="btn-deg"
+        type="submit"
+        class="loading-button-black btn-deg"
+        [class.loading-button]="isLoading"
+      >
+        {{ this.textButton }}
+      </button>
+      <button class="btn-cancel" type="button" (click)="onClose()">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</form>
