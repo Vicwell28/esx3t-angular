@@ -60,7 +60,7 @@ const routes: Routes = [
         component: OrdersComponent
       },
       {
-        path: 'order/detail',
+        path: 'orders/detail',
         component: OrderDetailsComponent
       },
       {

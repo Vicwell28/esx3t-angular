@@ -1,27 +1,39 @@
 <form [formGroup]="fromulario" (ngSubmit)="onSubmit()" class="container-form">
-    <div>
-      <p class="title">{{ title }}</p>
-      <div class="inputGroup inputGroupSelect">
-        <select formControlName="client_id" name="client" id="client">
-          <option *ngFor="let client of clients" [value]="client.id">{{ client.fname || client.username }}</option>
-        </select>
-        <label for="name">Client</label>
-      </div>
+  <p class="title">{{ title }}</p>
   
-      <div class="inputGroup inputGroupSelect">
-        <select name="employee" formControlName="employee_id" id="employee">
-          <option *ngFor="let employee of employees" [value]="employee.id">{{ employee.fname || employee.username }}</option>
-        </select>
-        <label for="name">Employee</label>
-      </div>
+  <div>
+    
+
+    <div class="inputGroup inputGroupSelect">
+      <select name="employee_id" formControlName="employee_id" id="employee_id">
+        <option *ngFor="let employee of employees" [value]="employee.id">{{ employee.fname || employee.username }}</option>
+      </select>
+      <label for="employee_id">Employee</label>
     </div>
-  
-    <div class="end-button">
-      <button class="btn-deg" type="submit" class="loading-button-black  btn-deg" [class.loading-button]="isLoading">
-        {{ this.textButton }}
-      </button>
-      <button class="btn-cancel" type="button" (click)="onClose()">
-        Cancelar
-      </button>
+  </div>
+
+    <div class="inputGroup inputGroupSelect">
+      <select formControlName="client_id" name="client_id" id="client_id">
+        <option *ngFor="let client of clients" [value]="client.id">{{ client.fname || client.username }}</option>
+      </select>
+      <label for="client_id">Client</label>
     </div>
-  </form>
+
+
+
+  <div class="end-button">
+    <button
+      class="btn-deg"
+      type="submit"
+      class="loading-button-black  btn-deg"
+      [class.loading-button]="isLoading"
+    >
+      {{ this.textButton }}
+    </button>
+    <button class="btn-cancel" type="button" (click)="onClose()">
+      Cancelar
+    </button>
+  </div>
+</form>
+
+

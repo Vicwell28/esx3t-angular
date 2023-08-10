@@ -46,7 +46,7 @@ export class DialogsFormProductCategoryComponent implements OnInit {
       this.isEdit = this.data.isEdit;
       this.id = this.data.id;
       this.textButton = this.isEdit ? 'Confirmar Cambios' : 'Agregar';
-      this.title = this.isEdit ? 'Actualizar Producto' : 'Agregar Producto';
+      this.title = this.isEdit ? 'Actualizar Categoria' : 'Agregar Categoria';
   
       // If editing an existing category, fetch its details and fill the form
       if (this.isEdit) {

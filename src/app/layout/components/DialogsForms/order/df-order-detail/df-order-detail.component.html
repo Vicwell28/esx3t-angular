@@ -1,1 +1,52 @@
-<p>df-order-detail works!</p>
+<form [formGroup]="fromulario" (ngSubmit)="onSubmit()" class="container-form">
+    <div>
+      <p class="title">{{ title }}</p>
+  
+      <div class="inputGroup">
+        <input
+          type="text"
+          required=""
+          autocomplete="off"
+          formControlName="quantity"
+        />
+        <label for="stock">Quantity</label>
+      </div>
+
+      
+      <div class="inputGroup inputGroupSelect">
+          <select name="order_id" formControlName="order_id" id="order_id">
+            
+            <option *ngFor="let order of orders" [value]="order.id">{{ order.id || order.date_order }}</option>
+          </select>
+          <label for="order_id">Orden</label>
+      </div>
+    
+     <!-- <div class="inputGroup inputGroupSelect">
+    <select name="product_id" formControlName="product_id" id="product_id">
+      
+      <option *ngFor="let product of products" [value]="product.id">{{ product.name }}</option>
+    </select>
+    <label for="product_id">Products</label>
+  </div> -->
+    </div>
+
+        
+  
+    <div class="end-button">
+      <button
+        class="btn-deg"
+        type="submit"
+        class="loading-button-black  btn-deg"
+        [class.loading-button]="isLoading"
+      >
+        {{ this.textButton }}
+      </button>
+      <button class="btn-cancel" type="button" (click)="onClose()">
+        Cancelar
+      </button>
+    </div>
+  </form>
+
+
+
+

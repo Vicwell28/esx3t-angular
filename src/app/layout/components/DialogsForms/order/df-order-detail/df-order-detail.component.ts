@@ -12,6 +12,8 @@ import { UserService } from 'src/app/core/services/user/user.service';
 import { IResponseUser, IUser } from 'src/app/core/interfaces/user/IUser';
 import { RoleService } from 'src/app/core/services/user/role.service';
 import { IResponseRole } from 'src/app/core/interfaces/user/IRole';
+import { OrderDetailService } from 'src/app/core/services/order/order-detail.service';
+import { IOrderDetail } from 'src/app/core/interfaces/order/IOrderDetail';
 
 @Component({
   selector: 'app-df-order-detail',
@@ -26,25 +28,23 @@ export class DialogsFormOrderDetailComponent implements OnInit {
           private formBuilder: FormBuilder,
           private ProductsService: ProductService,
           private OrderService: OrderService,
+          private orderDetService: OrderDetailService,
           private userService: UserService,
           private rolService: RoleService
         ) {
           // Initialize the form with required fields and set their initial values
           this.fromulario = this.formBuilder.group({
-            client_id: ['', Validators.required],
-            employee_id: ['', Validators.required],
+            order_id: ['1', Validators.required],
+            product_branche_id: ['', Validators.required],
+            quantity: ['', Validators.required],
          
           });
         }
   
 
 
-    users: IResponseUser[] = []
-    usersE: IUser[] = []
-    usersC: IUser[] = []
-    roles : IResponseRole[] =[]
+    
     orders : IOrder [] = []
-
 
     // Indicates whether an existing category is being edited
     isEdit = false;
@@ -69,19 +69,19 @@ export class DialogsFormOrderDetailComponent implements OnInit {
       if (this.isEdit) {
         this.fetcOrderDetails(this.id!);
       }
-      this.fetchUsers();
-  
-      this.cargarClientes() 
+   
+      this.fetchOrders();
     }
   
     // Fetches the details of an existing category and fills the form
     private fetcOrderDetails(id: number): void {
-      this.OrderService.showOrder(id).subscribe({
+      this.orderDetService.showOrderD(id).subscribe({
         next: (response) => {
-          const orders: IOrder = response.data as IOrder;
+          const orders: IOrderDetail = response.data as IOrderDetail;
           this.fromulario.patchValue({
-            client_id: orders.client_id,
-            employee_id: orders.employee_id
+            order_id: orders.order_id,
+            product_branche_id: orders.product_branche_id,
+            quantity: orders.quantity
           });
         },
         error: (err) => {
@@ -91,32 +91,18 @@ export class DialogsFormOrderDetailComponent implements OnInit {
       });
     }
 
-    
-      private fetchUsers() {
-        this.userService.indexUser().subscribe({
-          next: (response) => {
-            const usuarios = response.data;
-            if (Array.isArray(usuarios)) {
-              this.users = usuarios;
-            }
-          },
-        });
-      }
 
-    private cargarClientes() {
-      this.userService.indexUser().subscribe({
-        next: (response: IResponseUser) => {
-          const users = response.data;
-          const userC = users.filter((user: IUser) => user.role_id === 2);
-          if (Array.isArray(userC)) {
-            this.usersC = userC;
+    private fetchOrders() {
+      this.orderDetService.indexOrderD().subscribe({
+        next: (response) => {
+          const orders = response.data;
+          if (Array.isArray(orders)) {
+            this.orders = orders;
           }
         },
-        error: (error) => {
-          console.error('Error al cargar los empleados:', error);
-        }
       });
     }
+
 
 
     onSubmit(): void {
@@ -124,7 +110,7 @@ export class DialogsFormOrderDetailComponent implements OnInit {
         return;
       }
   
-      const order: IOrder = this.fromulario.value;
+      const order: IOrderDetail = this.fromulario.value;
   
       this.isLoading = true;
   

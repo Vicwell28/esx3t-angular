@@ -11,9 +11,9 @@ import { IResponseUser, IUser } from 'src/app/core/interfaces/user/IUser';
 @Component({
   selector: 'app-df-order',
   templateUrl: './df-order.component.html',
-  styleUrls: ['./df-order.component.css']
+  styleUrls: ['./df-order.component.css', '../../df-style.css']
 })
-export class DialogsFormOrderComponent {
+export class DialogsFormOrderComponent  implements OnInit {
 
   constructor(
           public dialogRef: MatDialogRef<DialogsFormOrderComponent>,
@@ -31,12 +31,9 @@ export class DialogsFormOrderComponent {
           });
         }
   
-   // users: IResponseUser[] = []
     clients:IUser[] = [];
     employees:IUser[] = [];
-    //roles : IResponseRole[] =[]
-    //orders : IOrder [] = []
-
+  
 
     // Indicates whether an existing category is being edited
     isEdit = false;
@@ -82,17 +79,7 @@ export class DialogsFormOrderComponent {
       });
     }
 
-    
-      // private fetchUsers() {
-      //   this.userService.indexUser().subscribe({
-      //     next: (response) => {
-      //       const usuarios = response.data;
-      //       if (Array.isArray(usuarios)) {
-      //         this.users = usuarios;
-      //       }
-      //     },
-      //   });
-      // }
+
 
       private cargarClientes(){
         this.userService.indexUser().subscribe({

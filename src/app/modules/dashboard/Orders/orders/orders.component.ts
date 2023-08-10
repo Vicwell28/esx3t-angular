@@ -17,30 +17,35 @@ import { IOrder } from 'src/app/core/interfaces/order/IOrder';
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.css','../../style-table.css']
 })
-export class OrdersComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'client_id', 'employee_id' , 'date_order','status'];
+export class OrdersComponent  implements AfterViewInit {
+  // Propiedades del componente
+  displayedColumns: string[] = ['id', 'client', 'employee', 'date_order', 'options'];
   dataSource: any = [];
   dialogRef?: MatDialogRef<DialogsFormOrderComponent>;
   isLoadingPDF = false;
   isLoadingExcel = false;
   isLoadingRelaod = false;
   isLoadingRefresh = false;
-  EXCEL_FILE_NAME = 'dataProduct.xlsx';
+  EXCEL_FILE_NAME = 'data.xlsx';
 
+  // ViewChild para paginator y sort
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild('dataTable') pdfContent!: ElementRef;
 
-  constructor(private dialog: MatDialog, private orderService:OrderService) {}
+  // Constructor e inyección de dependencias
+  constructor(
+    private dialog: MatDialog,
+    private orderService: OrderService
+  ) {}
 
-    // Método que se ejecuta después de cargar la vista
-    ngAfterViewInit() {
-      this.getAllProducts();
-    }
-  
+  // Método que se ejecuta después de cargar la vista
+  ngAfterViewInit() {
+    this.getAllCategories();
+  }
 
-   // Método para abrir el diálogo de edición/creación de categoría de vista
-   openDialog(
+  // Método para abrir el diálogo de edición/creación de categoría de vista
+  openDialog(
     enterAnimationDuration: string,
     exitAnimationDuration: string,
     isEdit: boolean,
@@ -48,7 +53,7 @@ export class OrdersComponent implements AfterViewInit {
   ): void {
     this.dialogRef = this.dialog.open(DialogsFormOrderComponent, {
       width: '50%',
-      height: '90%',
+      height: '30%',
       enterAnimationDuration,
       exitAnimationDuration,
       data: {
@@ -60,10 +65,11 @@ export class OrdersComponent implements AfterViewInit {
     this.dialogRef.afterClosed().subscribe((res) => {
       console.log('Diálogo cerrado');
       console.log('Resultado:', res);
-      this.getAllProducts();
+      this.getAllCategories();
     });
   }
 
+  // Método para generar el PDF
   generatePDF() {
     this.isLoadingPDF = true;
 
@@ -76,17 +82,17 @@ export class OrdersComponent implements AfterViewInit {
     // this.isLoadingPDF = false;
   }
 
-    // Método para aplicar el filtro a la tabla
-    applyFilter(event: Event) {
-      const filterValue = (event.target as HTMLInputElement).value;
-      this.dataSource.filter = filterValue.trim().toLowerCase();
-  
-      if (this.dataSource.paginator) {
-        this.dataSource.paginator.firstPage();
-      }
-    }
+  // Método para aplicar el filtro a la tabla
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
 
-     // Método para exportar los datos a Excel
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+  // Método para exportar los datos a Excel
   exportToExcel(): void {
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet('My Sheet');
@@ -121,7 +127,7 @@ export class OrdersComponent implements AfterViewInit {
   }
 
   // Método para obtener todas las categorías
-  getAllProducts(): void {
+  getAllCategories(): void {
     this.isLoadingRefresh = true;
 
     this.orderService.indexOrder().subscribe({
@@ -143,7 +149,6 @@ export class OrdersComponent implements AfterViewInit {
     });
   }
 
-  
   // Método para cambiar el estado de una categoría
   changeStatus(id: number): void {
     const index = this.dataSource.data.findIndex((item: any) => item.id === id);
@@ -165,7 +170,5 @@ export class OrdersComponent implements AfterViewInit {
       },
     });
   }
-
-
-
+  
 }

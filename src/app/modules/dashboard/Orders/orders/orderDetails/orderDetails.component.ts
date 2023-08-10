@@ -17,7 +17,7 @@ import { DialogsFormOrderDetailComponent } from 'src/app/layout/components/Dialo
   styleUrls: ['./orderDetails.component.css', '../../../style-table.css']
 })
 export class OrderDetailsComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'quantity', 'product_branche_id' , 'order_id','status'];
+  displayedColumns: string[] = ['id', 'name', 'quantity', 'product_branche_id' , 'order_id','status'];
   dataSource: any = [];
   dialogRef?: MatDialogRef<DialogsFormOrderDetailComponent>;
   isLoadingPDF = false;

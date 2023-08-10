@@ -26,7 +26,7 @@
       class="loading-button-black button btn-shw"
       [class.loading-button]="isLoadingRefresh"
       role="button"
-      (click)="getAllProducts()"
+      (click)="getAllCategories()"
     >
       <mat-icon>refresh</mat-icon>
     </button>
@@ -61,15 +61,21 @@
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="client">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Client</th>
-          <td mat-cell *matCellDef="let row">{{ row.client.fname  || row.client.username}}</td>
-        </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="employee">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Employee</th>
-          <td mat-cell *matCellDef="let row">{{ row.employee.fname || row.employee.username }}</td>
+            <!-- Name Column -->
+            <ng-container matColumnDef="client">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Client</th>
+              <td mat-cell *matCellDef="let row">{{ row.client.fname  || row.client.username}}</td>
+            </ng-container>
+    
+            <!-- Name Column -->
+            <ng-container matColumnDef="employee">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Employee</th>
+              <td mat-cell *matCellDef="let row">{{ row.employee.fname || row.employee.username }}</td>
+            </ng-container>
+            
+        <ng-container matColumnDef="date_order">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Date_order</th>
+          <td mat-cell *matCellDef="let row">{{ row.date_order}}</td>
         </ng-container>
 
         <!-- Name Column -->
