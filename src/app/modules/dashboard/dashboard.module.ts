@@ -36,6 +36,7 @@ import { CategoryproductsComponent } from './products/categoryproducts/categoryp
     SaleDetailComponent,
     ViewComponent,
     RoleViewComponent,
+    UserComponent,  
     UserComponent,
     OrdersComponent,
     OrderDetailsComponent,
