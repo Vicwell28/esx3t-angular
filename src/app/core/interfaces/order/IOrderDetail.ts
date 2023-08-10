@@ -1,9 +1,13 @@
-// import { Role } from "./Role";
+export interface IResponseOrderDetail {
+    message: string;
+    data: IOrderDetail;
+}
 
-// export interface User {
-//   role_id: number;
-//   username: string;
-//   email: string;
-//   id: number;
-//   role: Role;
-// }
+
+export interface IOrderDetail {
+  id: number;
+  order_id: number;
+  product_branche_id: number;
+  quantity:number;
+  status: boolean;
+}

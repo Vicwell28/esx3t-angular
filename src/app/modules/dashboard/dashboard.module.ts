@@ -10,10 +10,15 @@ import { LayoutAppModule } from 'src/app/layout/layout.app.module';
 import { FormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ViewProductComponent } from './products/view-product/view-product.component';
 import { ViewComponent } from './views/view/view.component';
 import { SaleComponent } from './sale/sale.component';
+import { SaleDetailComponent } from './saleDetails/sale-detail.component';
 import { RoleViewComponent } from './views/role-view/role-view.component';
 import { UserComponent } from './user/user.component';
+import { StatesComponent } from './states/states.component';
+import { CitiesComponent } from './cities/cities.component';
+import { BranchesComponent } from './branches/branches.component';
 // import { BarChartModule } from '@swimlane/ngx-charts';
 
 @NgModule({
@@ -22,10 +27,16 @@ import { UserComponent } from './user/user.component';
     ExampleComponent,
     ViewCategoryComponent,
     GraphicsComponent,
+    ViewProductComponent,
     SaleComponent,
+    SaleDetailComponent,
     ViewComponent,
     RoleViewComponent,
     UserComponent,  
+    UserComponent,
+    StatesComponent,
+    CitiesComponent,
+    BranchesComponent,
   ],
   imports: [
     BrowserModule,
