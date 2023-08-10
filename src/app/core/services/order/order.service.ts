@@ -15,23 +15,23 @@ export class OrderService {
 
   private apiUrl = `${environment.apiUrl}order`;
 
-  public indexProduct(): Observable<IResponseOrder> {
+  public indexOrder(): Observable<IResponseOrder> {
     return this.http.get<IResponseOrder>(`${this.apiUrl}`);
   }
 
-  public storeProduct(order: any): Observable<any> {
+  public storeOrder(order: any): Observable<any> {
     return this.http.post(`${this.apiUrl}`, order);
   }
 
-  public showProduct(id: number): Observable<IResponseOrder> {
+  public showOrder(id: number): Observable<IResponseOrder> {
     return this.http.get<IResponseOrder>(`${this.apiUrl}/${id}`);
   }
 
-  public updateProduct(id: number, order: any): Observable<any> {
+  public updateOrder(id: number, order: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/${id}`, order);
   }
 
-  public destroyProduct(id: number): Observable<any> {
+  public destroyOrder(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
 

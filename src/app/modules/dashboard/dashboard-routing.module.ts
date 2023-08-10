@@ -9,6 +9,8 @@ import { UserComponent } from './user/user.component';
 import { GraphicsComponent } from './graphics/graphics.component';
 import { ViewProductComponent } from './products/view-product/view-product.component';
 import { RoleViewComponent } from './views/role-view/role-view.component';
+import { OrdersComponent } from './Orders/orders/orders.component';
+import { OrderDetailsComponent } from './Orders/orders/orderDetails/orderDetails.component';
 
 const routes: Routes = [
   {
@@ -43,11 +45,15 @@ const routes: Routes = [
         path: 'users',
         component: UserComponent,
       },
-      // {
-      //   path: 'orders',
-      //   component
-      // }
-    ],
+      {
+        path: 'orders',
+        component: OrdersComponent
+      },
+      {
+        path: 'orderDetail',
+        component: OrderDetailsComponent
+      }
+      ],
   },
 ];
 

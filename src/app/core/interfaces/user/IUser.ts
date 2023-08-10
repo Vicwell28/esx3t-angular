@@ -2,10 +2,11 @@ import { Role } from '../auth/Role';
 
 export interface IResponseUser {
   message: string;
-  data: IUser;
+  data: IUser | IUser[];
 }
 
 export interface IUser {
+  [x: string]: any;
   id: number;
   username: string;
   email: string;

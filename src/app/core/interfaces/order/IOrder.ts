@@ -1,6 +1,6 @@
 export interface IResponseOrder {
     message: string;
-    data: IOrder;
+    data: IOrder | IOrder[];
   }
 
 export interface IOrder {
