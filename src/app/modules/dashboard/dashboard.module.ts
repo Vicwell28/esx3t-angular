@@ -13,11 +13,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ViewProductComponent } from './products/view-product/view-product.component';
 import { ViewComponent } from './views/view/view.component';
 import { SaleComponent } from './sale/sale.component';
+import { SaleDetailComponent } from './saleDetails/sale-detail.component';
 import { RoleViewComponent } from './views/role-view/role-view.component';
 import { UserComponent } from './user/user.component';
 import { OrdersComponent } from './Orders/orders/orders.component';
 import { OrderDetailsComponent } from './Orders/orders/orderDetails/orderDetails.component';
-// import { BarChartModule } from '@swimlane/ngx-charts';
+import { StatesComponent } from './states/states.component';
+import { CitiesComponent } from './cities/cities.component';
+import { BranchesComponent } from './branches/branches.component';
+import { ProductBranchesComponent } from './products/view-product/product-branches/product-branches.component';
+import { CategoryproductsComponent } from './products/categoryproducts/categoryproducts.component';
+//import { BarChartModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -27,11 +33,17 @@ import { OrderDetailsComponent } from './Orders/orders/orderDetails/orderDetails
     GraphicsComponent,
     ViewProductComponent,
     SaleComponent,
+    SaleDetailComponent,
     ViewComponent,
     RoleViewComponent,
     UserComponent,
     OrdersComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    StatesComponent,
+    CitiesComponent,
+    BranchesComponent,
+    ProductBranchesComponent,
+    CategoryproductsComponent
   ],
   imports: [
     BrowserModule,

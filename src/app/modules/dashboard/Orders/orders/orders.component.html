@@ -55,24 +55,22 @@
     >
       <table mat-table [dataSource]="dataSource" id="dataTable" matSort>
         <!-- ID Column -->
-        <ng-container matColumnDef="client_id">
+        <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
-          <td mat-cell *matCellDef="let row">{{ row.client_id }}</td>
+          <td mat-cell *matCellDef="let row">{{ row.id }}</td>
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="employee_id">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>employee_id</th>
-          <td mat-cell *matCellDef="let row">{{ row.employee_id }}</td>
-        </ng-container>
-        
-          
-        <ng-container matColumnDef="date_order">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
-          <td mat-cell *matCellDef="let row">{{ row.date_order }}</td>
+        <ng-container matColumnDef="client">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Client</th>
+          <td mat-cell *matCellDef="let row">{{ row.client.fname  || row.client.username}}</td>
         </ng-container>
 
-        
+        <!-- Name Column -->
+        <ng-container matColumnDef="employee">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Employee</th>
+          <td mat-cell *matCellDef="let row">{{ row.employee.fname || row.employee.username }}</td>
+        </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="status">
@@ -128,5 +126,3 @@
     </div>
   </section>
 </main>
-
-

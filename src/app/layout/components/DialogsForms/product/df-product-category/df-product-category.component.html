@@ -1,1 +1,41 @@
-<p>df-product-category works!</p>
+<form [formGroup]="fromulario" (ngSubmit)="onSubmit()" class="container-form">
+    <div>
+      <p class="title">{{ title }}</p>
+  
+      <div class="inputGroup">
+        <input
+          type="text"
+          required=""
+          autocomplete="off"
+          formControlName="name"
+        />
+        <label for="name">Category Name</label>
+      </div>
+  
+      <div class="inputGroup">
+        <input
+          type="text"
+          required=""
+          autocomplete="off"
+          formControlName="description"
+        />
+        <label for="description">Description</label>
+      </div>
+
+    
+    </div>
+  
+    <div class="end-button">
+      <button
+        class="btn-deg"
+        type="submit"
+        class="loading-button-black  btn-deg"
+        [class.loading-button]="isLoading"
+      >
+        {{ this.textButton }}
+      </button>
+      <button class="btn-cancel" type="button" (click)="onClose()">
+        Cancelar
+      </button>
+    </div>
+  </form>

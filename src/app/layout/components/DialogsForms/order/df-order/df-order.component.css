@@ -9,7 +9,7 @@
 
 .inputGroup {
   font-family: "Segoe UI", sans-serif;
-  margin: 1em 0 1em 0;
+  margin: 1em 0 1.8em 0;
   width: 100%;
   position: relative;
 }
@@ -60,7 +60,7 @@
 }
 
 .inputGroup :is(input:focus, input:valid) ~ label {
-  transform: translateY(-50%) scale(0.9);
+  transform: translateY(-60%) scale(0.9);
   margin: 0em;
   margin-left: 1.3em;
   padding: 0.4em;
@@ -72,7 +72,16 @@
 }
 
 .inputGroupSelect :is(select:enabled) ~ label {
-  transform: translateY(-50%) scale(0.9);
+  transform: translateY(-60%) scale(0.9);
+  margin: 0em;
+  height: auto;
+  margin-left: 1.3em;
+  padding: 0.4em;
+  margin-top: 0.5em;
+  background-color: white;
+}
+.inputGroupDate :is(input:enabled) ~ label {
+  transform: translateY(-60%) scale(0.9);
   margin: 0em;
   height: auto;
   margin-left: 1.3em;

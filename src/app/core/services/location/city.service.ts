@@ -17,4 +17,19 @@ export class CityService {
     return this.http.get<IResponseCity>(`${this.apiUrl}`);
   }
 
+  public storeCities(city: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}`, city);
+  }
+
+  public showCities(id: number): Observable<IResponseCity> {
+    return this.http.get<IResponseCity>(`${this.apiUrl}/${id}`);
+  }
+
+  public updateCities(id: number, city: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, city);
+  }
+
+  public destroyCities(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
 }
