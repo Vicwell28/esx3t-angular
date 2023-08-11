@@ -2,57 +2,31 @@
   <div class="detail-images col-f-6">
     <div class="detail-images-container col-f-12">
       <div class="detail-imagse-secondary col-f-1">
-        <div
-          class="detail-imagse-child"
-          style="background-image: url('/assets/camara.png')"
-        ></div>
-        <div
-          class="detail-imagse-child"
-          style="background-image: url('/assets/camara.png')"
-        ></div>
-        <div
-          class="detail-imagse-child"
-          style="background-image: url('/assets/camara.png')"
-        ></div>
-        <div
-          class="detail-imagse-child"
-          style="background-image: url('/assets/camara.png')"
-        ></div>
-        <div
-          class="detail-imagse-child"
-          style="background-image: url('/assets/camara.png')"
-        ></div>
-        <div
-          class="detail-imagse-child"
-          style="background-image: url('/assets/camara.png')"
-        ></div>
-        <div
-          class="detail-imagse-child"
-          style="background-image: url('/assets/camara.png')"
-        ></div>
-        <div
-          class="detail-imagse-child"
-          style="background-image: url('/assets/camara.png')"
-        ></div>
-        <div
-          class="detail-imagse-child"
-          style="background-image: url('/assets/camara.png')"
-        ></div>
+        <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
+        <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
+        <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
+        <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
+        <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
+        <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
+        <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
+        <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
+        <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
       </div>
-      <div
-        class="detail-imagse-principal col-f-11"
-        style="background-image: url('/assets/camara.png')"
-      ></div>
+      <div class="detail-imagse-principal col-f-11" style="background-image: url('{{ product.imagePath }}');  height: 100%;
+      object-fit: contain;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;"></div>
     </div>
   </div>
   <div class="detail-options col-f-6">
     <div class="detail-options-container col-f-12">
       <p class="branch">Apple</p>
       <p class="product-name">
-        IPhone 11 64GB Blanco Desbloqueado Apple Reacondicionado
+        {{ product.name }}
       </p>
-      <p class="price-n">$6,482.00</p>
-      <p class="price-c">$6,482.00</p>
+      <p class="price-n">{{ product.price }}</p>
+      <p class="price-c">{{ product.pricedescount }}</p>
       <p class="location center"><mat-icon>storefront</mat-icon> Torreón</p>
       <p class="location center"><mat-icon>storefront</mat-icon> Torreón</p>
       <p class="location center"><mat-icon>storefront</mat-icon> Torreón</p>
@@ -65,32 +39,15 @@
   <div class="detail-description col-f-12">
     <div class="detail-description-container col-f-12 row-f">
       <div class="col-f-4 frist-desc">
-        
+
       </div>
       <div class="col-f-8 frist-desc">
         <p class="title-desc">
-            Descripcion
+          Descripcion
         </p>
         <p class="body-desc">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt dolorum error aliquid rerum quae. Ipsa aut atque nobis, id, esse aperiam distinctio officiis adipisci facere ratione enim iusto amet ducimus! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam ab iste omnis ratione ea, aut sequi nihil hic amet repellendus accusamus nisi quasi corporis saepe modi officiis, laudantium sunt dignissimos? Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem inventore illo, magni voluptate quo perferendis asperiores provident dolores quaerat quasi recusandae iure distinctio cum mollitia architecto labore laboriosam ducimus omnis?
+          {{ product.description }}
         </p>
-      </div>
-    </div>
-  </div>
-  <div class="detail-comments col-f-12">
-    <div class="detail-comments-container col-f-12">
-      <p class="title-comments">Preguntas y respuestas</p>
-      <div class="qa-section">
-        <div class="question" *ngFor="let question of questions">
-          <p class="question-text">
-            {{ question.question }}
-          </p>
-          <div class="answers" *ngFor="let answers of question.answers">
-            <p class="answers-text">
-              {{ answers }}
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   </div>

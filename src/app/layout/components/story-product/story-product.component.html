@@ -1,17 +1,10 @@
-<div class="card-product col-f-10" 
-[style.flex-direction]="this.flexDirection"
->
+<div class="card-product col-f-10" [style.flex-direction]="this.flexDirection">
   <div class="card-product-body">
-    <p class="card-product-text-title">Title</p>
+    <p class="card-product-text-title">{{title}}</p>
     <div class="card-product-body-text">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime nobis
-      totam reprehenderit hic. Ex quisquam, dolor doloribus cupiditate quas
-      laudantium dolorem rem hic vero? Blanditiis minima ratione in eos et?
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, enim
-      doloremque minima fugit nulla vitae facilis a animi fuga error quae
-      commodi sit dolorum nihil officiis officia mollitia vel accusamus!
+      {{text}}
     </div>
-    <button class="card-product-body-button btn-deg" [style.margin-left]="this.marginLeft">Button</button>
+    <button class="card-product-body-button btn-deg" [style.margin-left]="this.marginLeft">Ir A Ver</button>
   </div>
   <div class="card-product-image" [style.background-image]="'url(' + img + ')'"></div>
 </div>

@@ -84,7 +84,7 @@
   align-items: stretch;
   flex-wrap: nowrap;
   flex-direction: row;
-  background-color: rgb(0, 0, 0, 0.1);
+  
   border-radius: 1rem;
   padding: 0.5rem;
 }
@@ -116,13 +116,15 @@
   overflow: hidden;
   cursor: pointer;
   background-color: white;
+    box-shadow: 0 0 10px 1px #dddddd;
 }
 
 .product-card-img {
-  height: 60%;
-  object-fit: cover;
-  background-size: cover;
+  height: 100%;
+  object-fit: contain;
+  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .product-card-text * {

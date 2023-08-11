@@ -26,14 +26,14 @@
 }
 
 .detail-imagse-child {
-  width: 100%;
   aspect-ratio: 1;
-  width: 100%;
-  aspect-ratio: 1;
-  background-size: contain;
-  background-position: center;
   border: black solid 1px;
   border-radius: 1rem;
+  height: 100%;
+  object-fit: contain;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .center {
@@ -96,9 +96,6 @@
 
 .answers {
   padding: 1rem;
-}
-
-.branch {
 }
 
 .price-n {

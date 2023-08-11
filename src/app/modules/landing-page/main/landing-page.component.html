@@ -7,27 +7,16 @@
         </li>
       </div>
       <div class="row-f col-f-7">
-        <li><a (click)="scrollToSection('second')">First</a></li>
-        <li><a (click)="scrollToSection('third')">Section Three</a></li>
-        <li><a (click)="scrollToSection('fourth')">Section Four</a></li>
-        <li><a (click)="scrollToSection('fifth')">Section Four</a></li>
+        <li><a (click)="scrollToSection('second')">Sobre Nosotros</a></li>
+        <li><a (click)="scrollToSection('third')">Consejos Seguridad</a></li>
       </div>
       <div class="row-f col-f-3">
         <li class="sign-in" *ngIf="!this.isAuth">
-          <a
-            routerLink="/sign-in"
-            class="btn-grad"
-            (click)="navigateTo('/sign-in')"
-            >Sing In</a
-          >
+          <a routerLink="/sign-in" class="btn-grad" (click)="navigateTo('/sign-in')">Sing In</a>
         </li>
         <li class="sign-in" *ngIf="this.isAuth">
           <div class="header-profile col-f-6">
-            <button
-              mat-icon-button
-              [matMenuTriggerFor]="menu"
-              aria-label="Example icon-button with a menu"
-            >
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
               <mat-icon>person</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
@@ -50,35 +39,122 @@
 <section id="introduction" class="row-f">
   <div class="intro-body row-f col-f-10">
     <div>
-      <p class="intro-title">Help local business owners</p>
-      <p class="intro-title text-grad">take back control.</p>
+      <p class="intro-title text-grad">Bienvenido a ESX3T</p>
+      <p class="intro-title" style="font-size: 3rem;">Tu socio en soluciones electrónicas y sistemas de seguridad</p>
     </div>
-    <p class="intro-desc">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ipsam
-      quae cupiditate in atque tempore dolorem pariatur aut exercitationem quis,
-      veritatis nisi magnam sapiente optio. Sequi tempore quia atque modi. Lorem
-      ipsum dolor sit amet consectetur, adipisicing elit. Illum, beatae neque!
-      Alias iste, corporis assumenda aliquid quae dolores hic, excepturi earum
-      aut id, blanditiis molestiae qui perferendis totam dignissimos vitae.
+    <p class="intro-desc" style="padding: 1rem;">
+      Innovación para tu mundo seguro: Descubre cómo transformamos la tecnología en tranquilidad.<br>
+      <br>
+      Explora, Elige, Protege: Tu destino para productos electrónicos y sistemas de seguridad de vanguardia.
     </p>
     <div class="intro-btn">
       <a>View Open Roles</a>
     </div>
     <div class="intro-images col-f-12">
-      <div class="intro-images-one col-f-2"></div>
-      <div class="intro-images-two col-f-2"></div>
+      <div class="intro-images-one col-f-2">
+        <div style="
+        background-image: url('/assets/camara.png');
+        height: 100%;
+        object-fit: contain;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        "></div>
+      </div>
+      <div class="intro-images-two col-f-2">
+        <div style="
+        background-image: url('/assets/Repetidor.png');
+        height: 100%;
+        object-fit: contain;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        "></div>
+      </div>
 
-      <div class="intro-images-one col-f-2"></div>
-      <div class="intro-images-two col-f-2"></div>
+      <div class="intro-images-one col-f-2">
+        <div style="
+        background-image: url('/assets/alexa2.png');
+        height: 100%;
+        object-fit: contain;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        "></div>
+      </div>
+      <div class="intro-images-two col-f-2">
+        <div style="
+        background-image: url('/assets/repetidor1.png');
+        height: 100%;
+        object-fit: contain;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        "></div>
+      </div>
 
-      <div class="intro-images-one col-f-2"></div>
-      <div class="intro-images-two col-f-2"></div>
+      <div class="intro-images-one col-f-2">
+        <div style="
+        background-image: url('/assets/pantalla.png');
+        height: 100%;
+        object-fit: contain;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        "></div>
+      </div>
+      <div class="intro-images-two col-f-2">
+        <div style="
+        background-image: url('/assets/cargador-rapido.png');
+        height: 100%;
+        object-fit: contain;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        "></div>
+      </div>
 
-      <div class="intro-images-one col-f-2"></div>
-      <div class="intro-images-two col-f-2"></div>
+      <div class="intro-images-one col-f-2">
+        <div style="
+        background-image: url('/assets/camara-deportiva.png');
+        height: 100%;
+        object-fit: contain;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        "></div>
+      </div>
+      <div class="intro-images-two col-f-2">
+        <div style="
+        background-image: url('/assets/bocina.png');
+        height: 100%;
+        object-fit: contain;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        "></div>
+      </div>
 
-      <div class="intro-images-one col-f-2"></div>
-      <div class="intro-images-two col-f-2"></div>
+      <div class="intro-images-one col-f-2">
+        <div style="
+        background-image: url('/assets/antena-wifi.png');
+        height: 100%;
+        object-fit: contain;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        "></div>
+      </div>
+      <div class="intro-images-two col-f-2">
+        <div style="
+        background-image: url('/assets/alexa.png');
+        height: 100%;
+        object-fit: contain;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        "></div>
+      </div>
     </div>
 
     <div class="intro-logos row-f col-f-10">
@@ -97,57 +173,45 @@
   </div>
 </section>
 
-<section
-  class="parallax"
-  style="
+<section class="parallax" style="
     background-image: url('./../../../../assets/ele.png');
     padding: 0 7rem;
     color: white;
-  "
-  id="second"
->
-  <p class="title">Sobre Nosotros</p>
-  <p>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
-    beatae rerum at, consectetur accusamus quisquam velit doloribus. Possimus
-    consequatur accusantium repellendus animi doloribus? Maiores, earum eum enim
-    deserunt nesciunt quod? Lorem ipsum dolor sit, amet consectetur adipisicing
-    elit. Optio ab, dignissimos autem, omnis, aliquam unde commodi magnam
-    placeat labore est dolor officiis dolorem deleniti quos dolore ducimus
-    cumque? Magnam, optio. Lorem ipsum dolor, sit amet consectetur adipisicing
-    elit. Pariatur, eius odio? Voluptate neque, officia laboriosam illo ipsam,
-    veritatis dolor deserunt, optio expedita itaque eaque obcaecati qui
-    doloribus deleniti quas dolorum.
-  </p>
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+  " id="second">
+  <p class="title" style="font-size: 5rem;">Sobre Nosotros</p>
+  <p style="font-size: 2rem; background-color: rgb(128, 128, 128, 0.8); padding: 2rem; border-radius: 0.5rem;"><span
+      style="font-size: 3rem; font-weight: bold;">Nuestra Historia:</span>Más de una década proporcionando soluciones
+    confiables y avanzadas.</p>
+  <p style="font-size: 2rem; background-color: rgb(128, 128, 128, 0.8); padding: 2rem; border-radius: 0.5rem;"><span
+      style="font-size: 3rem; font-weight: bold;"> Nuestro Equipo:</span>Un equipo multidisciplinario apasionado por la
+    tecnología y la seguridad.</p>
+  <p style="font-size: 2rem; background-color: rgb(128, 128, 128, 0.8); padding: 2rem; border-radius: 0.5rem;"><span
+      style="font-size: 3rem; font-weight: bold;">Nuestra Misión:</span>Brindar productos y sistemas que protejan lo que
+    más te importa.</p>
 </section>
 
-<section
-  id="third"
-  style="
+<section id="third" style="
     display: flex;
     flex-direction: column;
     gap: 4rem;
     padding: 2rem;
     align-items: stretch;
-  "
-  class="jc-center"
->
+  " class="jc-center">
   <div style="padding: 0 7rem">
     <p class="title">Consejos Seguridad</p>
   </div>
 
-  <app-story-product
-    *ngFor="let item of this.stroyProducts"
-    style="display: flex; justify-content: center"
-    [flexDirection]="item.id % 2 === 0 ? 'row-reverse' : 'row'"
-    [marginLeft]="item.id % 2 === 0 ? 'auto' : 'none'"
-    [img]="'/assets/camara.png'"
-  ></app-story-product>
+  <app-story-product *ngFor="let item of this.stroyProducts" style="display: flex; justify-content: center"
+    [flexDirection]="item.id % 2 === 0 ? 'row-reverse' : 'row'" [marginLeft]="item.id % 2 === 0 ? 'auto' : 'none'"
+    [img]="'/assets/camara.png'" [title]="item.title" [text]="item.content">
+  </app-story-product>
 </section>
 
-<section
-  class="parallax"
-  style="
+<!-- <section class="parallax" style="
     background-image: url('./../../../../assets/ele.png');
     padding: 0 7rem;
     margin-top: 5rem;
@@ -155,21 +219,16 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-  "
-  id="fourth"
->
+  " id="fourth">
   <div class="beneficios row-f">
     <div class="col-f-6 row-f">
-      <div
-        class="col-2"
-        style="
+      <div class="col-2" style="
           padding: 0.5rem;
           display: flex;
           flex-direction: row;
           align-items: center;
           justify-content: center;
-        "
-      >
+        ">
         <div class="renglon-circulo">
           <mat-icon>home</mat-icon>
         </div>
@@ -201,26 +260,18 @@
           <p style="padding: 0 !important; margin: 0 !important">En tu primera compra</p>
         </div>
         <div class="col-6">
-          <button
-            class="btn-deg"
-            style="
+          <button class="btn-deg" style="
               padding: 0.6rem 4rem;
               outline: none;
               border: none;
               border-radius: 1rem;
               transition: all 0.25s;
-            "
-          >
+            ">
             Registrate
           </button>
         </div>
       </div>
     </div>
   </div>
-</section>
-
-<section id="fifth" style="height: 100%; background-color: black">
-  content
-</section>
-
+</section> -->
 <app-footer></app-footer>

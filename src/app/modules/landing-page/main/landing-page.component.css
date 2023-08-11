@@ -51,7 +51,6 @@
 }
 .intro-images-one {
   height: 8rem;
-  background-color: rgb(0, 0, 0, 0.1);
   border-radius: 1rem;
   -webkit-box-shadow: 0 0 10px 1px #dddddd;
   -moz-box-shadow: 0 0 10px 1px #dddddd;
@@ -60,7 +59,6 @@
 
 .intro-images-two {
   height: 10rem;
-  background-color: rgb(0, 0, 0, 0.1);
   border-radius: 1rem;
   -webkit-box-shadow: 0 0 10px 1px #dddddd;
   -moz-box-shadow: 0 0 10px 1px #dddddd;
@@ -92,7 +90,7 @@
 }
 
 .intro-logos-img {
-  background-color: rgb(0, 0, 0, 0.1);
+  background-color: gray;
   height: 3rem;
   border-radius: 1rem;
 }
