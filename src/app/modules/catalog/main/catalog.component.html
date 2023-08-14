@@ -147,8 +147,8 @@
         <mat-icon class="icon">shopping_cart</mat-icon>
       </div>
       <div class="product-card-body" [routerLink]="['/catalogo', item.id]">
-        <!-- <div class="product-card-img" style="background-image: url('{{item.imagePath}}')"></div> -->
-        <div class="product-card-img" style="background-image: url('assets/alexa.png')"></div>
+        <div class="product-card-img" style="background-image: url('{{item.product.url_img}}')"></div>
+        <!-- <div class="product-card-img" style="background-image: url('assets/alexa.png')"></div> -->
         <div class="product-card-text">
           <p class="product-card-text-title">{{item.product.name}}</p>
           <p class="product-card-text-price-n">{{item.product.price * 1.2 | currency}}</p>

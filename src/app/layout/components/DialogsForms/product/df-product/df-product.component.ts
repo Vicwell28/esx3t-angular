@@ -6,32 +6,43 @@ import { errorDialog, successDialog } from '../../../alert';
 import { IProduct } from 'src/app/core/interfaces/product/IProduct';
 import { ProductCategoryService } from 'src/app/core/services/product/product-category.service';
 import { IProductCategory } from 'src/app/core/interfaces/product/IProductCategory';
+import { ImagesUploadService } from 'src/app/core/services/images-upload.service';
 
 @Component({
   selector: 'app-df-product',
   templateUrl: './df-product.component.html',
-  styleUrls: ['./df-product.component.css', '../../df-style.css']
+  styleUrls: ['./df-product.component.css', '../../df-style.css'],
 })
 export class DialogsFormProductComponent implements OnInit {
-constructor(
-        public dialogRef: MatDialogRef<DialogsFormProductComponent>,
-        @Inject(MAT_DIALOG_DATA) public data: any,
-        private formBuilder: FormBuilder,
-        private ProductsService: ProductService,
-       
-        private PCategoryService: ProductCategoryService 
-      ) {
-        // Initialize the form with required fields and set their initial values
-        this.fromulario = this.formBuilder.group({
-          name: ['', Validators.required],
-          description: ['', Validators.required],
-          price: ['', Validators.required],
-          product_category_id: ['1', Validators.required]
-        });
-      }
+  constructor(
+    public dialogRef: MatDialogRef<DialogsFormProductComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private formBuilder: FormBuilder,
+    private ProductsService: ProductService,
 
+    private PCategoryService: ProductCategoryService,
+    private imagesUploadService: ImagesUploadService
+  ) {
+    // Initialize the form with required fields and set their initial values
+    this.fromulario = this.formBuilder.group({
+      name: ['', Validators.required],
+      description: ['', Validators.required],
+      price: ['', Validators.required],
+      product_category_id: ['1', Validators.required],
+      url_img: ['']
+    });
+  }
 
-  categorias: IProductCategory[] = []
+  selectedFile: File | null = null;
+
+  onFileChange(event: any) {
+    if (event.target.files.length > 0) {
+      this.selectedFile = event.target.files[0];
+    }
+    console.log(this.selectedFile);
+  }
+
+  categorias: IProductCategory[] = [];
   // Indicates whether an existing category is being edited
   isEdit = false;
   // ID of the category in case of edit
@@ -67,7 +78,7 @@ constructor(
           name: producto.name,
           description: producto.description,
           price: producto.price,
-          product_category_id: producto.product_category_id
+          product_category_id: producto.product_category_id,
         });
       },
       error: (err) => {
@@ -89,48 +100,91 @@ constructor(
   }
 
   onSubmit(): void {
-    if (this.fromulario.invalid) {
-      return;
-    }
-
-    const product: IProduct = this.fromulario.value;
-
     this.isLoading = true;
 
-    const request = this.isEdit
-      ? this.ProductsService.updateProduct(this.id!, product)
-      : this.ProductsService.storeProduct(product);
+    if (this.selectedFile) {
+      const formData = new FormData();
+      formData.append('image', this.selectedFile, this.selectedFile.name);
 
-    request.subscribe({
-      next: (response) => {
-        console.log(`Next: ${response}`);
+      console.log(formData);
 
-        const successMessage = this.isEdit
-          ? 'Se actualizó el producto correctamente.'
-          : 'Se agregó el producto correctamente.';
-        successDialog(successMessage, () => {
-          this.onClose();
-        });
-      },
-      error: (err) => {
-        console.log(`Error: ${err}`);
-        errorDialog('Hubo un error al procesar la información.');
-      },
-      complete: () => {
-        console.log(`Complete`);
-        this.isLoading = false;
-      },
-    });
+      this.imagesUploadService.upload(formData).subscribe({
+        next: (response) => {
+          console.log(`Next: ${response}`);
+          console.log(`http://127.0.0.1:3333${response.data.url}`);
+          let url_img = `http://127.0.0.1:3333${response.data.url}`;
+          console.log(url_img);  
+          
+
+          if (this.fromulario.invalid) {
+            return;
+          }
+      
+          const product: IProduct = this.fromulario.value;
+      
+          product.url_img = url_img
+          product.price = Number.parseInt(product.price.toString())
+          product.product_category_id = Number.parseInt(product.product_category_id.toString())
+
+          
+
+          console.log(product);
+      
+      
+          const request = this.isEdit
+            ? this.ProductsService.updateProduct(this.id!, product)
+            : this.ProductsService.storeProduct(product);
+      
+          request.subscribe({
+            next: (response) => {
+              console.log(`Next: ${response}`);
+      
+              const successMessage = this.isEdit
+                ? 'Se actualizó el producto correctamente.'
+                : 'Se agregó el producto correctamente.';
+              successDialog(successMessage, () => {
+                this.onClose();
+              });
+            },
+            error: (err) => {
+              console.log(`Error: ${err}`);
+              console.log(err);
+              errorDialog('Hubo un error al procesar la información.');
+              this.isLoading = false;
+
+            },
+            complete: () => {
+              console.log(`Complete`);
+              this.isLoading = false;
+            },
+          });
+
+
+
+
+
+        },
+        error: (err) => {
+          console.log(`Error: ${err}`);
+          console.log(err);
+          errorDialog('Hubo un error al procesar la información.');
+          this.isLoading = false;
+
+        },
+        complete: () => {
+          console.log(`Complete`);
+          this.isLoading = false;
+
+        },
+      });
+    }
+
+
+    
   }
 
   // Closes the dialog
   onClose(): void {
     this.dialogRef.close();
   }
-
-
-
-
 }
-
-

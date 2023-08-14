@@ -2,8 +2,9 @@
   <div class="detail-images col-f-6">
     <div class="detail-images-container col-f-12">
       <div class="detail-imagse-secondary col-f-1">
-        <div class="detail-imagse-child" style="background-image: url('assets/alexa.png')"></div>
-        <!-- <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
+        <div class="detail-imagse-child" style="background-image: url('{{ product.product.url_img }}')"></div>
+        <!-- <div class="detail-imagse-child" style="background-image: url('assets/alexa.png')"></div> -->
+        <!-- <div class="detail-imagse-child" style="background-image: url('{{ item.product.url_img }}')"></div>
         <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
         <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
         <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
@@ -14,7 +15,7 @@
         <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div> -->
       </div>
       <!-- <div class="detail-imagse-principal col-f-11" style="background-image: url('{{ product.imagePath }}');  height: 100%; -->
-      <div class="detail-imagse-principal col-f-11" style="background-image: url('assets/alexa.png');  height: 100%;
+      <div class="detail-imagse-principal col-f-11" style="background-image: url('{{ product.product.url_img }}');  height: 100%;
       object-fit: contain;
       background-size: contain;
       background-position: center;

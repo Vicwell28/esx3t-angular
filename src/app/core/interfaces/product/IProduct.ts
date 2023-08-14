@@ -14,6 +14,7 @@ export interface IProduct {
   product_category_id: number;
   product_categories: number;
   status: boolean;
+  url_img: string;
   
 }
 
