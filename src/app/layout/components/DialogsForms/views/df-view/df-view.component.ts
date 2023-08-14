@@ -5,6 +5,7 @@ import { errorDialog, successDialog } from '../../../alert';
 import { IViewCategory } from 'src/app/core/interfaces/views/IViewCategory';
 import { ViewsService } from 'src/app/core/services/views/views.service';
 import { IStoreView } from 'src/app/core/interfaces/views/IView';
+import { ViewCategoriesService } from 'src/app/core/services/views/view-categories.service';
 @Component({
   selector: 'app-df-view',
   templateUrl: './df-view.component.html',
@@ -15,12 +16,14 @@ export class DialogsFormViewComponent implements OnInit {
     public dialogRef: MatDialogRef<DialogsFormViewComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
-    private ViewsService: ViewsService
+    private ViewsService: ViewsService,
+    private viewCategoriesService: ViewCategoriesService
   ) {
     // Initialize the form with required fields and set their initial values
     this.myForm = this.formBuilder.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
+      view_category_id: []
     });
   }
 
@@ -37,6 +40,8 @@ export class DialogsFormViewComponent implements OnInit {
   // Text for the form title
   title?: string;
 
+  categories!: IViewCategory[]
+
   ngOnInit(): void {
     this.isEdit = this.data.isEdit;
     this.id = this.data.id;
@@ -47,6 +52,22 @@ export class DialogsFormViewComponent implements OnInit {
     if (this.isEdit) {
       this.fetchCategoryDetails(this.id!);
     }
+
+    this.getViewCategry(); 
+  }
+
+  getViewCategry() {
+    this.viewCategoriesService.indexViewCategory().subscribe({
+      next: (response) => {
+        console.log(response.data);
+        this.categories = response.data as IViewCategory[];
+      },
+      error: (err) => {
+        errorDialog(
+          'Hubo un error al obtener la información de la Vista A Rol.'
+        );
+      },
+    });
   }
 
   // Fetches the details of an existing category and fills the form
@@ -70,11 +91,13 @@ export class DialogsFormViewComponent implements OnInit {
 
   // Submits the form to either update an existing category or store a new one
   onSubmit(): void {
+    console.log(this.myForm)
     if (this.myForm.invalid) {
       return;
     }
 
     const category: IStoreView = this.myForm.value;
+    category.view_category_id = Number(category.view_category_id);
 
     this.isLoading = true;
 

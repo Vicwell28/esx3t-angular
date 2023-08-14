@@ -56,8 +56,8 @@ export class SaleDetailComponent implements AfterViewInit {
     id?: string | number | undefined
   ): void {
     this.dialogRef = this.dialog.open(DialogsFormSaleDetailComponent, {
-      width: '80%',
-      height: '90%',
+      width: '50%',
+      height: '80%',
       enterAnimationDuration,
       exitAnimationDuration,
       data: {
@@ -133,6 +133,8 @@ export class SaleDetailComponent implements AfterViewInit {
   // Método para obtener todas las categorías
   getAllCategories(): void {
     this.isLoadingRefresh = true;
+
+    console.log("ENOASDFJADSÑFJADFJ")
 
     this.saleService.indexSale().subscribe({
       next: (value) => {

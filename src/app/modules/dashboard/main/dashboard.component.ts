@@ -17,7 +17,13 @@ export class DashboardComponent implements OnInit {
     private router: Router,
     private elementRef: ElementRef,
     private RoleViewsService: RoleViewsService
-  ) {}
+  ) {
+    this.isAuth =
+      this.localStorageService.getItem('token') == null ? false : true;
+  }
+
+  isAuth: boolean = false;
+
 
   ngOnInit(): void {
     this.RoleViewsService.indexRoleView().subscribe({
@@ -60,4 +66,13 @@ export class DashboardComponent implements OnInit {
       section.scrollIntoView({ behavior: 'smooth' });
     }
   }
+
+  navigateTo(route: string) {
+    this.router.navigate([route]);
+  }
+
+  home() { this.router.navigate(['/']);}
+
+  sign() { this.router.navigate(['/sign-in']);}
+
 }

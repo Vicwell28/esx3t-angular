@@ -8,7 +8,7 @@ import { IViewCategory } from 'src/app/core/interfaces/views/IViewCategory';
 @Component({
   selector: 'app-form-dialog',
   templateUrl: './form-dialog.component.html',
-  styleUrls: ['./form-dialog.component.css'],
+  styleUrls: ['./form-dialog.component.css', '../df-style.css'],
 })
 export class FormDialogComponent implements OnInit {
   constructor(

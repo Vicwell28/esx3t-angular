@@ -1,6 +1,64 @@
 <div class="container-f row-f">
   <header class="col-f-12">
-    <!-- <app-navbar style="width: 100%; height: 100%;"></app-navbar> -->
+    <nav style="width: 100%">
+      <ul class="row-f" style="padding-left: 0 !important">
+        <div class="row-f col-f-2">
+          <li class="home">
+            <div
+              style="
+                background-image: url('assets/logo.png');
+                background-color: black;
+                height: 100%;
+                width: 100%;
+              "
+            ></div>
+            <div
+              (click)="navigateTo('/catalogo')"
+              class="logo"
+              style="background-image: url('assets/logo.png'); height: 3rem"
+            ></div>
+          </li>
+        </div>
+        <div
+          class="row-f col-f-7"
+          style="justify-content: flex-start; gap: 2rem"
+        >
+          <li><a (click)="navigateTo('/langing-page')">Landing Page</a></li>
+          <li><a (click)="navigateTo('/catalogo')">Catalogo</a></li>
+        </div>
+        <div class="row-f col-f-3">
+          <li class="sign-in" *ngIf="!this.isAuth">
+            <a
+              routerLink="/sign-in"
+              class="btn-grad"
+              (click)="navigateTo('/sign-in')"
+              >Sing In</a
+            >
+          </li>
+          <li class="sign-in" *ngIf="this.isAuth">
+            <div class="header-profile col-f-6">
+              <button
+                mat-icon-button
+                [matMenuTriggerFor]="menu"
+                aria-label="Example icon-button with a menu"
+              >
+                <mat-icon>person</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="navigateTo('Profile')">
+                  <mat-icon>settings</mat-icon>
+                  <span>Perfil</span>
+                </button>
+                <button mat-menu-item (click)="singOut()">
+                  <mat-icon>logout</mat-icon>
+                  <span>Sing Out</span>
+                </button>
+              </mat-menu>
+            </div>
+          </li>
+        </div>
+      </ul>
+    </nav>
   </header>
 
   <section class="col-f-2">

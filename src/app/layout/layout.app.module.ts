@@ -6,6 +6,7 @@ import { NavbarComponent } from './containers/navbar/navbar.component';
 import { MaterialModule } from '../shared/components/material/material.app.module';
 import { StoryProductComponent } from './components/story-product/story-product.component';
 import { FormDialogsAppModule } from './components/DialogsForms/forms.dialogs.module';
+import { DfOrdenarProductoComponent } from './components/df-ordenar-producto/df-ordenar-producto.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { FormDialogsAppModule } from './components/DialogsForms/forms.dialogs.mo
     NotfoundComponent,
     NavbarComponent,
     StoryProductComponent,
+    DfOrdenarProductoComponent,
   ],
   imports: [BrowserModule, MaterialModule, FormDialogsAppModule],
   exports: [
@@ -20,6 +22,7 @@ import { FormDialogsAppModule } from './components/DialogsForms/forms.dialogs.mo
     NotfoundComponent,
     NavbarComponent,
     StoryProductComponent,
+    DfOrdenarProductoComponent
   ],
   providers: [],
   bootstrap: [],

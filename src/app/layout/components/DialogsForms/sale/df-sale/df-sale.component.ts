@@ -10,7 +10,7 @@ import { UserService } from 'src/app/core/services/user/user.service';
 @Component({
   selector: 'app-df-sale',
   templateUrl: './df-sale.component.html',
-  styleUrls: ['./df-sale.component.css']
+  styleUrls: ['./df-sale.component.css', '../../df-style.css']
 })
 export class DialogsFormSaleComponent {
   constructor(
@@ -20,13 +20,13 @@ export class DialogsFormSaleComponent {
     private saleService: SaleService,
     private userService: UserService,
   ) {
-    this.fetchClients()
     // Initialize the form with required fields and set their initial values
     this.myForm = this.formBuilder.group({
       employee_id: [1, Validators.required],
       client_id: [1, Validators.required],
     });
-
+    
+    this.fetchClients()
   }
 
   clients:IUser[] = [];

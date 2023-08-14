@@ -27,12 +27,7 @@
               *ngFor="let view of category.views"
               formArrayName="checkboxes"
             >
-              <input
-                id="{{ view.id }}"
-                type="checkbox"
-                [checked]="view.isChecked"
-                [formControlName]="view.id - 1"
-              />
+              <input id="{{ view.id }}" type="checkbox" [formControlName]="getNextIndex()"/>
               <label for="{{ view.id }}">{{ view.name }}</label>
             </div>
           </div>

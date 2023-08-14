@@ -1,13 +1,15 @@
 .container-form {
   padding: 1rem;
   overflow-y: auto;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
 }
 
-.inputGroup {
+.inputGroup,
+.inputGroupSelect,
+.inputGroupDate {
   font-family: "Segoe UI", sans-serif;
   margin: 1em 0 1.8em 0;
   width: 100%;
@@ -19,7 +21,8 @@
   padding: 0 0.5rem;
 }
 
-.inputGroup input {
+.inputGroup input,
+.inputGroup select {
   font-size: 100%;
   padding: 0.8em;
   outline: none;
@@ -29,7 +32,9 @@
   width: 100%;
 }
 
-.inputGroup label {
+.inputGroup label,
+.inputGroupSelect :is(select:enabled) ~ label,
+.inputGroupDate :is(input:enabled) ~ label {
   font-size: 100%;
   position: absolute;
   left: 0;
@@ -48,9 +53,11 @@
   transform: translate(-50%, 55%);
 }
 
-.inputGroup :is(input:focus, input:valid) ~ label {
+.inputGroup :is(input:focus, input:valid) ~ label,
+.inputGroupSelect :is(select:enabled) ~ label,
+.inputGroupDate :is(input:enabled) ~ label {
   transform: translateY(-60%) scale(0.9);
-  margin: 0em;
+  margin: 0;
   margin-left: 1.3em;
   padding: 0.4em;
   background-color: white;
@@ -72,11 +79,9 @@
   border: none;
   outline: none;
   border-radius: 0.8rem;
-  margin-top: 2rem;
 }
 
 .btn-cancel {
   background-color: red;
   color: white;
 }
-

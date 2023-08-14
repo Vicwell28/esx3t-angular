@@ -1,7 +1,9 @@
-<div class="detail-container row-f">
+<div class="detail-container row-f"#scrollableContainer>
   <div class="detail-images col-f-6">
     <div class="detail-images-container col-f-12">
       <div class="detail-imagse-secondary col-f-1">
+        <div class="detail-imagse-child" style="background-image: url('assets/alexa.png')"></div>
+        <!-- <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
         <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
         <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
         <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
@@ -9,10 +11,10 @@
         <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
         <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
         <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
-        <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
-        <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div>
+        <div class="detail-imagse-child" style="background-image: url('{{ product.imagePath }}')"></div> -->
       </div>
-      <div class="detail-imagse-principal col-f-11" style="background-image: url('{{ product.imagePath }}');  height: 100%;
+      <!-- <div class="detail-imagse-principal col-f-11" style="background-image: url('{{ product.imagePath }}');  height: 100%; -->
+      <div class="detail-imagse-principal col-f-11" style="background-image: url('assets/alexa.png');  height: 100%;
       object-fit: contain;
       background-size: contain;
       background-position: center;
@@ -23,16 +25,16 @@
     <div class="detail-options-container col-f-12">
       <p class="branch">Apple</p>
       <p class="product-name">
-        {{ product.name }}
+        {{ product.product.name }}
       </p>
-      <p class="price-n">{{ product.price }}</p>
-      <p class="price-c">{{ product.pricedescount }}</p>
-      <p class="location center"><mat-icon>storefront</mat-icon> Torreón</p>
-      <p class="location center"><mat-icon>storefront</mat-icon> Torreón</p>
-      <p class="location center"><mat-icon>storefront</mat-icon> Torreón</p>
+      <p class="price-n">{{ product.product.price * 1.2 | currency}}</p>
+      <p class="price-c">{{ product.product.price | currency}}</p>
+      <p class="location center"><mat-icon>storefront</mat-icon> {{product.branch.city.name }}</p>
+      <p class="location center"><mat-icon>storefront</mat-icon> {{product.branch.name}}</p>
+      <p class="location center"><mat-icon>storefront</mat-icon> {{product.branch.address}}</p>
       <div class="buttons-shop">
-        <button><mat-icon>shopping_cart</mat-icon>Agregar al carrito</button>
-        <button><mat-icon>payments</mat-icon>¡Comprar Ahora!</button>
+        <button (click)="Ordernar()"><mat-icon>shopping_cart</mat-icon>¡Ordernar Producto!</button>
+        <button (click)="Comprar()"><mat-icon>payments</mat-icon>¡Comprar Ahora!</button>
       </div>
     </div>
   </div>
@@ -46,7 +48,7 @@
           Descripcion
         </p>
         <p class="body-desc">
-          {{ product.description }}
+          {{ product.product.description }}
         </p>
       </div>
     </div>

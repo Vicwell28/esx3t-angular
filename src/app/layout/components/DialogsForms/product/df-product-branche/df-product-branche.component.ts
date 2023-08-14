@@ -13,7 +13,7 @@ import { IProductBranch } from 'src/app/core/interfaces/product/IProductBranch';
 @Component({
   selector: 'app-df-product-branche',
   templateUrl: './df-product-branche.component.html',
-  styleUrls: ['./df-product-branche.component.css']
+  styleUrls: ['./df-product-branche.component.css', '../../df-style.css']
 })
 export class DialogsFormProductBrancheComponent  implements OnInit {
   constructor(

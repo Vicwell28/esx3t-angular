@@ -41,4 +41,5 @@ export class NavbarComponent {
   scrollToSection(sectionId: string): void {
     this.router.navigateByUrl(sectionId)
   }
+  
 }

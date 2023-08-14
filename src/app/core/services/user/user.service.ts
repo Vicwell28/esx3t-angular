@@ -13,8 +13,8 @@ export class UserService {
 
   private apiUrl = `${environment.apiUrl}user`;
 
-  public indexUser(): Observable<any> {
-    return this.http.get(`${this.apiUrl}`);
+  public indexUser(isAuth = ""): Observable<any> {
+    return this.http.get(`${this.apiUrl}${isAuth}`);
   }
 
   public storeUser(user: any): Observable<any> {

@@ -18,7 +18,7 @@ import { IOrderDetail } from 'src/app/core/interfaces/order/IOrderDetail';
 @Component({
   selector: 'app-df-order-detail',
   templateUrl: './df-order-detail.component.html',
-  styleUrls: ['./df-order-detail.component.css']
+  styleUrls: ['./df-order-detail.component.css', '../../df-style.css']
 })
 export class DialogsFormOrderDetailComponent implements OnInit {
 

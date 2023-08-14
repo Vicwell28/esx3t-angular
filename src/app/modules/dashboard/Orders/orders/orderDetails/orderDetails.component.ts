@@ -47,7 +47,7 @@ export class OrderDetailsComponent implements AfterViewInit {
   ): void {
     this.dialogRef = this.dialog.open(DialogsFormOrderDetailComponent, {
       width: '50%',
-      height: '90%',
+      height: '80%',
       enterAnimationDuration,
       exitAnimationDuration,
       data: {

@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
@@ -29,10 +29,11 @@ export class DialogsFormViewRoleComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
     private viewCategoriesService: ViewCategoriesService,
-    private RoleViewsService: RoleViewsService
+    private RoleViewsService: RoleViewsService, 
+    private cdRef: ChangeDetectorRef
   ) {
     this.myForm = this.formBuilder.group({
-      checkboxes: new FormArray([]),
+      checkboxes: this.formBuilder.array([])
     });
   }
 
@@ -48,7 +49,13 @@ export class DialogsFormViewRoleComponent implements OnInit {
   isLoading = false;
   // Text for the form title
   title?: string;
-  viewsRole?: IViewCategoryRole[];
+  viewsRole!: IViewCategoryRole[];
+  globalIndex: number = 0;
+
+  
+getNextIndex(): number {
+  return this.globalIndex++;
+}
 
   ngOnInit(): void {
     this.isEdit = this.data.isEdit;
@@ -88,17 +95,22 @@ export class DialogsFormViewRoleComponent implements OnInit {
     const viewsCategories = viewCategoriesResponse.data as IViewCategory[];
     const viewsCategoriesOfRole = roleViewsResponse.data as IViewCategoryRole[];
 
-    const viewsCat = viewsCategories.flatMap((allCategories) => {
+    console.log(`viewsCategories: ${viewsCategories}`);
+    console.log(viewsCategories);
+
+    const viewsCat = viewsCategories.map((allCategories) => {
+      
       const checkedViews = allCategories.view?.map((viewsCategory) => {
+
         const isChecked = viewsCategoriesOfRole?.some((roleCategory) =>
-          roleCategory.views?.some(
-            (viewRole) => viewRole.name === viewsCategory.name
+           roleCategory.views?.some(
+            (viewRole) => viewRole.id === viewsCategory.id
           )
         );
 
         return {
           id: viewsCategory.id,
-          name: viewsCategory.name,
+          name: viewsCategory.name, 
           description: viewsCategory.description,
           view_category_id: viewsCategory.view_category_id,
           status: viewsCategory.status,
@@ -113,6 +125,9 @@ export class DialogsFormViewRoleComponent implements OnInit {
       } as IViewCategoryRole;
     });
 
+    console.log(`viewsCat: ${viewsCat}`);
+    console.log(viewsCat);
+
     // Initialize the form with required fields and set their initial values
 
     viewsCat.forEach((option) => {
@@ -126,6 +141,10 @@ export class DialogsFormViewRoleComponent implements OnInit {
     this.viewsRole = viewsCat;
 
     console.log(this.viewsRole);
+    console.log(this.myForm.value['checkboxes']);
+    this.cdRef.detectChanges();
+
+
   }
 
   get ordersFormArray() {
@@ -140,9 +159,13 @@ export class DialogsFormViewRoleComponent implements OnInit {
       (category) => category.views || []
     );
 
+    console.log(allViews);
+
     const allViewsChecked = (this.myForm.value['checkboxes'] as [])
       .map((value, idx) => (value ? allViews[idx].id : null))
       .filter((v) => v !== null);
+
+    console.log(allViewsChecked);
 
     const body = {
       role_id: this.id,

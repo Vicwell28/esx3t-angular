@@ -1,48 +1,47 @@
 <form [formGroup]="fromulario" (ngSubmit)="onSubmit()" class="container-form">
-    <div>
-      <p class="title">{{ title }}</p>
-  
-      <div class="inputGroup">
-        <input
-          type="text"
-          required=""
-          autocomplete="off"
-          formControlName="stock"
-        />
-        <label for="stock">Stock</label>
-      </div>
+  <div>
+    <p class="title">{{ title }}</p>
 
-    
-     <div class="inputGroup inputGroupSelect">
-    <select name="product_id" formControlName="product_id" id="product_id">
-      
-      <option *ngFor="let product of products" [value]="product.id">{{ product.name }}</option>
-    </select>
-    <label for="product_id">Products</label>
-  </div>
+    <div class="inputGroup">
+      <input
+        type="text"
+        required=""
+        autocomplete="off"
+        formControlName="stock"
+      />
+      <label for="stock">Stock</label>
     </div>
 
-    
     <div class="inputGroup inputGroupSelect">
-        <select name="branche_id" formControlName="branche_id" id="branche_id">
-          
-          <option *ngFor="let branch of branches" [value]="branch.id">{{ branch.name }}</option>
-        </select>
-        <label for="branche_id">Branches</label>
-      </div>
-        
-  
-    <div class="end-button">
-      <button
-        class="btn-deg"
-        type="submit"
-        class="loading-button-black  btn-deg"
-        [class.loading-button]="isLoading"
-      >
-        {{ this.textButton }}
-      </button>
-      <button class="btn-cancel" type="button" (click)="onClose()">
-        Cancelar
-      </button>
+      <select name="product_id" formControlName="product_id" id="product_id">
+        <option *ngFor="let product of products" [value]="product.id">
+          {{ product.name }}
+        </option>
+      </select>
+      <label for="product_id">Products</label>
     </div>
-  </form>
+
+    <div class="inputGroup inputGroupSelect">
+      <select name="branche_id" formControlName="branche_id" id="branche_id">
+        <option *ngFor="let branch of branches" [value]="branch.id">
+          {{ branch.name }}
+        </option>
+      </select>
+      <label for="branche_id">Branches</label>
+    </div>
+  </div>
+
+  <div class="end-button">
+    <button
+      class="btn-deg"
+      type="submit"
+      class="loading-button-black btn-deg"
+      [class.loading-button]="isLoading"
+    >
+      {{ this.textButton }}
+    </button>
+    <button class="btn-cancel" type="button" (click)="onClose()">
+      Cancelar
+    </button>
+  </div>
+</form>

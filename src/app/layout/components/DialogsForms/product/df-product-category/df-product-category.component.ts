@@ -11,7 +11,7 @@ import { DialogsFormProductComponent } from '../df-product/df-product.component'
 @Component({
   selector: 'app-df-product-category',
   templateUrl: './df-product-category.component.html',
-  styleUrls: ['./df-product-category.component.css']
+  styleUrls: ['./df-product-category.component.css', '../../df-style.css']
 })
 export class DialogsFormProductCategoryComponent implements OnInit {
   constructor(

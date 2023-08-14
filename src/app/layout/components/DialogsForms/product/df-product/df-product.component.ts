@@ -10,7 +10,7 @@ import { IProductCategory } from 'src/app/core/interfaces/product/IProductCatego
 @Component({
   selector: 'app-df-product',
   templateUrl: './df-product.component.html',
-  styleUrls: ['./df-product.component.css']
+  styleUrls: ['./df-product.component.css', '../../df-style.css']
 })
 export class DialogsFormProductComponent implements OnInit {
 constructor(

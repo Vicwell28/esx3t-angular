@@ -21,6 +21,16 @@
         />
         <label for="name">Description</label>
       </div>
+
+      <div class="inputGroup inputGroupSelect">
+        <select name="view_category_id" formControlName="view_category_id" id="view_category_id">
+          <option *ngFor="let category of categories" [value]=category.id>
+            {{ category.name }}
+          </option>
+        </select>
+        <label for="view_category_id">categorys</label>
+      </div>
+
     </div>
   
     <div class="end-button">

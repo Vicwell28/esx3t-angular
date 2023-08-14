@@ -61,5 +61,31 @@ export class LandingPageComponent {
     this.router.navigate([route]);
   }
 
+  // constructor(
+  //   private elementRef: ElementRef,
+  //   private localStorageService: LocalStorageService,
+  //   private router: Router
+  // ) {
+  //   let token = this.localStorageService.getItem('token');
+
+  //   this.isAuth = token == null ? false : true;
+
+  //   console.log(`this is the token ${this.isAuth}`);
+  // }
+  
+
+  home() { this.router.navigate(['/']);}
+
+  sign() { this.router.navigate(['/sign-in']);}
+
+  profile() {this.router.navigateByUrl(`Profile`);}
+
+  singOut() {
+    console.log('sign-out');
+    this.localStorageService.removeItem('token');
+    this.localStorageService.removeItem('role');
+    this.router.navigate(['/sign-in']);
+  }
+
 
 }

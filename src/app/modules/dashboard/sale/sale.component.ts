@@ -51,7 +51,7 @@ export class SaleComponent implements AfterViewInit {
   ): void {
     this.dialogRef = this.dialog.open(DialogsFormSaleComponent, {
       width: '50%',
-      height: '30%',
+      height: '80%',
       enterAnimationDuration,
       exitAnimationDuration,
       data: {

@@ -14,7 +14,7 @@ import { ICity } from 'src/app/core/interfaces/location/ICity';
 @Component({
   selector: 'app-df-user',
   templateUrl: './df-user.component.html',
-  styleUrls: ['./df-user.component.css'],
+  styleUrls: ['./df-user.component.css', '../../df-style.css'],
 })
 export class DialogsFormUserComponent {
   constructor(
@@ -29,7 +29,6 @@ export class DialogsFormUserComponent {
     // Initialize the form with required fields and set their initial values
     this.myForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required],
       email: ['', Validators.required],
       fname: ['', Validators.required],
       lname: ['', Validators.required],
@@ -132,9 +131,9 @@ export class DialogsFormUserComponent {
 
   // Submits the form to either update an existing role or store a new one
   onSubmit(): void {
-    if (this.myForm.invalid) {
-      return;
-    }
+
+
+    
 
     const user: IUser = this.myForm.value;
 
@@ -147,6 +146,7 @@ export class DialogsFormUserComponent {
     request.subscribe({
       next: (response) => {
         console.log(`Next: ${response}`);
+        console.log(response);
 
         const successMessage = this.isEdit
           ? 'Se actualizó el usuario correctamente.'

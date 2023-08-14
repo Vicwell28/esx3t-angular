@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -15,11 +21,17 @@ import { IOrder } from 'src/app/core/interfaces/order/IOrder';
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.css','../../style-table.css']
+  styleUrls: ['./orders.component.css', '../../style-table.css'],
 })
-export class OrdersComponent  implements AfterViewInit {
+export class OrdersComponent implements AfterViewInit {
   // Propiedades del componente
-  displayedColumns: string[] = ['id', 'client', 'employee', 'date_order', 'options'];
+  displayedColumns: string[] = [
+    'id',
+    'client',
+    'employee',
+    'date_order',
+    'options',
+  ];
   dataSource: any = [];
   dialogRef?: MatDialogRef<DialogsFormOrderComponent>;
   isLoadingPDF = false;
@@ -34,10 +46,7 @@ export class OrdersComponent  implements AfterViewInit {
   @ViewChild('dataTable') pdfContent!: ElementRef;
 
   // Constructor e inyección de dependencias
-  constructor(
-    private dialog: MatDialog,
-    private orderService: OrderService
-  ) {}
+  constructor(private dialog: MatDialog, private orderService: OrderService) {}
 
   // Método que se ejecuta después de cargar la vista
   ngAfterViewInit() {
@@ -53,7 +62,7 @@ export class OrdersComponent  implements AfterViewInit {
   ): void {
     this.dialogRef = this.dialog.open(DialogsFormOrderComponent, {
       width: '50%',
-      height: '30%',
+      height: '80%',
       enterAnimationDuration,
       exitAnimationDuration,
       data: {
@@ -170,5 +179,4 @@ export class OrdersComponent  implements AfterViewInit {
       },
     });
   }
-  
 }
