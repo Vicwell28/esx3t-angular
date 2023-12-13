@@ -11,7 +11,7 @@ export class ProductBrancheService {
  
   constructor(private http: HttpClient) {}
 
-  private apiUrl = `${environment.apiUrl}product/branche`;
+  private apiUrl = `${environment.apiUrl}/v1/product`;
 
   public indexProduct(): Observable<IResponseProductBranch> {
     return this.http.get<IResponseProductBranch>(`${this.apiUrl}`);

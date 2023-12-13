@@ -64,10 +64,19 @@ export class CatalogDetailComponent implements OnInit {
   ngOnInit(): void {
     const id = Number.parseInt(this.route.snapshot.paramMap.get('id')!);
 
-    this.productBrancheService.showProduct(id).subscribe({
+    this.productBrancheService.indexProduct().subscribe({
       next: (value) => {
-        this.product = value.data as IProductBranch;
+        let products  = value.data as IProductBranch[];
+        console.log(id)
+        console.log(products)
+        this.product = products.filter((value) => {
+          console.log(value.id)
+          console.log(id)
+          
+          return value.id == id;
+        })[0] as IProductBranch;
         console.log(this.product);
+        console.log("Ese fue el producto")
       },
       complete: () => {
         console.log(`Complete`);
@@ -158,41 +167,29 @@ export class CatalogDetailComponent implements OnInit {
     }
 
     const sale = {
-      client_id: this.user.id, 
+      client_id: 1, 
       employee_id: 1
     }    
 
-    this.saleService.storeSale(sale).subscribe({
-      next: (value) => {
-        console.log('PRODUCTOS');
-        console.log(value);
-        console.log(value.data.id)
+    let min = 1;
+    let max = 1000000;
+    let aleatorio = Math.floor(Math.random() * (max - min + 1)) + min;
 
-        const detailSale = {
-          sale_id: value.data.id,
-          products: [
-            {
-              product_branche_id: this.product.id, 
-              quantity: 1
-            }
-          ]
+    const detailSale = {
+      sale_id: aleatorio,
+      products: [
+        {
+          product_branche_id: this.product.id, 
+          quantity: 1
         }
+      ], 
+      status: true
+    }
 
-
-
-        this.saleDetailService.storeSale(detailSale).subscribe({
-          next: (value) => {
-            console.log(value);
-            successDialog("SE COMPOR EL PRODUCTO CORRECAMENTE");
-          },
-          complete: () => {
-            console.log(`Complete`);
-          },
-          error: (err) => {
-            console.log(`Error: ${err}`);
-          },
-        })
-
+    this.saleDetailService.storeSale(detailSale).subscribe({
+      next: (value) => {
+        console.log(value);
+        successDialog("El producto se ha comprado correctamente.");
       },
       complete: () => {
         console.log(`Complete`);

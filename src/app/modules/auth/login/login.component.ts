@@ -43,22 +43,12 @@ export class LoginComponent {
         console.log('next');
         console.log(value);
 
-        this.localStorageService.setItem('token', value.token.token);
-        this.localStorageService.setItem('role', value.user.role_id);
+        this.localStorageService.setItem('token', value.token);
+        this.localStorageService.setItem('role', 1);
 
         let rute = '';
 
-        switch (value.user.role_id) {
-          case User.Admin:
-            rute = '/dashboard';
-            break;
-          case User.Empleado:
-            rute = '/dashboard';
-            break;
-          case User.Cliente:
-            rute = '/catalogo';
-            break;
-        }
+        rute = '/dashboard';
 
         successDialog(value.message, () => {
           this.router.navigate([rute]);

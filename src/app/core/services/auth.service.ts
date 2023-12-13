@@ -10,14 +10,14 @@ import { SignInSignUp } from '../interfaces/auth/SingInAndSingUp';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  private apiUrl = `${environment.apiUrl}auth`;
+  private apiUrl = `${environment.apiUrl}`;
 
   public signIn(user: any): Observable<SignInSignUp> {
-    return this.http.post<SignInSignUp>(`${this.apiUrl}/sign-in`, user);
+    return this.http.post<SignInSignUp>(`${this.apiUrl}/login`, user);
   }
 
   public signUp(user: any): Observable<SignInSignUp> {
-    return this.http.post<SignInSignUp>(`${this.apiUrl}/sign-up`, user);
+    return this.http.post<SignInSignUp>(`${this.apiUrl}/user`, user);
   }
 
   public forgotPassword(user: any): Observable<any> {

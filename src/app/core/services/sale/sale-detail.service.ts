@@ -10,7 +10,7 @@ export class SaleDetailService {
 
   constructor(private http: HttpClient) {}
 
-  private apiUrl = `${environment.apiUrl}sale/detail`;
+  private apiUrl = `${environment.apiUrl}/v1/sales/detail`;
 
   public indexSale(): Observable<any> {
     return this.http.get(`${this.apiUrl}`);

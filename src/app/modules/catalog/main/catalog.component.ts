@@ -28,6 +28,7 @@ export class CatalogComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.productBrancheService.indexProduct().subscribe({
       next: (value) => {
+        console.log(value);
         this.listProducts = value.data as IProductBranch[];
         this.results = this.listProducts;
         console.log(this.listProducts);
@@ -44,7 +45,7 @@ export class CatalogComponent implements AfterViewInit {
   onKeyUp() {
     if (this.searchText) {
       this.results = this.listProducts.filter((item) => {
-        return item.product.name
+        return item.name
           .toLowerCase()
           .includes(this.searchText.toLowerCase());
       });
